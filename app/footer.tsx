@@ -136,7 +136,7 @@ export function Footer() {
 
 				{/* Shop links */}
 				<div className="md:col-span-2">
-					<h4 className="font-display font-semibold mb-6">Shop</h4>
+					<h4 className="font-display font-semibold mb-6">Boutique</h4>
 					<FooterCollections />
 
 					{/* Support */}
@@ -161,21 +161,21 @@ export function Footer() {
 
 				{/* Information links */}
 				<div className="md:col-span-2">
-					<h4 className="font-display font-semibold mb-6">Information</h4>
+					<h4 className="font-display font-semibold mb-6">Informations</h4>
 					<ul className="space-y-4 text-sm text-muted-foreground font-medium">
 						<li>
 							<YnsLink href="/#philosophy" className="hover:text-primary transition-colors">
-								About Us
+								À propos
 							</YnsLink>
 						</li>
 						<li>
 							<YnsLink href="/ingredients" className="hover:text-primary transition-colors">
-								Ingredients
+								Ingrédients
 							</YnsLink>
 						</li>
 						<li>
 							<YnsLink href="/sustainability" className="hover:text-primary transition-colors">
-								Sustainability
+								Durabilité
 							</YnsLink>
 						</li>
 						<li>
@@ -188,15 +188,16 @@ export function Footer() {
 
 				{/* Newsletter */}
 				<div className="md:col-span-4">
-					<h4 className="font-display font-semibold mb-6">Stay Connected</h4>
+					<h4 className="font-display font-semibold mb-6">Restons connectés</h4>
 					<p className="text-sm text-muted-foreground mb-6 font-light">
-						Subscribe to receive updates on new products, exclusive offers, and skincare tips.
+						Abonnez-vous pour recevoir des nouvelles de nos box, des offres exclusives et des conseils de
+						créativité.
 					</p>
 					<form className="flex flex-col space-y-3">
 						<div className="relative">
 							<input
 								type="email"
-								placeholder="Your email address"
+								placeholder="Votre adresse email"
 								className="w-full bg-transparent border-b border-border py-3 text-sm focus:outline-none focus:border-primary transition-colors text-foreground placeholder-muted-foreground"
 							/>
 						</div>
@@ -204,7 +205,7 @@ export function Footer() {
 							type="button"
 							className="self-start text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors mt-2"
 						>
-							Subscribe
+							S'inscrire
 						</button>
 					</form>
 				</div>
@@ -215,10 +216,10 @@ export function Footer() {
 				<p>&copy; {new Date().getFullYear()} EcloKit. Tous droits réservés.</p>
 				<div className="flex space-x-6 mt-4 md:mt-0">
 					<YnsLink href="/privacy" className="hover:text-foreground">
-						Privacy Policy
+						Politique de confidentialité
 					</YnsLink>
 					<YnsLink href="/terms" className="hover:text-foreground">
-						Terms of Use
+						Conditions d'utilisation
 					</YnsLink>
 				</div>
 			</div>

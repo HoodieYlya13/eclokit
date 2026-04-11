@@ -8,15 +8,20 @@ import { ProductsPagination } from "./products-pagination";
 const PRODUCTS_PER_PAGE = 12;
 
 const sortOptions = [
-	{ value: "newest", label: "Newest", orderBy: "createdAt", orderDirection: "desc" },
-	{ value: "price-asc", label: "Price: Low to High", orderBy: "price", orderDirection: "asc" },
-	{ value: "price-desc", label: "Price: High to Low", orderBy: "price", orderDirection: "desc" },
-	{ value: "name", label: "Name: A–Z", orderBy: "name", orderDirection: "asc" },
+	{ value: "newest", label: "Les plus récents", orderBy: "createdAt", orderDirection: "desc" },
+	{ value: "price-asc", label: "Prix : du moins cher au plus cher", orderBy: "price", orderDirection: "asc" },
+	{
+		value: "price-desc",
+		label: "Prix : du plus cher au moins cher",
+		orderBy: "price",
+		orderDirection: "desc",
+	},
+	{ value: "name", label: "Nom : A–Z", orderBy: "name", orderDirection: "asc" },
 ] as const;
 
 export const metadata: Metadata = {
-	title: "All Products — Your Next Store",
-	description: "Browse our complete product collection.",
+	title: "Toutes les box — EcloKit",
+	description: "Découvrez toutes nos box de loisirs créatifs.",
 };
 
 async function ProductList({ page, sort }: { page?: string; sort?: string }) {
@@ -40,7 +45,7 @@ async function ProductList({ page, sort }: { page?: string; sort?: string }) {
 	if (result.data.length === 0) {
 		return (
 			<div className="py-24 text-center">
-				<p className="text-lg text-muted-foreground">No products available yet.</p>
+				<p className="text-lg text-muted-foreground">Pas de produits disponibles pour le moment.</p>
 			</div>
 		);
 	}
@@ -83,12 +88,12 @@ export default async function ProductsPage({
 	return (
 		<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 			<div className="mb-10">
-				<h1 className="text-3xl sm:text-4xl font-medium tracking-tight">All Products</h1>
-				<p className="mt-2 text-muted-foreground">Browse our complete collection</p>
+				<h1 className="text-3xl sm:text-4xl font-medium tracking-tight">Toutes les box</h1>
+				<p className="mt-2 text-muted-foreground">Découvrez toutes nos box de loisirs créatifs.</p>
 			</div>
 
 			<div className="mb-8 flex flex-wrap items-center gap-3">
-				<span className="text-sm text-muted-foreground">Sort by:</span>
+				<span className="text-sm text-muted-foreground">Trier par :</span>
 				{sortOptions.map((option) => (
 					<SortLink key={option.value} option={option} currentSort={sort} />
 				))}

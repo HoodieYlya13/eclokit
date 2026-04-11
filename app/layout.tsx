@@ -71,7 +71,7 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 	return (
 		<CartProvider initialCart={cart} initialCartId={cartId}>
 			<div className="flex h-dvh flex-col overflow-x-hidden">
-				<header className="w-full px-6 py-8 md:px-12 relative z-50">
+				<header className="w-full px-6 py-8 md:px-12 relative border-b border-secondary shadow-sm">
 					<div className="flex items-center justify-between">
 						{/* Logo */}
 						<YnsLink
@@ -120,7 +120,7 @@ export default function RootLayout({
 	const env = process.env.VERCEL_ENV || "development";
 
 	return (
-		<html lang="en">
+		<html lang="fr">
 			<body className={`${tanBuster.variable} ${montserrat.variable} antialiased`}>
 				<Suspense>
 					<StoreJsonLd />

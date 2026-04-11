@@ -54,8 +54,8 @@ export function CuratedEssentials({ limit = 3 }: CuratedEssentialsProps) {
 			className="py-24 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background"
 		>
 			<SectionHeader
-				badge="Our Selection"
-				title="Curated Essentials"
+				badge="Notre Sélection"
+				title="Les Essentiels"
 				viewAllLink="/collection/all"
 				withBorder
 			/>

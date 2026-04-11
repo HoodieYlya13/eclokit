@@ -14,7 +14,7 @@ export function SectionHeader({
 	badge,
 	title,
 	viewAllLink,
-	viewAllText = "VIEW ALL PRODUCTS",
+	viewAllText = "VOIR TOUS LES PRODUITS",
 	centered = false,
 	withBorder = false,
 }: SectionHeaderProps) {

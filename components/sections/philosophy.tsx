@@ -11,7 +11,7 @@ export function Philosophy() {
 				{/* Section header */}
 				<div className="text-center mb-16">
 					<h2 className="font-display text-5xl md:text-7xl mb-6 text-foreground">
-						The <span className="italic text-primary">Skinclean</span> Philosophy
+						The <span className="italic text-primary">EcloKit</span> Philosophy
 					</h2>
 					<div className="w-24 h-px bg-primary mx-auto" />
 				</div>
@@ -19,32 +19,37 @@ export function Philosophy() {
 				{/* Two-column text */}
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 text-lg leading-relaxed font-light text-muted-foreground">
 					<div>
-						<p className="mb-6 first-letter:text-5xl first-letter:font-display first-letter:mr-2 first-letter:float-left first-letter:text-primary first-letter:leading-none">
-							We believe that true beauty stems from health, and health is born from nature refined by
-							science. At Skinclean, our commitment goes beyond the surface. We meticulously source organic
-							botanicals from sustainable farms, ensuring that every ingredient tells a story of purity and
-							potency.
+						<p className="mb-6 first-letter:text-5xl first-letter:font-display first-letter:mr-2 first-letter:mt-2.5 first-letter:float-left first-letter:text-primary first-letter:leading-none">
+							<span className="font-bold">
+								Eclokit, ce sont des box DIY complètes et multimarques, pensées pour vous permettre de créer
+								facilement, sans stress ni matériel à chercher.
+							</span>{" "}
+							Chaque box réunit une sélection de produits issus de différentes marques créatives, pour vous
+							offrir une expérience variée, qualitative et unique dans l’univers des loisirs créatifs.
 						</p>
 						<p>
-							Our laboratories are where tradition meets innovation. By utilizing cold-press extraction and
-							bio-fermentation, we preserve the vital nutrients of our raw ingredients, delivering them
-							directly to your skin without harsh preservatives or fillers.
+							Chaque kit vous accompagne pas à pas pour transformer un moment simple en une véritable
+							parenthèse créative.{" "}
+							<span className="font-bold">
+								Imaginées par une équipe 100 % féminine, nos box allient créativité, accessibilité et
+								engagement.
+							</span>
 						</p>
 					</div>
 
 					<div className="flex flex-col justify-between">
 						<p className="mb-6">
-							Transparency is at the core of our ethos. We formulate for the modern individual who seeks
-							efficacy without compromise. Our &ldquo;Clean Clinical&rdquo; approach means rigorous testing
-							for safety and performance, ensuring that our high-tech solutions respect your skin&apos;s
-							natural microbiome.
+							En choisissant Eclokit, vous créez à votre rythme tout en soutenant une initiative qui{" "}
+							<span className="font-bold">reverse 5 % de ses bénéfices</span> à une association engagée dans
+							la lutte contre les discriminations faites aux femmes.
 						</p>
 						<div>
 							<blockquote className="font-display text-2xl italic text-foreground mb-4">
-								&ldquo;Skincare is not a routine, it is a ritual of self-respect.&rdquo;
+								&ldquo;Créer de ses mains n&apos;est pas seulement une activité, c&apos;est un rituel de
+								reconnexion à soi.&rdquo;
 							</blockquote>
 							<cite className="text-sm font-medium uppercase tracking-widest not-italic text-primary">
-								&mdash; Founder
+								&mdash; L&apos;équipe EcloKit
 							</cite>
 						</div>
 					</div>

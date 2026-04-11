@@ -65,18 +65,18 @@ export function NewArrivals({ limit = 4 }: NewArrivalsProps) {
 				<div className="p-8 md:p-16 xl:p-24 flex flex-col justify-center order-2 lg:order-2">
 					<div className="mb-12">
 						<span className="text-xs font-semibold tracking-widest text-primary uppercase mb-2 block">
-							Just Launched
+							Nouvelle Collection
 						</span>
-						<h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">New Arrivals</h2>
+						<h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">Les Nouveautés</h2>
 						<p className="text-muted-foreground font-light text-lg leading-relaxed mb-8 max-w-md">
-							Discover our latest formulations, crafted with potent botanicals and cutting-edge science to
-							rejuvenate your skin from within.
+							Découvrez nos dernières formulations, conçues avec des ingrédients puissants et une science de
+							pointe pour revitaliser votre peau de l'intérieur.
 						</p>
 						<YnsLink
 							href="/collection/all"
 							className="inline-block text-sm font-medium tracking-wide hover:text-primary transition-colors border-b border-foreground hover:border-primary pb-1"
 						>
-							EXPLORE COLLECTION
+							EXPLORER LA COLLECTION
 						</YnsLink>
 					</div>
 

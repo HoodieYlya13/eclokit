@@ -13,7 +13,7 @@ export async function Navbar() {
 			<YnsLink
 				prefetch={"eager"}
 				href="/"
-				className="text-foreground border-b-2 border-primary pb-1"
+				className="hover:text-primary transition-colors"
 				activeClassName="text-foreground border-b-2 border-primary pb-1"
 			>
 				Accueil
@@ -28,7 +28,7 @@ export async function Navbar() {
 			</YnsLink>
 			<YnsLink
 				prefetch={"eager"}
-				href="/#philosophy"
+				href="/blog"
 				className="hover:text-primary transition-colors"
 				activeClassName="text-foreground border-b-2 border-primary pb-1"
 			>

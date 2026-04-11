@@ -53,7 +53,7 @@ function RefreshBadge() {
 				/>
 			</svg>
 			<span className="text-[0.6rem] font-serif tracking-[0.2em] uppercase mt-2 text-muted-foreground">
-				Refresh
+				EcloKit
 			</span>
 		</div>
 	);

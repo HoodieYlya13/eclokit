@@ -20,7 +20,8 @@ export const YnsLink = ({
 	const strHref = typeof props.href === "string" ? props.href : props.href.href;
 
 	const pathname = usePathname();
-	const isActive = strHref && (exactHrefMatch ? pathname === strHref : pathname.startsWith(strHref));
+	const isActive =
+		strHref && (exactHrefMatch || strHref === "/" ? pathname === strHref : pathname.startsWith(strHref));
 
 	const conditionalPrefetch = () => {
 		if (strHref && prefetch === "eager") {
