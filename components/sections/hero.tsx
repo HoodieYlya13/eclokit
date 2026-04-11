@@ -83,8 +83,8 @@ function HeroImages() {
 				style={{ animationDelay: "1.2s" }}
 			>
 				<Image
-					alt="Hands washing"
-					src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOoqycicICblSoUBU599a7vovG4dwL1Ke4Z3-T3pUfJJ_3KccounONaPwsPog6SHtb9ojLgWMiFrKv8Qwsoj8haKJduuz_6NTOdXhFLpvoK3zgERDhy4o6yvuvcGvTXgfpjGw58wo2ICWs6kJbNNvRw0H6B3W2CaeTjJz3oHymZbd29MxhA2Nj7WNORydhLUP9be_bWiWn8eTZeBuYIYWbdSmAInbkNluvxvazz9gK4saA2IWvOLjvjcfUgw35gj6KIIJHq8xNFfGI"
+					alt="Ma box créative"
+					src="https://www.designerpeople.com/wp-content/uploads/2024/07/Creative-Box-Designs-Thatll-Transform-Your-Packaging-Experience-1024x1024.webp"
 					fill
 					className="object-cover shadow-xl dark:shadow-black/60 ring-1 ring-white/20 dark:ring-white/10"
 					sizes="(max-width: 768px) 160px, 224px"
@@ -97,8 +97,8 @@ function HeroImages() {
 				style={{ animationDelay: "1.4s" }}
 			>
 				<Image
-					alt="Model face behind large leaf"
-					src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQEkpui6fJgW9o7yR-T_4_9sZsxproCJ5njHANk8Xetb1UnG911H8Tv7MvIiUW8A-cDi9n-TCgFoczEcdogWXRX1SpH2pI8iQXDjOxbbwMiOLbBkI6TBMkPH3hEo7WWWkpI3oONwocSRebOE52Enu-dEtFTOfF8F1u0FB5Q7bMcBl5GMYlIZRtZDGr6sA8Q-wKp2zz24Ic6u5YEw3EDWEhOFP-q8nN0bgkGT_bdiKFGTR_D78zin_M9Vt586EGaAD7o7-veYWBogN0"
+					alt="Ma box créative"
+					src="https://joy-cadeaux.com/cdn/shop/files/5836188-47f1bbc578327d.jpg?v=1750708347"
 					fill
 					className="object-cover object-top hover:scale-105 transition-transform duration-700"
 					sizes="(max-width: 768px) 256px, 448px"
