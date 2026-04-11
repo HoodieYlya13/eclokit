@@ -16,7 +16,7 @@ export async function Navbar() {
 				className="text-foreground border-b-2 border-primary pb-1"
 				activeClassName="text-foreground border-b-2 border-primary pb-1"
 			>
-				Home
+				Accueil
 			</YnsLink>
 			<YnsLink
 				prefetch={"eager"}
@@ -24,7 +24,7 @@ export async function Navbar() {
 				className="hover:text-primary transition-colors"
 				activeClassName="text-foreground border-b-2 border-primary pb-1"
 			>
-				Products
+				Box
 			</YnsLink>
 			<YnsLink
 				prefetch={"eager"}
@@ -32,19 +32,32 @@ export async function Navbar() {
 				className="hover:text-primary transition-colors"
 				activeClassName="text-foreground border-b-2 border-primary pb-1"
 			>
-				About Us
+				Blog
 			</YnsLink>
-			{collections.data.map((collection) => (
-				<YnsLink
-					prefetch={"eager"}
-					key={collection.id}
-					href={`/collection/${collection.slug}`}
-					className="hover:text-primary transition-colors"
-					activeClassName="text-foreground border-b-2 border-primary pb-1"
-				>
-					{collection.name}
-				</YnsLink>
-			))}
+			<YnsLink
+				prefetch={"eager"}
+				href="/about"
+				className="hover:text-primary transition-colors"
+				activeClassName="text-foreground border-b-2 border-primary pb-1"
+			>
+				À propos
+			</YnsLink>
+			<YnsLink
+				prefetch={"eager"}
+				href="/contact"
+				className="hover:text-primary transition-colors"
+				activeClassName="text-foreground border-b-2 border-primary pb-1"
+			>
+				Contact
+			</YnsLink>
+			<YnsLink
+				prefetch={"eager"}
+				href="/boutique"
+				className="hover:text-primary transition-colors"
+				activeClassName="text-foreground border-b-2 border-primary pb-1"
+			>
+				Boutique
+			</YnsLink>
 		</nav>
 	);
 }

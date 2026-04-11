@@ -67,7 +67,7 @@ function InfoPill() {
 			style={{ animationDelay: "0.8s" }}
 		>
 			<p className="text-[0.6rem] text-center font-serif leading-tight text-muted-foreground">
-				Our technologies and equipment have made it possible to create high tech, safe products.
+				Votre dose de créativité mensuelle
 			</p>
 		</div>
 	);

@@ -98,10 +98,10 @@ export function Footer() {
 			<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
 				{/* Brand section */}
 				<div className="md:col-span-4 pr-8">
-					<h3 className="font-display text-3xl font-bold mb-6">Skinclean.</h3>
+					<h3 className="font-display text-3xl font-bold mb-6">EcloKit</h3>
 					<p className="text-muted-foreground mb-8 font-light max-w-sm">
-						Clean, organic, and high-tech skincare designed to reveal your most radiant self. Elevate your
-						daily ritual.
+						Box de loisirs créatifs clé en main mensuels multi-marque pour découvrir et prendre du temps pour
+						vous.
 					</p>
 					<div className="flex space-x-4">
 						<a
@@ -212,7 +212,7 @@ export function Footer() {
 
 			{/* Bottom bar */}
 			<div className="max-w-7xl mx-auto pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
-				<p>&copy; {new Date().getFullYear()} Skinclean. All rights reserved.</p>
+				<p>&copy; {new Date().getFullYear()} EcloKit. Tous droits réservés.</p>
 				<div className="flex space-x-6 mt-4 md:mt-0">
 					<YnsLink href="/privacy" className="hover:text-foreground">
 						Privacy Policy

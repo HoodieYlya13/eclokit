@@ -118,13 +118,13 @@ export function HeroTypography() {
 	return (
 		<div className="relative z-20 mix-blend-normal -mt-20 lg:-mt-32">
 			{/* Fallback for no-JS environments */}
-			<noscript>
-				<h1 className="font-display text-[5.5rem] sm:text-[8rem] md:text-[10rem] lg:text-[11rem] leading-[0.85] tracking-tight text-foreground">
-					THE FACE CLEAN
-				</h1>
-			</noscript>
+			{/* <noscript> */}
+			<h1 className="font-display text-[5.5rem] sm:text-[8rem] md:text-[10rem] lg:text-[11rem] leading-[1.1] tracking-tight text-foreground">
+				ECLO Kit
+			</h1>
+			{/* </noscript> */}
 
-			<AnimatedWord delay={0} parallaxIntensity={-120}>
+			{/* <AnimatedWord delay={0} parallaxIntensity={-120}>
 				THE
 			</AnimatedWord>
 
@@ -134,7 +134,7 @@ export function HeroTypography() {
 
 			<AnimatedWord delay={0.3} parallaxIntensity={20} className="relative z-30">
 				CLEAN
-			</AnimatedWord>
+			</AnimatedWord> */}
 		</div>
 	);
 }

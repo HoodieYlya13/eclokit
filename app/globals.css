@@ -47,20 +47,20 @@
 :root {
 	--radius: 0.5rem;
 	/* Skinclean Theme - Light Mode */
-	--background: oklch(0.98 0.005 120); /* #F9FAF7 cream */
-	--foreground: oklch(0.18 0 0); /* #1A1A1A dark text */
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.18 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.18 0 0);
-	--primary: oklch(0.75 0.08 145); /* #9ABD97 sage green */
-	--primary-foreground: oklch(0.18 0 0);
-	--secondary: oklch(0.96 0.005 120);
-	--secondary-foreground: oklch(0.18 0 0);
-	--muted: oklch(0.96 0.005 120);
-	--muted-foreground: oklch(0.45 0 0);
-	--accent: oklch(0.96 0.005 120);
-	--accent-foreground: oklch(0.18 0 0);
+	--background: #FFFAEC;
+	--foreground: #3F3478;
+	--card: var(--background);
+	--card-foreground: var(--foreground);
+	--popover: var(--background);
+	--popover-foreground: var(--foreground);
+	--primary: #826DBB;
+	--primary-foreground: var(--foreground);
+	--secondary: #CAB6E7;
+	--secondary-foreground: var(--foreground);
+	--muted: var(--background);
+	--muted-foreground: var(--foreground);
+	--accent: #A5E5E8;
+	--accent-foreground: var(--foreground);
 	--destructive: oklch(0.577 0.245 27.325);
 	--border: oklch(0.90 0.005 120);
 	--input: oklch(0.90 0.005 120);
@@ -82,20 +82,20 @@
 
 .dark {
 	/* Skinclean Theme - Dark Mode */
-	--background: oklch(0.20 0.005 270); /* #1C1C1E dark charcoal */
-	--foreground: oklch(0.96 0 0); /* #F0F0F0 light text */
-	--card: oklch(0.25 0.005 270);
-	--card-foreground: oklch(0.96 0 0);
-	--popover: oklch(0.25 0.005 270);
-	--popover-foreground: oklch(0.96 0 0);
-	--primary: oklch(0.75 0.08 145); /* sage green stays same */
-	--primary-foreground: oklch(0.18 0 0);
-	--secondary: oklch(0.28 0.005 270);
-	--secondary-foreground: oklch(0.96 0 0);
-	--muted: oklch(0.28 0.005 270);
-	--muted-foreground: oklch(0.65 0 0);
-	--accent: oklch(0.28 0.005 270);
-	--accent-foreground: oklch(0.96 0 0);
+	--background: #3F3478;
+	--foreground: #FFFAEC;
+	--card: var(--background);
+	--card-foreground: var(--foreground);
+	--popover: var(--background);
+	--popover-foreground: var(--foreground);
+	--primary: #826DBB;
+	--primary-foreground: var(--background);
+	--secondary: #CAB6E7;
+	--secondary-foreground: var(--foreground);
+	--muted: var(--background);
+	--muted-foreground: var(--foreground);
+	--accent: #A5E5E8;
+	--accent-foreground: var(--foreground);
 	--destructive: oklch(0.704 0.191 22.216);
 	--border: oklch(1 0 0 / 10%);
 	--input: oklch(1 0 0 / 15%);
