@@ -140,7 +140,8 @@ export function Footer() {
 					<FooterCollections />
 
 					{/* Support */}
-					<div>
+					{/* TODO: re-add when fixed */}
+					{/* <div>
 						<h3 className="text-sm font-semibold text-foreground">Support</h3>
 						<ul className="mt-4 space-y-3">
 							<li>
@@ -153,10 +154,11 @@ export function Footer() {
 								</YnsLink>
 							</li>
 						</ul>
-					</div>
+					</div> */}
 
 					{/* Legal */}
-					<FooterLegalPages />
+					{/* TODO: re-add when fixed */}
+					{/* <FooterLegalPages /> */}
 				</div>
 
 				{/* Information links */}

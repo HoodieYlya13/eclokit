@@ -11,6 +11,7 @@ import {
 } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import { SectionHeader } from "./section-header";
 
 type AnimatedWordProps = {
 	children: string;
@@ -116,12 +117,19 @@ function AnimatedWord({ children, delay = 0, parallaxIntensity = 0, className }:
 
 export function HeroTypography() {
 	return (
-		<div className="relative z-20 mix-blend-normal -mt-20 lg:-mt-32">
+		<div className="relative z-20 mix-blend-normal">
+			<SectionHeader
+				badge="Offrez-vous une parenthèse hors du temps avec nos coffrets créatifs. Nous avons tout préparé : du matériel de qualité professionnelle aux tutoriels guidés pas à pas. Vous n'avez qu'à ouvrir votre box, vous installer confortablement et savourer le plaisir de fabriquer quelque chose de vos mains. Le DIY n'a jamais été aussi serein."
+				title="Ouvrez. Créez. Profitez."
+				centered
+				inversed
+			/>
+
 			{/* Fallback for no-JS environments */}
 			{/* <noscript> */}
-			<h1 className="font-display text-[5.5rem] sm:text-[8rem] md:text-[10rem] lg:text-[11rem] leading-[1.1] tracking-tight text-foreground">
-				ECLO Kit
-			</h1>
+			{/* <h1 className="font-display text-[5.5rem] sm:text-[8rem] md:text-[10rem] lg:text-[11rem] leading-[1.1] tracking-tight text-foreground">
+				ECLO KIT
+			</h1> */}
 			{/* </noscript> */}
 
 			{/* <AnimatedWord delay={0} parallaxIntensity={-120}>

@@ -53,12 +53,7 @@ export function CuratedEssentials({ limit = 3 }: CuratedEssentialsProps) {
 			id="products"
 			className="py-24 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background"
 		>
-			<SectionHeader
-				badge="Notre Sélection"
-				title="Les Essentiels"
-				viewAllLink="/collection/all"
-				withBorder
-			/>
+			<SectionHeader badge="" title="Nos abonnements" withBorder />
 			<Suspense fallback={<CuratedEssentialsSkeleton />}>
 				<CuratedEssentialsContent limit={limit} />
 			</Suspense>

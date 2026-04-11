@@ -110,7 +110,12 @@ function HeroImages() {
 
 export function Hero() {
 	return (
-		<section className="relative w-full min-h-[calc(100vh-100px)] flex flex-col items-center justify-center py-10 md:py-0 overflow-hidden">
+		<section className="relative w-full min-h-dvh flex flex-col items-center justify-center py-10 md:py-0 overflow-hidden">
+			{/* Background Image */}
+			<div className="absolute inset-0 z-0">
+				<Image src="/img/background.jpeg" alt="Background" fill className="object-cover" priority />
+				<div className="absolute inset-0" />
+			</div>
 			{/* Decorative elements */}
 			<DecorativeWavyLines />
 			<DecorativeCross />
@@ -123,9 +128,9 @@ export function Hero() {
 				{/* Center content */}
 				<div className="col-span-1 md:col-span-8 relative text-center flex flex-col items-center justify-center z-20">
 					{/* "nr 1" outline text */}
-					<div className="absolute -top-16 left-4 md:-left-4 text-6xl md:text-7xl font-display text-stroke-1 opacity-100 dark:opacity-60 animate-float">
+					{/* <div className="absolute -top-16 left-4 md:-left-4 text-6xl md:text-7xl font-display text-stroke-1 opacity-100 dark:opacity-60 animate-float">
 						nr 1
-					</div>
+					</div> */}
 
 					{/* Refresh badge */}
 					<RefreshBadge />
@@ -134,7 +139,7 @@ export function Hero() {
 					<HeroTypography />
 
 					{/* Info pill */}
-					<InfoPill />
+					{/* <InfoPill /> */}
 				</div>
 
 				{/* Right spacer */}
@@ -142,7 +147,7 @@ export function Hero() {
 			</div>
 
 			{/* Floating images */}
-			<HeroImages />
+			{/* <HeroImages /> */}
 		</section>
 	);
 }

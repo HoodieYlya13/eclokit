@@ -50,8 +50,8 @@ export function NewArrivals({ limit = 4 }: NewArrivalsProps) {
 				{/* Left - Large hero image */}
 				<div className="relative min-h-[500px] lg:min-h-[800px] w-full overflow-hidden order-1 lg:order-1">
 					<Image
-						alt="New Collection Banner"
-						src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQEkpui6fJgW9o7yR-T_4_9sZsxproCJ5njHANk8Xetb1UnG911H8Tv7MvIiUW8A-cDi9n-TCgFoczEcdogWXRX1SpH2pI8iQXDjOxbbwMiOLbBkI6TBMkPH3hEo7WWWkpI3oONwocSRebOE52Enu-dEtFTOfF8F1u0FB5Q7bMcBl5GMYlIZRtZDGr6sA8Q-wKp2zz24Ic6u5YEw3EDWEhOFP-q8nN0bgkGT_bdiKFGTR_D78zin_M9Vt586EGaAD7o7-veYWBogN0=s1600"
+						alt="Ma box créative"
+						src="https://www.ciloubidouille.com/wp-content/uploads/2023/06/presentation-box-creative-819x1024.png"
 						fill
 						priority
 						quality={95}
