@@ -13,13 +13,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	const collection = await commerce.collectionGet({ idOrSlug: slug });
 
 	if (!collection) {
-		return { title: "Collection Not Found — Your Next Store" };
+		return { title: "Collection Not Found — EcloKit" };
 	}
 
 	const description = typeof collection.description === "string" ? collection.description : undefined;
 
 	return {
-		title: `${collection.name} — Your Next Store`,
+		title: `${collection.name} — EcloKit`,
 		description,
 		openGraph: {
 			title: collection.name,
@@ -42,7 +42,7 @@ function CollectionHeader({ collection }: { collection: APICollectionGetByIdResu
 							<p className="mt-4 text-lg text-muted-foreground leading-relaxed">
 								{typeof collection.description === "string"
 									? collection.description
-									: "Explore our curated collection"}
+									: "Explorer nos box mensuelles"}
 							</p>
 						)}
 					</div>

@@ -46,20 +46,20 @@ export function ReviewForm({ slug }: { slug: string }) {
 
 	return (
 		<form action={action} className="space-y-4 rounded-lg border border-border p-6">
-			<h3 className="text-lg font-medium">Write a Review</h3>
+			<h3 className="text-lg font-medium">Écrire un avis</h3>
 
 			<input type="hidden" name="slug" value={slug} />
 			<input type="hidden" name="rating" value={rating} />
 
 			<div>
-				<label className="mb-1.5 block text-sm font-medium">Rating</label>
+				<label className="mb-1.5 block text-sm font-medium">Note</label>
 				<StarInput value={rating} onChange={setRating} />
 			</div>
 
 			<div className="grid gap-4 sm:grid-cols-2">
 				<div>
 					<label htmlFor="review-author" className="mb-1.5 block text-sm font-medium">
-						Name
+						Nom
 					</label>
 					<input
 						id="review-author"
@@ -67,7 +67,7 @@ export function ReviewForm({ slug }: { slug: string }) {
 						type="text"
 						required
 						className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-						placeholder="Your name"
+						placeholder="Votre nom"
 					/>
 				</div>
 				<div>
@@ -80,14 +80,14 @@ export function ReviewForm({ slug }: { slug: string }) {
 						type="email"
 						required
 						className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-						placeholder="your@email.com"
+						placeholder="exemple@email.com"
 					/>
 				</div>
 			</div>
 
 			<div>
 				<label htmlFor="review-content" className="mb-1.5 block text-sm font-medium">
-					Review
+					Avis
 				</label>
 				<textarea
 					id="review-content"
@@ -95,7 +95,7 @@ export function ReviewForm({ slug }: { slug: string }) {
 					required
 					rows={4}
 					className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm resize-none"
-					placeholder="Share your experience with this product..."
+					placeholder="Partagez votre expérience avec ce produit..."
 				/>
 			</div>
 
@@ -106,7 +106,7 @@ export function ReviewForm({ slug }: { slug: string }) {
 				disabled={isPending || rating === 0}
 				className="rounded-md bg-foreground px-6 py-2 text-sm font-medium text-background transition-opacity hover:opacity-90 disabled:opacity-50"
 			>
-				{isPending ? "Submitting..." : "Submit Review"}
+				{isPending ? "Envoi..." : "Envoyer l'avis"}
 			</button>
 		</form>
 	);

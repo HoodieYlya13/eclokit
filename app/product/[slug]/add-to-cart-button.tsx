@@ -38,9 +38,15 @@ type AddToCartButtonProps = {
 		images: string[];
 	};
 	volumePricingTiers?: VolumeTier[];
+	isSubscription?: boolean;
 };
 
-export function AddToCartButton({ variants, product, volumePricingTiers = [] }: AddToCartButtonProps) {
+export function AddToCartButton({
+	variants,
+	product,
+	volumePricingTiers = [],
+	isSubscription = false,
+}: AddToCartButtonProps) {
 	const searchParams = useSearchParams();
 	const [quantity, setQuantity] = useState(1);
 	const [isPending, startTransition] = useTransition();
@@ -74,13 +80,14 @@ export function AddToCartButton({ variants, product, volumePricingTiers = [] }: 
 	const totalPrice = unitPrice ? BigInt(unitPrice) * BigInt(quantity) : null;
 
 	const buttonText = useMemo(() => {
-		if (isPending) return "Adding...";
-		if (!selectedVariant) return "Select options";
+		if (isPending) return "Ajout en cours...";
+		if (!selectedVariant) return "Sélectionnez les options";
 		if (totalPrice) {
-			return `Add to Cart — ${formatMoney({ amount: totalPrice, currency: CURRENCY, locale: LOCALE })}`;
+			const suffix = isSubscription ? " /mois" : "";
+			return `Ajouter au panier — ${formatMoney({ amount: totalPrice, currency: CURRENCY, locale: LOCALE })}${suffix}`;
 		}
 		return "Add to Cart";
-	}, [isPending, selectedVariant, totalPrice]);
+	}, [isPending, selectedVariant, totalPrice, isSubscription]);
 
 	const handleSubmit = (e: React.FormEvent) => {
 		e.preventDefault();
@@ -98,7 +105,10 @@ export function AddToCartButton({ variants, product, volumePricingTiers = [] }: 
 						id: selectedVariant.id,
 						price: selectedVariant.price,
 						images: selectedVariant.images,
-						product,
+						product: {
+							...product,
+							isSubscription,
+						},
 					},
 				},
 			});

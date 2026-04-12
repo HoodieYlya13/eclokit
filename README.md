@@ -1,10 +1,10 @@
 <p align="center">
-  <a href="https://yournextstore.com">
-    <img src="public/logo.svg" height="128">
+  <a href="https://eclokit.com">
+    <img src="public/favicon.ico" height="128">
   </a>
 </p>
 
-<h1 align="center">Your Next Store</h1>
+<h1 align="center">EcloKit</h1>
 
 <p align="center">
   <strong>Open-source AI-native Next.js e-commerce template.</strong>

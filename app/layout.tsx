@@ -29,7 +29,7 @@ const tanBuster = localFont({
 export async function generateMetadata(): Promise<Metadata> {
 	const me = await meGetCached();
 	const storeName = me.store.settings?.storeName || "EcloKit";
-	const faviconUrl = getStoreFaviconUrl(me.store.settings) ?? "/logo.svg";
+	const faviconUrl = getStoreFaviconUrl(me.store.settings) ?? "/favicon.ico";
 
 	return {
 		title: storeName,
@@ -68,10 +68,8 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 		<CartProvider initialCart={cart} initialCartId={cartId}>
 			<div className="flex min-h-screen flex-col">
 				<Header />
-				{/* <div className="flex-1 overflow-y-auto"> */}
 				<main className="flex-1 w-full">{children}</main>
 				<Footer />
-				{/* </div> */}
 			</div>
 			<CartSidebar />
 		</CartProvider>

@@ -16,11 +16,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 	const product = await commerce.productGet({ idOrSlug: slug });
 
 	if (!product) {
-		return { title: "Product Not Found — Your Next Store" };
+		return { title: "Produit non trouvé — EcloKit" };
 	}
 
 	return {
-		title: `${product.name} — Your Next Store`,
+		title: `${product.name} — EcloKit`,
 		description: product.summary ?? undefined,
 		openGraph: {
 			title: product.name,
@@ -62,10 +62,13 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 		},
 	);
 
+	const isSubscription = product.productCollections?.some((pc) => pc.collection?.slug === "subscriptions");
+	const suffix = isSubscription ? " /mois" : "";
+
 	const priceDisplay =
 		product.variants.length > 1 && minPrice !== maxPrice
-			? `${formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE })} - ${formatMoney({ amount: maxPrice, currency: CURRENCY, locale: LOCALE })}`
-			: formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE });
+			? `${formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE })} - ${formatMoney({ amount: maxPrice, currency: CURRENCY, locale: LOCALE })}${suffix}`
+			: `${formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE })}${suffix}`;
 
 	const allImages = [
 		...product.images,
@@ -101,6 +104,7 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 							images: product.images,
 						}}
 						volumePricingTiers={product.volumePricingTiers}
+						isSubscription={isSubscription}
 					/>
 				</div>
 			</div>

@@ -21,8 +21,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
 	const { q } = await searchParams;
 	return {
-		title: q ? `Search: ${q} — Your Next Store` : "Search — Your Next Store",
-		description: q ? `Search results for "${q}"` : "Search our store",
+		title: q ? `Recherche : ${q} — EcloKit` : "Recherche — EcloKit",
+		description: q ? `Résultats de recherche pour "${q}"` : "Rechercher dans notre boutique",
 	};
 }
 
@@ -65,8 +65,10 @@ async function SearchResults({ query, page }: { query: string; page?: string }) 
 		return (
 			<div className="text-center py-16">
 				<Search className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
-				<h2 className="font-display text-2xl mb-2">No products found</h2>
-				<p className="text-muted-foreground">Try searching for something else or browse our collections.</p>
+				<h2 className="font-display text-2xl mb-2">Aucun produit trouvé</h2>
+				<p className="text-muted-foreground">
+					Essayez de rechercher autre chose ou parcourez nos collections.
+				</p>
 			</div>
 		);
 	}
@@ -74,7 +76,8 @@ async function SearchResults({ query, page }: { query: string; page?: string }) 
 	return (
 		<>
 			<p className="text-muted-foreground mb-8">
-				Found {results.data.length} product{results.data.length !== 1 ? "s" : ""} for &ldquo;{query}
+				{results.data.length} produit{results.data.length !== 1 ? "s" : ""} trouvé
+				{results.data.length !== 1 ? "s" : ""} pour &ldquo;{query}
 				&rdquo;
 			</p>
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -94,7 +97,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 	return (
 		<div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
 			<div className="mb-12">
-				<h1 className="font-display text-4xl md:text-5xl mb-6">Search Products</h1>
+				<h1 className="font-display text-4xl md:text-5xl mb-6">Rechercher des produits</h1>
 				<SearchForm initialQuery={query} />
 			</div>
 
@@ -105,8 +108,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 			) : (
 				<div className="text-center py-16">
 					<Search className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
-					<h2 className="font-display text-2xl mb-2">Search for products</h2>
-					<p className="text-muted-foreground">Enter a search term to find products.</p>
+					<h2 className="font-display text-2xl mb-2">Rechercher des produits</h2>
+					<p className="text-muted-foreground">Entrez un terme de recherche pour trouver des produits.</p>
 				</div>
 			)}
 		</div>

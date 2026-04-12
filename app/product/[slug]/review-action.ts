@@ -16,24 +16,24 @@ export async function submitReview(_prev: ReviewState, formData: FormData): Prom
 	const rating = formData.get("rating");
 
 	if (!slug || typeof slug !== "string") {
-		return { success: false, message: "", error: "Product not found." };
+		return { success: false, message: "", error: "Produit non trouvé." };
 	}
 
 	if (!author || typeof author !== "string" || !author.trim()) {
-		return { success: false, message: "", error: "Please enter your name." };
+		return { success: false, message: "", error: "Veuillez entrer votre nom." };
 	}
 
 	if (!email || typeof email !== "string") {
-		return { success: false, message: "", error: "Please enter a valid email." };
+		return { success: false, message: "", error: "Veuillez entrer un email valide." };
 	}
 
 	if (!content || typeof content !== "string" || !content.trim()) {
-		return { success: false, message: "", error: "Please write a review." };
+		return { success: false, message: "", error: "Veuillez écrire un avis." };
 	}
 
 	const ratingNum = Number(rating);
 	if (!ratingNum || ratingNum < 1 || ratingNum > 5) {
-		return { success: false, message: "", error: "Please select a rating." };
+		return { success: false, message: "", error: "Veuillez sélectionner une note." };
 	}
 
 	try {
@@ -42,8 +42,8 @@ export async function submitReview(_prev: ReviewState, formData: FormData): Prom
 			{ author: author.trim(), email, content: content.trim(), rating: ratingNum },
 		);
 
-		return { success: true, message: "Thanks for your review! It will appear once approved." };
+		return { success: true, message: "Merci pour votre avis ! Il apparaîtra une fois approuvé." };
 	} catch {
-		return { success: false, message: "", error: "Something went wrong. Please try again." };
+		return { success: false, message: "", error: "Une erreur s'est produite. Veuillez réessayer." };
 	}
 }

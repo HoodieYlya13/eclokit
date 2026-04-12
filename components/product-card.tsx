@@ -26,11 +26,16 @@ export function ProductCard({ product }: { product: BrowseProduct | CollectionPr
 				)
 			: { minPrice: null, maxPrice: null };
 
+	const isSubscription =
+		"productCollections" in product &&
+		product.productCollections?.some((pc) => pc.collection?.slug === "subscriptions");
+	const suffix = isSubscription ? " /mois" : "";
+
 	const priceDisplay =
 		variants && variants.length > 1 && minPrice && maxPrice && minPrice !== maxPrice
-			? `${formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE })} - ${formatMoney({ amount: maxPrice, currency: CURRENCY, locale: LOCALE })}`
+			? `${formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE })} - ${formatMoney({ amount: maxPrice, currency: CURRENCY, locale: LOCALE })}${suffix}`
 			: minPrice
-				? formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE })
+				? `${formatMoney({ amount: minPrice, currency: CURRENCY, locale: LOCALE })}${suffix}`
 				: null;
 
 	const allImages = [

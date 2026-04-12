@@ -58,7 +58,7 @@ export function ProductReviews({ reviews, slug }: { reviews: APIProductReviewsBr
 	return (
 		<section className="mt-20 border-t border-border pt-16">
 			<div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-				<h2 className="text-3xl font-medium tracking-tight">Customer Reviews</h2>
+				<h2 className="text-3xl font-medium tracking-tight">Avis des clients</h2>
 				<ReviewSummary summary={reviews.summary} />
 			</div>
 			{reviews.data.length > 0 ? (
@@ -68,7 +68,9 @@ export function ProductReviews({ reviews, slug }: { reviews: APIProductReviewsBr
 					))}
 				</div>
 			) : (
-				<p className="text-muted-foreground">No reviews yet. Be the first to share your thoughts!</p>
+				<p className="text-muted-foreground">
+					Aucun avis pour le moment. Soyez le premier à partager votre expérience !
+				</p>
 			)}
 			<div className="mt-10">
 				<ReviewForm slug={slug} />

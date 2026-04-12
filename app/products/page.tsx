@@ -86,7 +86,7 @@ export default async function ProductsPage({
 	const { page, sort } = await searchParams;
 
 	return (
-		<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+		<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 pt-36 md:pt-48">
 			<div className="mb-10">
 				<h1 className="text-3xl sm:text-4xl font-medium tracking-tight">Toutes les box</h1>
 				<p className="mt-2 text-muted-foreground">Découvrez toutes nos box de loisirs créatifs.</p>

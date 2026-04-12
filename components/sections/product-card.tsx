@@ -10,6 +10,11 @@ type Product = {
 	name: string;
 	summary?: string | null;
 	images?: string[] | null;
+	productCollections?: Array<{
+		collection?: {
+			slug: string;
+		} | null;
+	}> | null;
 	variants: {
 		id: string;
 		price: string;
@@ -29,11 +34,14 @@ function getProductPrice(product: Product) {
 	const minPrice = prices.reduce((a, b) => (a < b ? a : b));
 	const maxPrice = prices.reduce((a, b) => (a > b ? a : b));
 
+	const isSubscription = product.productCollections?.some((pc) => pc.collection?.slug === "subscriptions");
+	const suffix = isSubscription ? " /mois" : "";
+
 	if (minPrice === maxPrice) {
-		return formatMoney({ amount: minPrice.toString(), currency: CURRENCY, locale: LOCALE });
+		return `${formatMoney({ amount: minPrice.toString(), currency: CURRENCY, locale: LOCALE })}${suffix}`;
 	}
 
-	return `${formatMoney({ amount: minPrice.toString(), currency: CURRENCY, locale: LOCALE })} - ${formatMoney({ amount: maxPrice.toString(), currency: CURRENCY, locale: LOCALE })}`;
+	return `${formatMoney({ amount: minPrice.toString(), currency: CURRENCY, locale: LOCALE })} - ${formatMoney({ amount: maxPrice.toString(), currency: CURRENCY, locale: LOCALE })}${suffix}`;
 }
 
 function getProductImage(product: Product) {
@@ -42,7 +50,7 @@ function getProductImage(product: Product) {
 		...(product.variants?.flatMap((v) => v.images ?? []) ?? []),
 	].filter((img, index, self) => self.indexOf(img) === index);
 
-	return allImages[0] ?? "/placeholder.jpg";
+	return allImages[0] ?? "/img/box-of-the-month.jpeg";
 }
 
 // Large card for Curated Essentials section
@@ -77,7 +85,7 @@ export function ProductCardLarge({ product }: ProductCardProps) {
 						<p className="text-xs text-muted-foreground tracking-wider">{product.summary}</p>
 					)}
 				</div>
-				<span className="font-medium">{price}</span>
+				<span className="font-medium whitespace-nowrap">{price}</span>
 			</div>
 		</YnsLink>
 	);

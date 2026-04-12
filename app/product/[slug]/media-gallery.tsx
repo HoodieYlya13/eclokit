@@ -85,7 +85,7 @@ export function MediaGallery({ images, productName, variants }: MediaGalleryProp
 		return (
 			<div className="flex flex-col gap-4 lg:sticky lg:top-24 lg:self-start">
 				<div className="aspect-square bg-secondary rounded-2xl flex items-center justify-center">
-					<p className="text-muted-foreground">No images available</p>
+					<p className="text-muted-foreground">Aucune image disponible</p>
 				</div>
 			</div>
 		);
@@ -159,7 +159,7 @@ export function MediaGallery({ images, productName, variants }: MediaGalleryProp
 					<div className="absolute bottom-4 right-4 opacity-0 transition-opacity group-hover:opacity-100">
 						<div className="flex items-center gap-2 rounded-full bg-background/90 px-3 py-1.5 text-xs font-medium backdrop-blur-sm">
 							<ZoomIn className="h-3.5 w-3.5" />
-							Click to zoom
+							Cliquer pour zoomer
 						</div>
 					</div>
 				)}

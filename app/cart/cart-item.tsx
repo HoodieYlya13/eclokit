@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useTransition } from "react";
 import { removeFromCart, setCartQuantity } from "@/app/cart/actions";
 import { type CartLineItem, getLineItemUnitPrice, useCart } from "@/app/cart/cart-context";
+import type { Product } from "@/components/sections/product-grid";
 import { YnsLink } from "@/components/yns-link";
 import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
@@ -26,6 +27,11 @@ export function CartItem({ item }: CartItemProps) {
 	const image = getProductThumbnail(productVariant.images) ?? getProductThumbnail(product.images);
 	const price = getLineItemUnitPrice(item);
 	const lineTotal = price * BigInt(quantity);
+
+	const isSubscription =
+		product.isSubscription ||
+		(product as Product).productCollections?.some((pc) => pc.collection?.slug === "subscriptions");
+	const suffix = isSubscription ? " /mois" : "";
 
 	const handleRemove = () => {
 		startTransition(async () => {
@@ -121,6 +127,7 @@ export function CartItem({ item }: CartItemProps) {
 					{/* Price */}
 					<span className="text-sm font-semibold">
 						{formatMoney({ amount: lineTotal, currency: CURRENCY, locale: LOCALE })}
+						{suffix}
 					</span>
 				</div>
 			</div>

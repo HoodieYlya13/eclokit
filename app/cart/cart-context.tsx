@@ -15,6 +15,7 @@ export type CartLineItem = {
 			slug: string;
 			images: string[];
 			type?: string;
+			isSubscription?: boolean;
 			bundleDiscountPercentage?: string | null;
 			bundleProducts?: Array<{
 				quantity: number;

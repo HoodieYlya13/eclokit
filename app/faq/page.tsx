@@ -5,8 +5,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { YnsLink } from "@/components/yns-link";
 
 export const metadata: Metadata = {
-	title: "FAQ — Your Next Store",
-	description: "Frequently asked questions about orders, payments, shipping, returns, and more.",
+	title: "FAQ — EcloKit",
+	description: "Foire aux questions sur les commandes, paiements, expéditions, retours et plus encore.",
 };
 
 function CategoryNav({ categories }: { categories: FAQCategory[] }) {
@@ -46,13 +46,13 @@ function FAQSection({ category }: { category: FAQCategory }) {
 function ContactCard() {
 	return (
 		<div className="rounded-lg border border-border bg-secondary/30 p-8 text-center">
-			<h2 className="text-2xl font-medium tracking-tight">Still have questions?</h2>
+			<h2 className="text-2xl font-medium tracking-tight">Une question ?</h2>
 			<p className="mt-2 text-muted-foreground">
-				We're here to help. Reach out and we'll get back to you as soon as possible.
+				Nous sommes là pour vous aider. Contactez-nous et nous vous répondrons dans les plus brefs délais.
 			</p>
 			<div className="mt-6 inline-flex items-center gap-2 text-sm font-medium">
 				<Mail className="h-4 w-4" />
-				<span>Contact us via the details on our website</span>
+				<span>Contactez-nous via les coordonnées présentes sur notre site</span>
 			</div>
 		</div>
 	);
@@ -68,13 +68,14 @@ export default function FAQPage() {
 					href="/"
 					className="text-sm text-muted-foreground hover:text-foreground transition-colors"
 				>
-					Home
+					Accueil
 				</YnsLink>
 				<span className="mx-2 text-muted-foreground">/</span>
 				<span className="text-sm">FAQ</span>
-				<h1 className="mt-4 text-4xl font-medium tracking-tight">Frequently Asked Questions</h1>
+				<h1 className="mt-4 text-4xl font-medium tracking-tight">Foire aux questions</h1>
 				<p className="mt-3 text-lg text-muted-foreground">
-					Find answers to the most common questions about your orders, payments, shipping, and more.
+					Trouvez les réponses aux questions les plus fréquentes sur les commandes, paiements, expéditions,
+					retours et plus encore.
 				</p>
 			</div>
 
