@@ -114,7 +114,7 @@ function HeroImages() {
 
 export function Hero() {
 	return (
-		<section className="relative w-full min-h-dvh flex flex-col items-center justify-center py-10 md:py-0 overflow-hidden">
+		<section className="relative w-full min-h-dvh flex flex-col items-center justify-center py-36 md:py-0 overflow-hidden">
 			{/* Background Image */}
 			<div className="absolute inset-0 z-0">
 				{/* Mobile Background */}

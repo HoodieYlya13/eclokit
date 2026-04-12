@@ -62,7 +62,7 @@ export function NewArrivals({ limit = 4 }: NewArrivalsProps) {
 				</div>
 
 				{/* Right - Content and products */}
-				<div className="p-8 md:p-16 xl:p-24 flex flex-col justify-center order-2 lg:order-2">
+				<div className="px-8 md:px-16 xl:px-24 py-10 flex flex-col justify-center order-2 lg:order-2">
 					<div className="mb-12">
 						<span className="text-xs font-semibold tracking-widest text-primary uppercase mb-2 block">
 							Nouvelle Collection
