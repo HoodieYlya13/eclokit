@@ -2,14 +2,14 @@ import { cacheLife } from "next/cache";
 import { YnsLink } from "@/components/yns-link";
 import { commerce } from "@/lib/commerce";
 
-export async function Navbar() {
+export async function Navbar({ className }: { className?: string }) {
 	"use cache";
 	cacheLife("hours");
 
 	const collections = await commerce.collectionBrowse({ limit: 5 });
 
 	return (
-		<nav className="hidden md:flex space-x-12 text-sm font-medium items-center tracking-wide text-muted-foreground">
+		<nav className={className}>
 			<YnsLink
 				prefetch={"eager"}
 				href="/"
@@ -20,11 +20,11 @@ export async function Navbar() {
 			</YnsLink>
 			<YnsLink
 				prefetch={"eager"}
-				href="/products"
+				href="/#products"
 				className="hover:text-primary transition-colors"
 				activeClassName="text-foreground border-b-2 border-primary pb-1"
 			>
-				Box
+				Abonnements
 			</YnsLink>
 			<YnsLink
 				prefetch={"eager"}
@@ -52,7 +52,7 @@ export async function Navbar() {
 			</YnsLink>
 			<YnsLink
 				prefetch={"eager"}
-				href="/boutique"
+				href="/products"
 				className="hover:text-primary transition-colors"
 				activeClassName="text-foreground border-b-2 border-primary pb-1"
 			>

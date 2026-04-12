@@ -73,7 +73,7 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 	];
 
 	return (
-		<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+		<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-36 md:pt-48">
 			<JsonLdScript data={buildProductJsonLd(product, reviews)} />
 			<JsonLdScript data={buildProductBreadcrumbJsonLd(product)} />
 			<div className="lg:grid lg:grid-cols-2 lg:gap-16">

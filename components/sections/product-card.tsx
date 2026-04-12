@@ -23,6 +23,8 @@ type ProductCardProps = {
 };
 
 function getProductPrice(product: Product) {
+	if (!product.variants || product.variants.length === 0) return "Prix sur demande";
+
 	const prices = product.variants.map((v) => BigInt(v.price));
 	const minPrice = prices.reduce((a, b) => (a < b ? a : b));
 	const maxPrice = prices.reduce((a, b) => (a > b ? a : b));
@@ -35,9 +37,10 @@ function getProductPrice(product: Product) {
 }
 
 function getProductImage(product: Product) {
-	const allImages = [...(product.images ?? []), ...product.variants.flatMap((v) => v.images ?? [])].filter(
-		(img, index, self) => self.indexOf(img) === index,
-	);
+	const allImages = [
+		...(product.images ?? []),
+		...(product.variants?.flatMap((v) => v.images ?? []) ?? []),
+	].filter((img, index, self) => self.indexOf(img) === index);
 
 	return allImages[0] ?? "/placeholder.jpg";
 }
@@ -49,7 +52,7 @@ export function ProductCardLarge({ product }: ProductCardProps) {
 
 	return (
 		<YnsLink href={`/product/${product.slug}`} className="group cursor-pointer block">
-			<div className="aspect-[4/5] bg-secondary mb-6 overflow-hidden relative">
+			<div className="aspect-4/5 bg-secondary mb-6 overflow-hidden relative">
 				<Image
 					src={image}
 					alt={product.name}
@@ -71,7 +74,7 @@ export function ProductCardLarge({ product }: ProductCardProps) {
 						{product.name}
 					</h3>
 					{product.summary && (
-						<p className="text-xs text-muted-foreground uppercase tracking-wider">{product.summary}</p>
+						<p className="text-xs text-muted-foreground tracking-wider">{product.summary}</p>
 					)}
 				</div>
 				<span className="font-medium">{price}</span>
@@ -87,7 +90,7 @@ export function ProductCardMedium({ product }: ProductCardProps) {
 
 	return (
 		<YnsLink href={`/product/${product.slug}`} className="group cursor-pointer flex flex-col">
-			<div className="aspect-[3/4] bg-secondary mb-5 overflow-hidden relative rounded-sm">
+			<div className="aspect-3/4 bg-secondary mb-5 overflow-hidden relative rounded-sm">
 				<Image
 					src={image}
 					alt={product.name}
@@ -113,7 +116,7 @@ export function ProductCardSmall({ product }: ProductCardProps) {
 
 	return (
 		<YnsLink href={`/product/${product.slug}`} className="group cursor-pointer block">
-			<div className="aspect-[4/5] bg-card mb-4 overflow-hidden relative shadow-sm">
+			<div className="aspect-4/5 bg-card mb-4 overflow-hidden relative shadow-sm">
 				<Image
 					src={image}
 					alt={product.name}

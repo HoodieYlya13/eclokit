@@ -1,9 +1,11 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { YnsLink } from "@/components/yns-link";
 import { SectionHeader } from "./section-header";
 
 export function BoxOfTheMonth() {
 	return (
-		<section className="py-24 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50">
+		<section className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50">
 			<SectionHeader badge="L'Expérience Créative du Mois" title="Le Coquetier Lapin" centered />
 
 			<div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mt-12">
@@ -62,14 +64,28 @@ export function BoxOfTheMonth() {
 						</ul>
 					</div>
 
-					<div className="p-6 bg-secondary/30 rounded-2xl border border-secondary/50">
-						<p className="text-sm font-medium text-foreground mb-3">
-							Le résultat : Un objet design qui éblouira vos invités et apportera une touche de poésie
-							artisanale à votre table de fête.
-						</p>
-						<p className="text-xs text-muted-foreground italic">
-							<strong>Inclus :</strong> Matières premières, outils de modelage, tutoriel vidéo et guide écrit.
-						</p>
+					<div className="space-y-6">
+						<div className="p-6 bg-secondary/30 rounded-2xl border border-secondary/50">
+							<p className="text-sm font-medium text-foreground mb-3">
+								Le résultat : Un objet design qui éblouira vos invités et apportera une touche de poésie
+								artisanale à votre table de fête.
+							</p>
+							<p className="text-xs text-muted-foreground italic">
+								<strong>Inclus :</strong> Matières premières, outils de modelage, tutoriel vidéo et guide
+								écrit.
+							</p>
+						</div>
+
+						<div className="flex justify-center pt-4">
+							<Button
+								asChild
+								className="rounded-full px-10 py-7 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-lg hover:shadow-primary/20"
+							>
+								<YnsLink href="/products" className="text-background">
+									Je découvre les offres
+								</YnsLink>
+							</Button>
+						</div>
 					</div>
 				</div>
 

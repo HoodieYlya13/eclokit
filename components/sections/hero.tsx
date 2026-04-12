@@ -1,5 +1,8 @@
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { YnsLink } from "@/components/yns-link";
 import { HeroTypography } from "./hero-typography";
+import { JigglingButton } from "./jiggling-button";
 
 // Decorative wavy lines SVG
 function DecorativeWavyLines() {
@@ -43,7 +46,7 @@ function RefreshBadge() {
 			className="absolute -left-4 md:-left-24 top-0 md:top-12 flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 pointer-events-none z-10 animate-float"
 			style={{ animationDuration: "7s" }}
 		>
-			<svg className="w-full h-full absolute top-0 left-0 text-muted-foreground" viewBox="0 0 100 100">
+			<svg className="w-full h-full absolute top-0 left-0 text-background" viewBox="0 0 100 100">
 				<path
 					d="M50 35 C 20 5 0 35 50 95 C 100 35 80 5 50 35"
 					fill="none"
@@ -52,7 +55,7 @@ function RefreshBadge() {
 					strokeWidth="0.8"
 				/>
 			</svg>
-			<span className="text-[0.6rem] font-serif tracking-[0.2em] uppercase mt-2 text-muted-foreground">
+			<span className="text-[0.6rem] font-serif tracking-[0.2em] uppercase mt-2 text-background">
 				EcloKit
 			</span>
 		</div>
@@ -102,6 +105,7 @@ function HeroImages() {
 					fill
 					className="object-cover object-top hover:scale-105 transition-transform duration-700"
 					sizes="(max-width: 768px) 256px, 448px"
+					priority
 				/>
 			</div>
 		</>
@@ -113,7 +117,28 @@ export function Hero() {
 		<section className="relative w-full min-h-dvh flex flex-col items-center justify-center py-10 md:py-0 overflow-hidden">
 			{/* Background Image */}
 			<div className="absolute inset-0 z-0">
-				<Image src="/img/background.jpeg" alt="Background" fill className="object-cover" priority />
+				{/* Mobile Background */}
+				<div className="md:hidden absolute inset-0">
+					<Image
+						src="/img/background-rotated.jpeg"
+						alt="Background Mobile"
+						fill
+						className="object-cover"
+						sizes="(max-width: 768px) 100vw"
+						priority
+					/>
+				</div>
+				{/* Desktop Background */}
+				<div className="hidden md:block absolute inset-0">
+					<Image
+						src="/img/background.jpeg"
+						alt="Background Desktop"
+						fill
+						className="object-cover"
+						sizes="(max-width: 1200px) 50vw, 33vw"
+						priority
+					/>
+				</div>
 				<div className="absolute inset-0" />
 			</div>
 			{/* Decorative elements */}
@@ -121,29 +146,41 @@ export function Hero() {
 			<DecorativeCross />
 
 			{/* Main grid layout */}
-			<div className="relative w-full max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-12 gap-8 h-full items-center">
-				{/* Left spacer */}
-				<div className="hidden md:block md:col-span-2 relative h-full" />
-
+			<div className="relative w-full max-w-screen-2xl mx-auto px-6 md:px-12 grid grid-cols-1 gap-8 h-full items-center">
 				{/* Center content */}
-				<div className="col-span-1 md:col-span-8 relative text-center flex flex-col items-center justify-center z-20">
-					{/* "nr 1" outline text */}
-					{/* <div className="absolute -top-16 left-4 md:-left-4 text-6xl md:text-7xl font-display text-stroke-1 opacity-100 dark:opacity-60 animate-float">
-						nr 1
-					</div> */}
-
+				<div className="relative text-center flex flex-col gap-6 items-center justify-center z-20">
 					{/* Refresh badge */}
 					<RefreshBadge />
 
 					{/* Main typography */}
 					<HeroTypography />
 
+					{/* Hero Buttons */}
+					<div
+						className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-32 w-full max-w-sm sm:max-w-3xl mx-auto animate-fade-in-up opacity-0 relative z-50"
+						style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
+					>
+						<JigglingButton>
+							<Button
+								asChild
+								className="rounded-full px-8 py-7 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/5 bg-background text-foreground border border-border hover:bg-background/90 opacity-90 w-full"
+							>
+								<YnsLink href="/#products">Nos abonnements</YnsLink>
+							</Button>
+						</JigglingButton>
+						<JigglingButton delay={0.2}>
+							<Button
+								asChild
+								className="rounded-full px-8 py-7 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/5 bg-background text-foreground border border-border hover:bg-background/90 opacity-90 w-full"
+							>
+								<YnsLink href="/blog">Notre blog</YnsLink>
+							</Button>
+						</JigglingButton>
+					</div>
+
 					{/* Info pill */}
 					{/* <InfoPill /> */}
 				</div>
-
-				{/* Right spacer */}
-				<div className="hidden md:block md:col-span-2" />
 			</div>
 
 			{/* Floating images */}

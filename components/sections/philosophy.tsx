@@ -1,9 +1,6 @@
 export function Philosophy() {
 	return (
-		<section
-			id="philosophy"
-			className="py-32 px-6 md:px-12 w-full bg-card relative overflow-hidden scroll-mt-24"
-		>
+		<section className="pb-10 pt-20 px-6 md:px-12 w-full bg-card relative overflow-hidden">
 			{/* Decorative blur */}
 			<div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
 

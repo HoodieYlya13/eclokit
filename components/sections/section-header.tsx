@@ -23,14 +23,17 @@ export function SectionHeader({
 	if (inversed) {
 		const outlineStyle = {
 			textShadow:
-				"-2px -2px 0 #fffaec, 2px -2px 0 #fffaec, -2px 2px 0 #fffaec, 2px 2px 0 #fffaec, 0 0 10px rgba(255, 250, 236, 0.5)",
+				"-2px -2px 0 var(--background), 2px -2px 0 var(--background), -2px 2px 0 var(--background), 2px 2px 0 var(--background), 0 0 10px rgba(255, 250, 236, 0.5)",
 		};
 		return (
-			<div className="flex flex-col justify-center items-center mb-16 gap-2">
-				<h2 className="font-display text-4xl md:text-5xl text-foreground text-center" style={outlineStyle}>
+			<div className="flex flex-col justify-center items-center gap-6">
+				<h2
+					className="font-display text-5xl sm:text-6xl md:text-7xl text-foreground text-center leading-[0.9]"
+					style={outlineStyle}
+				>
 					{title}
 				</h2>
-				<span className="font-semibold tracking-widest text-primary mb-2 block text-center bg-[#fffaec] rounded-lg p-4">
+				<span className="font-semibold tracking-widest text-primary text-center bg-background opacity-90 backdrop-blur-sm rounded-2xl p-6 max-w-6xl text-xs md:text-sm leading-relaxed shadow-xl border border-primary/10">
 					{badge}
 				</span>
 			</div>

@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { commerce } from "@/lib/commerce";
 import { ProductCardMedium } from "./product-card";
+import type { Product } from "./product-grid";
 import { SectionHeader } from "./section-header";
 
 type BestSellersProps = {
@@ -14,7 +15,7 @@ function BestSellersSkeleton() {
 		<div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
 			{Array.from({ length: 4 }).map((_, i) => (
 				<div key={i} className="flex flex-col">
-					<Skeleton className="aspect-[3/4] mb-5 rounded-sm" />
+					<Skeleton className="aspect-3/4 mb-5 rounded-sm" />
 					<div className="text-center">
 						<Skeleton className="h-6 w-24 mx-auto mb-2" />
 						<Skeleton className="h-4 w-16 mx-auto" />
@@ -25,28 +26,28 @@ function BestSellersSkeleton() {
 	);
 }
 
-async function BestSellersContent({ limit = 4 }: BestSellersProps) {
+async function BestSellersContent({ limit = 3 }: BestSellersProps) {
 	"use cache";
 	cacheLife("minutes");
 
-	const products = await commerce.productBrowse({ active: true, limit });
+	const collection = await commerce.collectionGet({ idOrSlug: "best-sellers" });
 
-	if (products.data.length === 0) {
-		return null;
-	}
+	if (!collection?.productCollections?.length) return null;
+
+	const products = collection.productCollections.map((pc) => pc.product).slice(0, limit);
 
 	return (
-		<div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-			{products.data.map((product) => (
-				<ProductCardMedium key={product.id} product={product} />
+		<div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
+			{products.map((product) => (
+				<ProductCardMedium key={product.id} product={product as Product} />
 			))}
 		</div>
 	);
 }
 
-export function BestSellers({ limit = 4 }: BestSellersProps) {
+export function BestSellers({ limit = 3 }: BestSellersProps) {
 	return (
-		<section className="py-24 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50">
+		<section className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50">
 			<SectionHeader badge="Pour ceux qui en veulent encore" title="Vos coups de coeur à l'unité" centered />
 			<Suspense fallback={<BestSellersSkeleton />}>
 				<BestSellersContent limit={limit} />
