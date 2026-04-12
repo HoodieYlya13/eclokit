@@ -30,7 +30,7 @@ export const YnsLink = ({
 	};
 
 	const handleHrefClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-		if (strHref?.startsWith("/#")) {
+		if (strHref?.startsWith("/#") && pathname === "/") {
 			const id = strHref.split("#")[1];
 			const element = document.getElementById(id);
 			if (element) {

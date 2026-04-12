@@ -4,7 +4,7 @@ import { YnsLink } from "@/components/yns-link";
 import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
 
-type Product = {
+export type Product = {
 	id: string;
 	slug: string;
 	name: string;

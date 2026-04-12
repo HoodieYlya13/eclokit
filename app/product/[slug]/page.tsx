@@ -3,7 +3,6 @@ import { cacheLife } from "next/cache";
 import { notFound } from "next/navigation";
 import { AddToCartButton } from "@/app/product/[slug]/add-to-cart-button";
 import { MediaGallery } from "@/app/product/[slug]/media-gallery";
-import { ProductFeatures } from "@/app/product/[slug]/product-features";
 import { ProductReviews } from "@/app/product/[slug]/product-reviews";
 import { RelatedProducts } from "@/app/product/[slug]/related-products";
 import { commerce } from "@/lib/commerce";
@@ -111,9 +110,6 @@ const ProductDetails = async ({ params }: { params: Promise<{ slug: string }> })
 
 			{/* Reviews Section */}
 			<ProductReviews reviews={reviews} slug={slug} />
-
-			{/* Features Section (full width below) */}
-			<ProductFeatures />
 
 			{/* Related Products */}
 			<RelatedProducts productId={product.id} categorySlug={product.category?.slug} />

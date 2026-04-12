@@ -3,7 +3,6 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { commerce } from "@/lib/commerce";
 import { ProductCardMedium } from "./product-card";
-import type { Product } from "./product-grid";
 import { SectionHeader } from "./section-header";
 
 type BestSellersProps = {
@@ -34,12 +33,18 @@ async function BestSellersContent({ limit = 3 }: BestSellersProps) {
 
 	if (!collection?.productCollections?.length) return null;
 
-	const products = collection.productCollections.map((pc) => pc.product).slice(0, limit);
+	const products = (
+		await Promise.all(
+			collection.productCollections
+				.slice(0, limit)
+				.map((pc) => commerce.productGet({ idOrSlug: pc.product.id })),
+		)
+	).filter((p): p is NonNullable<typeof p> => p !== null);
 
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
 			{products.map((product) => (
-				<ProductCardMedium key={product.id} product={product as Product} />
+				<ProductCardMedium key={product.id} product={product} />
 			))}
 		</div>
 	);
@@ -47,7 +52,7 @@ async function BestSellersContent({ limit = 3 }: BestSellersProps) {
 
 export function BestSellers({ limit = 3 }: BestSellersProps) {
 	return (
-		<section className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50">
+		<section className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border">
 			<SectionHeader badge="Pour ceux qui en veulent encore" title="Vos coups de cœur à l'unité" centered />
 			<Suspense fallback={<BestSellersSkeleton />}>
 				<BestSellersContent limit={limit} />

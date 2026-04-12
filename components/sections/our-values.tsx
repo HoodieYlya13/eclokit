@@ -1,16 +1,17 @@
 import { Heart, Leaf, type LucideIcon, ShieldCheck, Users } from "lucide-react";
+import { SectionHeader } from "./section-header";
 
-type Feature = {
+type Value = {
 	title: string;
 	description: string;
 	icon?: LucideIcon;
 };
 
-type ProductFeaturesProps = {
-	features?: Feature[];
+type OurValuesProps = {
+	values?: Value[];
 };
 
-const defaultFeatures: Feature[] = [
+const defaultValues: Value[] = [
 	{
 		title: "La juste dose, rien de plus",
 		description:
@@ -39,20 +40,20 @@ const defaultFeatures: Feature[] = [
 
 const defaultIcons = [Leaf, Users, ShieldCheck, Heart];
 
-export function ProductFeatures({ features = defaultFeatures }: ProductFeaturesProps) {
+export function OurValues({ values = defaultValues }: OurValuesProps) {
 	return (
-		<section className="mt-20 border-t border-border pt-16">
-			<h2 className="mb-12 text-center text-3xl font-medium tracking-tight">Nos valeurs</h2>
+		<section className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto border-t border-border">
+			<SectionHeader title="Bien plus qu’un DIY: notre philosophie" badge="Nos valeurs" centered />
 			<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-				{features.map((feature, index) => {
-					const Icon = feature.icon ?? defaultIcons[index % defaultIcons.length];
+				{values.map((value, index) => {
+					const Icon = value.icon ?? defaultIcons[index % defaultIcons.length];
 					return (
-						<div key={feature.title} className="group flex flex-col items-center text-center">
+						<div key={value.title} className="group flex flex-col items-center text-center">
 							<div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-secondary transition-colors group-hover:bg-foreground">
-								<Icon className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-primary-foreground" />
+								<Icon className="h-6 w-6 text-muted-foreground transition-colors group-hover:text-secondary" />
 							</div>
-							<h3 className="mb-2 text-lg font-medium">{feature.title}</h3>
-							<p className="text-sm text-muted-foreground">{feature.description}</p>
+							<h3 className="mb-2 text-lg font-medium">{value.title}</h3>
+							<p className="text-sm text-muted-foreground">{value.description}</p>
 						</div>
 					);
 				})}

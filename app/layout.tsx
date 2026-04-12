@@ -7,6 +7,7 @@ import { Suspense } from "react";
 import { CartProvider } from "@/app/cart/cart-context";
 import { CartSidebar } from "@/app/cart/cart-sidebar";
 import { Footer } from "@/app/footer";
+import { ChatBot } from "@/components/chat-bot";
 import { ErrorOverlayRemover, NavigationReporter } from "@/components/devtools";
 import { commerce, getStoreFaviconUrl, meGetCached } from "@/lib/commerce";
 import { getCartCookieJson } from "@/lib/cookies";
@@ -72,6 +73,7 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 				<Footer />
 			</div>
 			<CartSidebar />
+			<ChatBot />
 		</CartProvider>
 	);
 }
