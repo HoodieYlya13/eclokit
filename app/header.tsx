@@ -23,7 +23,6 @@ export function Header() {
 					>
 						<Image
 							priority
-							loading="eager"
 							src="/logo.png"
 							alt="Logo"
 							width={75}

@@ -17,7 +17,7 @@ export function HeroBackground() {
 					className="object-cover"
 					sizes="100vmax"
 					priority
-					loading="eager"
+					fetchPriority="high"
 				/>
 			</div>
 
