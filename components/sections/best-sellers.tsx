@@ -52,7 +52,7 @@ async function BestSellersContent({ limit = 3 }: BestSellersProps) {
 
 export function BestSellers({ limit = 3 }: BestSellersProps) {
 	return (
-		<section className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border">
+		<section className="py-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border">
 			<SectionHeader badge="Pour ceux qui en veulent encore" title="Vos coups de cœur à l'unité" centered />
 			<Suspense fallback={<BestSellersSkeleton />}>
 				<BestSellersContent limit={limit} />

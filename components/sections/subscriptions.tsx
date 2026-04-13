@@ -57,7 +57,7 @@ export function Subscriptions({ limit = 3 }: SubscriptionsProps) {
 	return (
 		<section
 			id="subscriptions"
-			className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border"
+			className="py-20 px-6 md:px-12 flex flex-col justify-center w-full min-h-dvh max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border"
 		>
 			<SectionHeader badge="Nos abonnements" title="Votre créativité, votre rythme" centered />
 			<Suspense fallback={<SubscriptionsSkeleton />}>

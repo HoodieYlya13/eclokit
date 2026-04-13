@@ -5,7 +5,7 @@ import { SectionHeader } from "./section-header";
 
 export function OurPartners() {
 	return (
-		<section className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50">
+		<section className="py-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50">
 			<SectionHeader badge="Nos marques partenaires" title="À l'honneur ce mois-ci" centered />
 			<div className="mt-16 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 max-w-4xl mx-auto">
 				{/* Partner 1: Left */}

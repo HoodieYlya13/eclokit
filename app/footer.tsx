@@ -94,7 +94,7 @@ async function FooterLegalPages() {
 
 export function Footer() {
 	return (
-		<footer className="bg-background py-10 px-6 md:px-12 border-t border-border text-foreground">
+		<footer className="bg-background pt-20 pb-10 px-6 md:px-12 border-t border-border text-foreground">
 			<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
 				{/* Brand section */}
 				<div className="md:col-span-4 pr-8">

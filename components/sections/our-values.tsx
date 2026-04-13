@@ -42,7 +42,7 @@ const defaultIcons = [Leaf, Users, ShieldCheck, Heart];
 
 export function OurValues({ values = defaultValues }: OurValuesProps) {
 	return (
-		<section className="py-10 px-6 md:px-12 w-full max-w-screen-2xl mx-auto border-t border-border">
+		<section className="py-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto border-t border-border">
 			<SectionHeader title="Bien plus qu’un DIY: notre philosophie" badge="Nos valeurs" centered />
 			<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 				{values.map((value, index) => {
