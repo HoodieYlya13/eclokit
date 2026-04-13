@@ -16,7 +16,7 @@ export function BoxOfTheMonth() {
 							Sublimez votre table de Pâques avec une création faite de vos propres mains.
 						</p>
 						<p className="text-muted-foreground font-light text-lg leading-relaxed">
-							Ce mois-ci, nous vous invitons à travailler la terre avec un projet de modelage exclusif : un
+							Ce mois-ci, nous vous invitons à travailler l'argile avec un projet de modelage exclusif : un
 							coquetier aux lignes minimalistes et organiques. Une parenthèse créative pour concevoir un objet
 							de décoration durable et unique.
 						</p>

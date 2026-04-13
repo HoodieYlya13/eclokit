@@ -60,7 +60,7 @@ export function ProductCardLarge({ product }: ProductCardProps) {
 
 	return (
 		<YnsLink href={`/product/${product.slug}`} className="group cursor-pointer block">
-			<div className="aspect-4/5 bg-secondary mb-6 overflow-hidden relative">
+			<div className="aspect-4/5 mb-6 overflow-hidden relative">
 				<Image
 					src={image}
 					alt={product.name}
@@ -98,7 +98,7 @@ export function ProductCardMedium({ product }: ProductCardProps) {
 
 	return (
 		<YnsLink href={`/product/${product.slug}`} className="group cursor-pointer flex flex-col">
-			<div className="aspect-3/4 bg-secondary mb-5 overflow-hidden relative rounded-sm">
+			<div className="aspect-3/4 mb-5 overflow-hidden relative rounded-sm">
 				<Image
 					src={image}
 					alt={product.name}

@@ -50,7 +50,7 @@ export function ProductCard({ product }: { product: BrowseProduct | CollectionPr
 
 	return (
 		<YnsLink prefetch={"eager"} href={`/product/${product.slug}`} className="group">
-			<div className="relative aspect-square bg-secondary rounded-2xl overflow-hidden mb-4">
+			<div className="relative aspect-square rounded-2xl overflow-hidden mb-4">
 				{singleVariant && (
 					<QuickAddButton
 						variantId={singleVariant.id}
