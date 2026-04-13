@@ -2,7 +2,7 @@ import { cacheLife } from "next/cache";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { commerce } from "@/lib/commerce";
-import { ProductCardMedium } from "./product-card";
+import { ProductCard } from "../product-card";
 import { SectionHeader } from "./section-header";
 
 type BestSellersProps = {
@@ -14,7 +14,7 @@ function BestSellersSkeleton() {
 		<div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
 			{Array.from({ length: 4 }).map((_, i) => (
 				<div key={i} className="flex flex-col">
-					<Skeleton className="aspect-3/4 mb-5 rounded-sm" />
+					<Skeleton className="aspect-square mb-5 rounded-sm" />
 					<div className="text-center">
 						<Skeleton className="h-6 w-24 mx-auto mb-2" />
 						<Skeleton className="h-4 w-16 mx-auto" />
@@ -44,7 +44,7 @@ async function BestSellersContent({ limit = 3 }: BestSellersProps) {
 	return (
 		<div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
 			{products.map((product) => (
-				<ProductCardMedium key={product.id} product={product} />
+				<ProductCard key={product.id} product={product} />
 			))}
 		</div>
 	);
