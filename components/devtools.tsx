@@ -64,7 +64,8 @@ export function ErrorOverlayRemover() {
 			style.textContent = /* css */ `[data-nextjs-dialog-overlay] { display: none !important; }`;
 			host.shadowRoot.appendChild(style);
 		} else {
-			console.warn("Could not find Next.js error overlay host element.");
+			if (process.env.NODE_ENV === "development")
+				console.warn("Could not find Next.js error overlay host element.");
 		}
 	}, []);
 

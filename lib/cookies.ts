@@ -11,7 +11,7 @@ export async function setCartCookie(cartCookieJson: CartCookieJson) {
 			sameSite: "lax",
 		});
 	} catch (error) {
-		console.error("Failed to set cart cookie", error);
+		if (process.env.NODE_ENV === "development") console.error("Failed to set cart cookie", error);
 	}
 }
 
