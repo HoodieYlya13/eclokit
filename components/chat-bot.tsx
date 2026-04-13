@@ -1,6 +1,6 @@
 "use client";
 
-import { Bot, HelpCircle, MessageCircle, Send, X } from "lucide-react";
+import { Bot, HelpCircle, MessageCircle, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -113,7 +113,7 @@ export function ChatBot() {
 					<button
 						type="button"
 						onClick={() => setIsOpen(false)}
-						className="p-2 hover:bg-white/10 rounded-full transition-colors flex items-center justify-center"
+						className="p-2 hover:bg-white/10 rounded-full transition-colors flex items-center justify-center sm:hidden"
 						aria-label="Fermer le chat"
 					>
 						<X className="size-6" />
@@ -173,7 +173,7 @@ export function ChatBot() {
 				</div>
 
 				{/* Input Mock */}
-				<div className="p-6 sm:p-4 bg-secondary/5 border-t border-border flex gap-3 shrink-0 pb-10 sm:pb-4">
+				{/* <div className="p-6 sm:p-4 bg-secondary/5 border-t border-border flex gap-3 shrink-0 pb-10 sm:pb-4">
 					<div className="flex-1 bg-background border border-border rounded-full px-5 py-3 text-sm text-muted-foreground flex items-center italic opacity-60">
 						Tapez votre message ici...
 					</div>
@@ -183,7 +183,7 @@ export function ChatBot() {
 					>
 						<Send className="h-5 w-5" />
 					</button>
-				</div>
+				</div> */}
 			</div>
 
 			{/* Floating Toggle Button - Hidden when open on mobile */}
