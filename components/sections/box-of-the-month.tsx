@@ -98,7 +98,7 @@ export function BoxOfTheMonth() {
 							fill
 							className="object-cover hover:scale-105 transition-transform duration-700"
 							sizes="(max-width: 768px) 100vw, 40vw"
-							priority
+							loading="lazy"
 						/>
 					</div>
 				</div>

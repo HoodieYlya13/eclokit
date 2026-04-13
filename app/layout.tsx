@@ -86,7 +86,7 @@ export default function RootLayout({
 	const env = process.env.VERCEL_ENV || "development";
 
 	return (
-		<html lang="fr">
+		<html lang="fr" data-scroll-behavior="smooth">
 			<body className={`${tanBuster.variable} ${montserrat.variable} antialiased`}>
 				<Suspense>
 					<StoreJsonLd />

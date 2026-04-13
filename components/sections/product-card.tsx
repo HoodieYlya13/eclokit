@@ -67,10 +67,11 @@ export function ProductCardLarge({ product }: ProductCardProps) {
 					fill
 					className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
 					sizes="(max-width: 768px) 100vw, 33vw"
+					loading="lazy"
 				/>
 				<button
 					type="button"
-					className="absolute bottom-4 right-4 w-10 h-10 bg-background rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg hover:bg-primary hover:text-primary-foreground"
+					className="absolute bottom-4 right-4 w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:text-primary-foreground"
 					aria-label="Add to cart"
 				>
 					<Plus className="w-4 h-4" />
@@ -105,6 +106,7 @@ export function ProductCardMedium({ product }: ProductCardProps) {
 					fill
 					className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
 					sizes="(max-width: 768px) 50vw, 25vw"
+					loading="lazy"
 				/>
 			</div>
 			<div className="text-center mt-auto">
@@ -124,13 +126,14 @@ export function ProductCardSmall({ product }: ProductCardProps) {
 
 	return (
 		<YnsLink href={`/product/${product.slug}`} className="group cursor-pointer block">
-			<div className="aspect-4/5 bg-card mb-4 overflow-hidden relative shadow-sm">
+			<div className="aspect-4/5 mb-4 overflow-hidden relative">
 				<Image
 					src={image}
 					alt={product.name}
 					fill
 					className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
 					sizes="(max-width: 768px) 50vw, 25vw"
+					loading="lazy"
 				/>
 			</div>
 			<h3 className="font-display text-lg text-foreground group-hover:text-primary transition-colors">

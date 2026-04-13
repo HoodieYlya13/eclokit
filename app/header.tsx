@@ -21,7 +21,15 @@ export function Header() {
 						href="/"
 						className="text-2xl md:text-3xl font-display font-bold tracking-tight flex flex-row items-center gap-2"
 					>
-						<Image src="/logo.png" alt="Logo" width={75} height={75} className="size-[50px] md:size-[75px]" />
+						<Image
+							priority
+							loading="eager"
+							src="/logo.png"
+							alt="Logo"
+							width={75}
+							height={75}
+							className="size-[50px] md:size-[75px]"
+						/>
 						<span className="hidden xl:flex text-foreground">EcloKit</span>
 					</YnsLink>
 				</div>

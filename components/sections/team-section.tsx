@@ -22,14 +22,16 @@ export function TeamSection({ title, members }: { title: string; members: Member
 								src={memberImages[index] ?? memberImages[0]}
 								alt={member.name}
 								fill
+								loading="lazy"
 								className="object-cover transition-transform duration-700 group-hover:scale-105"
+								sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 400px"
 							/>
 						</div>
 						<div className="flex flex-col gap-2">
 							<h3 className="text-[1.2rem] font-medium tracking-tight h-12 flex items-center">
 								{member.name}
 							</h3>
-							<span className="text-[0.65rem] font-serif uppercase tracking-[0.2em] text-primary mb-2">
+							<span className="text-[0.65rem] uppercase tracking-[0.2em] text-primary mb-2">
 								{member.role}
 							</span>
 							<p className="text-sm text-muted-foreground leading-relaxed italic border-l-2 border-primary/20 pl-4 py-2">

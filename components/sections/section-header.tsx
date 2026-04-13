@@ -9,6 +9,7 @@ type SectionHeaderProps = {
 	centered?: boolean;
 	withBorder?: boolean;
 	inversed?: boolean;
+	oneLiner?: boolean;
 };
 
 export function SectionHeader({
@@ -19,6 +20,7 @@ export function SectionHeader({
 	centered = false,
 	withBorder = false,
 	inversed = false,
+	oneLiner = false,
 }: SectionHeaderProps) {
 	if (inversed) {
 		const outlineStyle = {
@@ -28,14 +30,16 @@ export function SectionHeader({
 		return (
 			<div className="flex flex-col justify-center items-center gap-6">
 				<h2
-					className="font-display text-5xl sm:text-6xl md:text-7xl text-foreground text-center leading-[0.9]"
+					className={`font-display text-5xl sm:text-6xl md:text-7xl text-foreground text-center leading-14 sm:leading-20 ${oneLiner ? "2xl:whitespace-nowrap" : ""}`}
 					style={outlineStyle}
 				>
 					{title}
 				</h2>
-				<span className="font-semibold tracking-widest text-primary text-center bg-background opacity-90 backdrop-blur-sm rounded-2xl p-6 max-w-6xl text-xs md:text-sm leading-relaxed shadow-xl border border-primary/10">
-					{badge}
-				</span>
+				{badge && (
+					<span className="font-semibold tracking-widest text-primary text-center bg-background opacity-90 backdrop-blur-sm rounded-2xl p-6 max-w-6xl text-xs md:text-sm leading-relaxed shadow-xl border border-primary/10">
+						{badge}
+					</span>
+				)}
 			</div>
 		);
 	}
@@ -44,7 +48,7 @@ export function SectionHeader({
 		return (
 			<div className="flex flex-col justify-center items-center mb-16 gap-2">
 				<span className="font-semibold tracking-widest text-primary uppercase mb-2 block">{badge}</span>
-				<h2 className="font-display text-4xl md:text-5xl text-foreground text-center">{title}</h2>
+				<h2 className="font-display text-4xl md:text-5xl text-foreground text-center leading-14">{title}</h2>
 			</div>
 		);
 	}
@@ -55,7 +59,7 @@ export function SectionHeader({
 		>
 			<div>
 				<span className="font-semibold tracking-widest text-primary uppercase mb-2 block">{badge}</span>
-				<h2 className="font-display text-4xl md:text-5xl text-foreground">{title}</h2>
+				<h2 className="font-display text-4xl md:text-5xl text-foreground leading-14">{title}</h2>
 			</div>
 			{viewAllLink && (
 				<YnsLink

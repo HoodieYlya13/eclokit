@@ -53,7 +53,7 @@ export function NewArrivals({ limit = 4 }: NewArrivalsProps) {
 						alt="Ma box créative"
 						src="https://www.ciloubidouille.com/wp-content/uploads/2023/06/presentation-box-creative-819x1024.png"
 						fill
-						priority
+						loading="lazy"
 						quality={95}
 						className="object-cover object-top lg:object-center hover:scale-105 transition-transform duration-[2s]"
 						sizes="(max-width: 1024px) 100vw, 50vw"

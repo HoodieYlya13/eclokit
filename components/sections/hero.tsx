@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { YnsLink } from "@/components/yns-link";
+import { HeroBackground } from "./hero-background";
 import { HeroTypography } from "./hero-typography";
 import { JigglingButton } from "./jiggling-button";
 
@@ -115,32 +116,7 @@ function HeroImages() {
 export function Hero() {
 	return (
 		<section className="relative w-full min-h-dvh flex flex-col items-center justify-center py-36 md:py-0 overflow-hidden">
-			{/* Background Image */}
-			<div className="absolute inset-0 z-0">
-				{/* Mobile Background */}
-				<div className="md:hidden absolute inset-0">
-					<Image
-						src="/img/background-rotated.jpeg"
-						alt="Background Mobile"
-						fill
-						className="object-cover"
-						sizes="100vw"
-						priority
-					/>
-				</div>
-				{/* Desktop Background */}
-				<div className="hidden md:block absolute inset-0">
-					<Image
-						src="/img/background.jpeg"
-						alt="Background Desktop"
-						fill
-						className="object-cover"
-						sizes="100vw"
-						priority
-					/>
-				</div>
-				<div className="absolute inset-0" />
-			</div>
+			<HeroBackground />
 			{/* Decorative elements */}
 			<DecorativeWavyLines />
 			<DecorativeCross />
@@ -165,7 +141,7 @@ export function Hero() {
 								asChild
 								className="rounded-full px-8 py-7 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/5 bg-background text-foreground border border-border hover:bg-background/90 opacity-90 w-full"
 							>
-								<YnsLink href="/#products">Nos abonnements</YnsLink>
+								<YnsLink href="/#subscriptions">Nos abonnements</YnsLink>
 							</Button>
 						</JigglingButton>
 						<JigglingButton delay={0.2}>

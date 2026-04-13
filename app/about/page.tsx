@@ -9,7 +9,7 @@ import { YnsLink } from "@/components/yns-link";
 const aboutData = {
 	pageTitle: "À Propos d'EcloKit",
 	heroSection: {
-		title: "L'Art de Créer, Tout Simplement",
+		title: "L'art de créer, tout simplement",
 		introduction:
 			"Bienvenue chez EcloKit, votre nouvelle source d’inspiration créative. Nous croyons que la créativité ne devrait jamais être une source de stress ou de complication, mais un plaisir pur et accessible. Vous avez l'envie, nous avons le savoir-faire. Fini les heures passées à chercher le bon pinceau ou la couleur de fil idéale : nous avons conçu EcloKit pour transformer chaque intention en une réalisation concrète, sans aucune contrainte.",
 		cta: "Découvrir nos coffrets créatifs",
@@ -22,24 +22,22 @@ const aboutData = {
 			"Chaque outil, chaque matière est rigoureusement testé pour sa qualité supérieure. Nous sourçons nos produits en Europe, en choisissant des partenaires qui partagent nos valeurs d’excellence. Avec EcloKit, vous accédez au meilleur de l'univers DIY, dans un format clé-en-main.",
 	},
 	engagementsSection: {
-		title: "Nos Engagements : Créer avec Conscience",
-		introText:
-			"Parce que créer ne devrait pas se faire au détriment de la planète, EcloKit s'engage concrètement à chaque étape de votre projet.",
+		title: "Nos engagements : créer avec conscience",
 		commitments: [
 			{
 				label: 'Zéro Gaspillage : La "Juste Dose"',
 				description:
-					"Nous luttons contre la surconsommation de matériel. Chaque coffret contient la quantité exacte de fournitures nécessaire à votre réalisation. Résultat : rien n'est jeté, rien ne finit au fond d'un placard. Vous créez utile, vous créez responsable.",
+					"Nous luttons contre la surconsommation. Chaque coffret contient la quantité exacte de fournitures nécessaire à votre réalisation. Résultat : rien n'est jeté, ni stocké inutilement. Vous créez de façon utile, responsable et durable.",
 			},
 			{
 				label: "Sourcing Éthique & Européen",
 				description:
-					"Nous privilégions les circuits courts. Nos emballages et nos fournisseurs sont sélectionnés pour leurs valeurs et leur provenance.",
+					"Nous privilégions les circuits courts pour un impact réduit. Nos emballages et nos fournisseurs européens sont rigoureusement sélectionnés pour leurs valeurs éthiques, leur provenance locale et la haute qualité de leurs matériaux.",
 			},
 			{
 				label: "Solidarité : Soutenir les Femmes",
 				description:
-					"EcloKit est une aventure née de la vision de trois femmes. Il nous tenait donc à cœur de soutenir celles qui en ont besoin. C'est pourquoi nous reversons une partie de nos bénéfices à la Fondation des Femmes de Paris. En choisissant nos coffrets, vous participez directement au financement de projets qui font bouger les lignes.",
+					"EcloKit est une aventure née de la vision de trois femmes. Nous reversons une partie de nos bénéfices à la Fondation des Femmes de Paris. En choisissant nos coffrets, vous financez directement des projets concrets qui font bouger les lignes.",
 			},
 		],
 	},
@@ -64,7 +62,7 @@ const aboutData = {
 		],
 	},
 	footerCta: {
-		text: "Rejoignez la communauté EcloKit et libérez votre potentiel créatif dès aujourd'hui.",
+		text: "Libérez votre potentiel créatif dès aujourd'hui.",
 		buttonLabel: "Je commence l’aventure",
 	},
 };
@@ -95,7 +93,6 @@ export default function AboutPage() {
 
 			<Commitments
 				title={aboutData.engagementsSection.title}
-				introText={aboutData.engagementsSection.introText}
 				commitments={aboutData.engagementsSection.commitments}
 			/>
 
@@ -103,7 +100,7 @@ export default function AboutPage() {
 
 			<section className="py-32 px-6 md:px-12 w-full max-w-screen-2xl mx-auto text-center border-t border-border">
 				<div className="max-w-3xl mx-auto flex flex-col items-center gap-10">
-					<h2 className="font-display text-4xl md:text-5xl leading-tight">{aboutData.footerCta.text}</h2>
+					<h2 className="text-4xl md:text-5xl leading-tight">{aboutData.footerCta.text}</h2>
 					<Button
 						asChild
 						className="rounded-full px-12 py-8 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/20 bg-foreground text-background"
