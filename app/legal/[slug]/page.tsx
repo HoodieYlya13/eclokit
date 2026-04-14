@@ -2,6 +2,12 @@ import { cacheLife } from "next/cache";
 import { notFound } from "next/navigation";
 import { commerce } from "@/lib/commerce";
 
+export async function generateStaticParams() {
+	if (process.env.NODE_ENV === "development") return [];
+	const pages = await commerce.legalPageBrowse();
+	return pages.data.map((p) => ({ slug: p.path.replace(/^\//, "") }));
+}
+
 export default async function LegalPage(props: { params: Promise<{ slug: string }> }) {
 	"use cache";
 	cacheLife("hours");

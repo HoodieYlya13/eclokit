@@ -8,6 +8,12 @@ import { commerce } from "@/lib/commerce";
 import { buildCollectionBreadcrumbJsonLd, buildCollectionJsonLd, JsonLdScript } from "@/lib/json-ld";
 import { YNSMedia } from "@/lib/yns-media";
 
+export async function generateStaticParams() {
+	if (process.env.NODE_ENV === "development") return [];
+	const collections = await commerce.collectionBrowse({ limit: 100 });
+	return collections.data.map((c) => ({ slug: c.slug }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
 	const { slug } = await params;
 	const collection = await commerce.collectionGet({ idOrSlug: slug });
@@ -96,7 +102,7 @@ function CollectionProducts({ collection }: { collection: APICollectionGetByIdRe
 	);
 }
 
-export default async function CollectionPage(props: PageProps<"/collection/[slug]">) {
+export default async function CollectionPage(props: { params: Promise<{ slug: string }> }) {
 	"use cache";
 	cacheLife("minutes");
 

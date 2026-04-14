@@ -10,6 +10,12 @@ import { CURRENCY, LOCALE } from "@/lib/constants";
 import { buildProductBreadcrumbJsonLd, buildProductJsonLd, JsonLdScript } from "@/lib/json-ld";
 import { formatMoney } from "@/lib/money";
 
+export async function generateStaticParams() {
+	if (process.env.NODE_ENV === "development") return [];
+	const products = await commerce.productBrowse({ limit: 100 });
+	return products.data.map((p) => ({ slug: p.slug }));
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
 	const { slug } = await params;
 	const product = await commerce.productGet({ idOrSlug: slug });
