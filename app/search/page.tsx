@@ -95,7 +95,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 	const query = q?.trim() ?? "";
 
 	return (
-		<div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+		<div className="max-w-7xl mx-auto px-6 md:px-12 py-16 pt-36 md:pt-48">
 			<div className="mb-12">
 				<h1 className="font-display text-4xl md:text-5xl mb-6">Rechercher des produits</h1>
 				<SearchForm initialQuery={query} />

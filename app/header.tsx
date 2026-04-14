@@ -1,4 +1,4 @@
-import { Bell, Search } from "lucide-react";
+import { Search } from "lucide-react";
 import Image from "next/image";
 import { YnsLink } from "@/components/yns-link";
 import { CartButton } from "./cart-button";
@@ -43,13 +43,13 @@ export function Header() {
 					>
 						<Search className="w-5 h-5" />
 					</YnsLink>
-					<button
+					{/* <button
 						type="button"
 						className="hover:text-primary transition-colors text-foreground"
 						aria-label="Notifications"
 					>
 						<Bell className="w-5 h-5" />
-					</button>
+					</button> */}
 					<CartButton />
 				</div>
 			</div>

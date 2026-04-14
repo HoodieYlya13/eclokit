@@ -10,6 +10,7 @@ type SectionHeaderProps = {
 	withBorder?: boolean;
 	inversed?: boolean;
 	oneLiner?: boolean;
+	noMarginBottom?: boolean;
 };
 
 export function SectionHeader({
@@ -21,6 +22,7 @@ export function SectionHeader({
 	withBorder = false,
 	inversed = false,
 	oneLiner = false,
+	noMarginBottom = false,
 }: SectionHeaderProps) {
 	if (inversed) {
 		const outlineStyle = {
@@ -46,7 +48,7 @@ export function SectionHeader({
 
 	if (centered) {
 		return (
-			<div className="flex flex-col justify-center items-center mb-16 gap-2">
+			<div className={`flex flex-col justify-center items-center ${noMarginBottom ? "" : "mb-16"} gap-2`}>
 				<span className="font-semibold tracking-widest text-primary uppercase mb-2 block">{badge}</span>
 				<h2 className="font-display text-4xl md:text-5xl text-foreground text-center leading-14">{title}</h2>
 			</div>
