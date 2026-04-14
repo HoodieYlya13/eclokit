@@ -171,18 +171,18 @@ export function Footer() {
 							</YnsLink>
 						</li>
 						<li>
-							<YnsLink href="/ingredients" className="hover:text-primary transition-colors">
-								Ingrédients
+							<YnsLink href="/contact" className="hover:text-primary transition-colors">
+								Contact
 							</YnsLink>
 						</li>
 						<li>
-							<YnsLink href="/sustainability" className="hover:text-primary transition-colors">
-								Durabilité
+							<YnsLink href="/#subscriptions" className="hover:text-primary transition-colors">
+								Abonnements
 							</YnsLink>
 						</li>
 						<li>
-							<YnsLink href="/faq" className="hover:text-primary transition-colors">
-								FAQ
+							<YnsLink href="/blog" className="hover:text-primary transition-colors">
+								Blog
 							</YnsLink>
 						</li>
 					</ul>
@@ -190,7 +190,7 @@ export function Footer() {
 
 				{/* Newsletter */}
 				<div className="md:col-span-4">
-					<h4 className="font-display font-semibold mb-6">Restons connectés</h4>
+					<h4 className="font-display font-semibold mb-6">Restons en contact</h4>
 					<p className="text-sm text-muted-foreground mb-6 font-light">
 						Abonnez-vous pour recevoir des nouvelles de nos box, des offres exclusives et des conseils de
 						créativité.

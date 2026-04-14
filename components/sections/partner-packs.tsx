@@ -13,51 +13,71 @@ const packs: Pack[] = [
 	{
 		id: "pack1",
 		name: "Pack Découverte",
-		price: "300 €",
+		price: "300 € HT",
 		features: [
-			"Placement produit dans la box",
-			"Logo et marque sur le site (mois en cours)",
+			"Placement de votre produit dans la box du mois",
+			"Présence de votre logo sur notre site (durant 1 mois)",
 			"1 story Instagram dédiée",
-			"Mention dans le tuto vidéo",
-			"Encart dans la newsletter mensuelle",
-			"Partage d'un code promo exclusif",
+			"Mention dans notre tuto vidéo dédiée a la box",
+			"Mention de votre marque dans notre newsletter mensuelle",
+			"Partage d'un code promo exclusif de votre choix",
 		],
 	},
 	{
 		id: "pack2",
-		name: "Pack Influence",
-		price: "600 €",
+		name: "Pack Signature",
+		price: "600 € HT",
 		features: [
-			"Contenu du Pack 1 inclus",
-			"1 article de blog dédié",
-			"1 post feed supplémentaire sur nos réseaux",
+			"Placement de votre produit dans la box du mois",
+			"Présence de votre logo sur notre site (durant 1 mois)",
+			"1 story Instagram dédiée",
+			"Mention dans notre tuto vidéo dédiée a la box",
+			"Mention de votre marque dans notre newsletter mensuelle",
+			"Partage d'un code promo exclusif de votre choix",
+			"1 article de blog dédié à votre marque ",
+			"1 publication dans le feed de nos réseaux sociaux",
 			"Mise en vente de vos produits à l'unité sur notre e-commerce",
 		],
 	},
 	{
 		id: "pack3",
 		name: "Pack Premium",
-		price: "1 400 €",
+		price: "1 400 € HT",
 		features: [
-			"Contenu du Pack 2 inclus",
-			"Article de blog Sponsorisé (mis en avant)",
+			"Placement de votre produit dans la box du mois",
+			"Présence de votre logo sur notre site (durant 1 mois)",
+			"1 story Instagram dédiée",
+			"Mention dans notre tuto vidéo dédiée a la box",
+			"Mention de votre marque dans notre newsletter mensuelle",
+			"Partage d'un code promo exclusif de votre choix",
+			"1 article de blog dédié à votre marque ",
+			"1 publication dans le feed de nos réseaux sociaux",
+			"Mise en vente de vos produits à l'unité sur notre e-commerce",
+			"Article de blog Sponsorisé (mis en avant sur notre site)",
 			"Bannière premium sur la page d'accueil",
 			"Intégration dans 3 box mensuelles sur l'année",
 		],
 	},
 	{
 		id: "pack4",
-		name: "Pack Signature",
-		price: "2 000 €",
-		availability: "À partir de la deuxième année",
-		features: ["Visibilité Pack 1 incluse", "1 box complète dédiée exclusivement à vos produits"],
+		name: "Pack Exclusivité",
+		price: "2 000 € HT",
+		availability: "Une box 100% dédiée à vos produits",
+		features: [
+			"Création d'une box exclusive créée par nos soins avec 100% de vos produits",
+			"Présence de votre logo sur notre site (durant 1 mois)",
+			"1 story Instagram dédiée",
+			"Une vidéo complète de prise en main de vos produits",
+			"Focus de votre marque dans une newsletter dédiée",
+			"Partage d'un code promo exclusif de votre choix",
+		],
 	},
 ];
 
 export function PartnerPacks() {
 	return (
 		<section className="py-24 px-6 md:px-12 w-full max-w-screen-2xl mx-auto border-t border-border">
-			<SectionHeader badge="Visibilité & Influence" title="Faites rayonner votre marque" centered />
+			<SectionHeader badge="Nos packs adaptés à vos besoins" title="Faites rayonner votre marque" centered />
 
 			<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 				{packs.map((pack) => (
@@ -75,7 +95,7 @@ export function PartnerPacks() {
 								<h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-foreground mb-1">
 									{pack.name}
 								</h3>
-								<div className="text-2xl md:text-3xl lg:text-4xl font-display text-primary">{pack.price}</div>
+								<div className="text-2xl md:text-3xl lg:text-4xl text-primary">{pack.price}</div>
 							</div>
 
 							<ul className="flex-1 space-y-4">

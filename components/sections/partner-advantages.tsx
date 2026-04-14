@@ -31,7 +31,7 @@ const advantages = [
 export function PartnerAdvantages() {
 	return (
 		<section className="py-24 px-6 md:px-12 w-full max-w-screen-2xl mx-auto border-t border-border">
-			<SectionHeader title="Pourquoi devenir partenaire EcloKit ?" badge="Argumentaire" centered />
+			<SectionHeader title="Pourquoi devenir partenaire EcloKit ?" badge="" centered />
 
 			<div className="max-w-3xl mx-auto text-center mb-20 -mt-10">
 				<p className="text-xl text-muted-foreground leading-relaxed italic">

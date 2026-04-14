@@ -56,7 +56,8 @@ export function PartnerContactForm() {
 
 			<div className="max-w-2xl mx-auto">
 				<p className="text-center text-muted-foreground mb-12 -mt-12 text-lg">
-					Laissez-nous vos coordonnées et nous vous recontacterons pour construire votre projet sur-mesure.
+					Faites comme nos plus de 50 partenaires, choisissez Eclokit ! Écrivez-nous via le formulaire
+					ci-dessous
 				</p>
 
 				<form onSubmit={handleSubmit} className="space-y-8 animate-fade-in-up">
@@ -74,7 +75,7 @@ export function PartnerContactForm() {
 						</div>
 						<div className="space-y-2">
 							<Label htmlFor="email" className="text-xs uppercase tracking-widest font-bold">
-								Adresse email professionnelle
+								Adresse email
 							</Label>
 							<Input
 								id="email"
@@ -88,11 +89,11 @@ export function PartnerContactForm() {
 
 					<div className="space-y-2">
 						<Label htmlFor="message" className="text-xs uppercase tracking-widest font-bold">
-							Parlez-nous de vos produits
+							Parlez-nous de vous
 						</Label>
 						<Textarea
 							id="message"
-							placeholder="Dites-nous en plus sur votre univers créatif..."
+							placeholder="Dites-nous en plus sur votre univers créatif et vos attentes..."
 							className="rounded-xl border-border/50 bg-background focus:ring-primary/20 min-h-[150px] resize-none"
 							required
 						/>
