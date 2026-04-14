@@ -115,7 +115,7 @@ function HeroImages() {
 
 export function Hero() {
 	return (
-		<section className="relative w-full min-h-screen min-h-dvh flex flex-col items-center justify-center py-20 md:py-0 overflow-hidden">
+		<section className="relative w-full min-h-screen min-h-dvh flex flex-col items-center justify-center py-20 pt-36 md:py-0 md:pt-48 overflow-hidden">
 			<HeroBackground />
 			{/* Decorative elements */}
 			<DecorativeWavyLines />
