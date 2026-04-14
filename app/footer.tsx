@@ -185,6 +185,11 @@ export function Footer() {
 								Blog
 							</YnsLink>
 						</li>
+						<li>
+							<YnsLink href="/faq" className="hover:text-primary transition-colors">
+								FAQ
+							</YnsLink>
+						</li>
 					</ul>
 				</div>
 
