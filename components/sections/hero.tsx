@@ -115,14 +115,14 @@ function HeroImages() {
 
 export function Hero() {
 	return (
-		<section className="relative w-full min-h-dvh flex flex-col items-center justify-center py-36 md:py-0 overflow-hidden">
+		<section className="relative w-full min-h-screen min-h-dvh flex flex-col items-center justify-center py-20 md:py-0 overflow-hidden">
 			<HeroBackground />
 			{/* Decorative elements */}
 			<DecorativeWavyLines />
 			<DecorativeCross />
 
 			{/* Main grid layout */}
-			<div className="relative w-full max-w-screen-2xl mx-auto px-6 md:px-12 grid grid-cols-1 gap-8 h-full items-center">
+			<div className="relative w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col items-center justify-center">
 				{/* Center content */}
 				<div className="relative text-center flex flex-col gap-6 items-center justify-center z-20">
 					{/* Refresh badge */}
