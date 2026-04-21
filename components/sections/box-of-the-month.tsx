@@ -81,7 +81,7 @@ export function BoxOfTheMonth() {
 								asChild
 								className="rounded-full px-10 py-7 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-lg hover:shadow-primary/20 bg-foreground"
 							>
-								<YnsLink href="/products" className="text-background">
+								<YnsLink href="/subscriptions" className="text-background">
 									Je découvre les offres
 								</YnsLink>
 							</Button>
