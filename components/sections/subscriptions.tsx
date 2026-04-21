@@ -14,7 +14,7 @@ function SubscriptionsSkeleton() {
 		<div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
 			{Array.from({ length: 3 }).map((_, i) => (
 				<div key={i}>
-					<Skeleton className="aspect-[4/5] mb-6" />
+					<Skeleton className="aspect-4/5 mb-6" />
 					<div className="flex justify-between">
 						<div>
 							<Skeleton className="h-8 w-40 mb-2" />
@@ -55,10 +55,7 @@ async function SubscriptionsContent({ limit = 3 }: SubscriptionsProps) {
 
 export function Subscriptions({ limit = 3 }: SubscriptionsProps) {
 	return (
-		<section
-			id="subscriptions"
-			className="py-20 px-6 md:px-12 flex flex-col justify-center w-full min-h-dvh max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border"
-		>
+		<section className="py-20 px-6 md:px-12 flex flex-col justify-center w-full min-h-dvh max-w-screen-2xl mx-auto relative z-50 bg-background pt-36 md:pt-48">
 			<SectionHeader badge="Nos abonnements" title="Votre créativité, votre rythme" centered />
 			<Suspense fallback={<SubscriptionsSkeleton />}>
 				<SubscriptionsContent limit={limit} />

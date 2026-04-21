@@ -141,7 +141,7 @@ export function Hero() {
 								asChild
 								className="rounded-full px-8 py-7 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/5 bg-background text-foreground border border-border hover:bg-background/90 opacity-90 w-full"
 							>
-								<YnsLink href="/#subscriptions">Nos abonnements</YnsLink>
+								<YnsLink href="/subscriptions">Nos abonnements</YnsLink>
 							</Button>
 						</JigglingButton>
 						<JigglingButton delay={0.2}>

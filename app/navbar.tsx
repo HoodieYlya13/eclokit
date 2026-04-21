@@ -17,7 +17,7 @@ export async function Navbar({ className }: { className?: string }) {
 			</YnsLink>
 			<YnsLink
 				prefetch={"eager"}
-				href="/#subscriptions"
+				href="/subscriptions"
 				className="hover:text-primary transition-colors"
 				activeClassName="text-foreground border-b-2 border-primary pb-1"
 			>

@@ -29,20 +29,27 @@ async function ProductList({ page, sort }: { page?: string; sort?: string }) {
 	cacheLife("minutes");
 
 	const currentPage = Math.max(1, Number(page) || 1);
-	const offset = (currentPage - 1) * PRODUCTS_PER_PAGE;
 	const sortOption = sortOptions.find((s) => s.value === sort) ?? sortOptions[0];
 
 	const result = await commerce.productBrowse({
 		active: true,
-		limit: PRODUCTS_PER_PAGE,
-		offset,
+		limit: 100,
 		orderBy: sortOption.orderBy,
 		orderDirection: sortOption.orderDirection,
 	});
 
-	const totalPages = Math.ceil(result.meta.count / PRODUCTS_PER_PAGE);
+	// Filter out products that are part of the 'subscriptions' collection
+	const filteredProducts = result.data.filter((product) => {
+		const isSubscription =
+			"productCollections" in product &&
+			product.productCollections?.some((pc) => pc.collection?.slug === "subscriptions");
+		return !isSubscription;
+	});
+	const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+	const offset = (currentPage - 1) * PRODUCTS_PER_PAGE;
+	const paginatedProducts = filteredProducts.slice(offset, offset + PRODUCTS_PER_PAGE);
 
-	if (result.data.length === 0) {
+	if (paginatedProducts.length === 0) {
 		return (
 			<div className="py-24 text-center">
 				<p className="text-lg text-muted-foreground">Pas de produits disponibles pour le moment.</p>
@@ -53,7 +60,7 @@ async function ProductList({ page, sort }: { page?: string; sort?: string }) {
 	return (
 		<>
 			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-				{result.data.map((product) => (
+				{paginatedProducts.map((product) => (
 					<ProductCard key={product.id} product={product} />
 				))}
 			</div>

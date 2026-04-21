@@ -9,6 +9,8 @@ import { CartSidebar } from "@/app/cart/cart-sidebar";
 import { Footer } from "@/app/footer";
 import { ChatBot } from "@/components/chat-bot";
 import { ErrorOverlayRemover, NavigationReporter } from "@/components/devtools";
+import { NewsletterPopup } from "@/components/newsletter-popup";
+import { BottomSection } from "@/components/sections/bottom-section";
 import { commerce, getStoreFaviconUrl, meGetCached } from "@/lib/commerce";
 import { getCartCookieJson } from "@/lib/cookies";
 import { StoreJsonLd } from "@/lib/json-ld";
@@ -69,11 +71,15 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 		<CartProvider initialCart={cart} initialCartId={cartId}>
 			<div className="flex min-h-screen flex-col">
 				<Header />
-				<main className="flex-1 w-full">{children}</main>
+				<main className="flex-1 w-full">
+					{children}
+					<BottomSection />
+				</main>
 				<Footer />
 			</div>
 			<CartSidebar />
 			<ChatBot />
+			<NewsletterPopup />
 		</CartProvider>
 	);
 }

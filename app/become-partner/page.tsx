@@ -3,6 +3,7 @@ import { AboutHero } from "@/components/sections/about-hero";
 import { PartnerAdvantages } from "@/components/sections/partner-advantages";
 // import { PartnerContactForm } from "@/components/sections/partner-contact-form";
 import { PartnerPacks } from "@/components/sections/partner-packs";
+import { PartnerTestimonials } from "@/components/sections/partner-testimonials";
 import { PartnersInfo } from "@/components/sections/partners-info";
 
 const partnerData = {
@@ -26,6 +27,8 @@ export default function BecomePartnerPage() {
 			<PartnerPacks />
 
 			<PartnersInfo />
+
+			<PartnerTestimonials />
 
 			{/* <PartnerContactForm /> */}
 		</>

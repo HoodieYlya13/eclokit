@@ -82,11 +82,10 @@ export function AddToCartButton({
 	const buttonText = useMemo(() => {
 		if (isPending) return "Ajout en cours...";
 		if (!selectedVariant) return "Sélectionnez les options";
-		if (totalPrice) {
-			const suffix = isSubscription ? " /mois" : "";
-			return `Ajouter au panier — ${formatMoney({ amount: totalPrice, currency: CURRENCY, locale: LOCALE })}${suffix}`;
-		}
-		return "Add to Cart";
+		if (isSubscription) return "S'abonner";
+		if (totalPrice)
+			return `Ajouter au panier — ${formatMoney({ amount: totalPrice, currency: CURRENCY, locale: LOCALE })}`;
+		return "Ajouter au panier";
 	}, [isPending, selectedVariant, totalPrice, isSubscription]);
 
 	const handleSubmit = (e: React.FormEvent) => {

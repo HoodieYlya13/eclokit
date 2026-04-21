@@ -6,7 +6,8 @@ import { Hero } from "@/components/sections/hero";
 import { OurPartners } from "@/components/sections/our-partners";
 import { OurValues } from "@/components/sections/our-values";
 // import { Philosophy } from "@/components/sections/philosophy";
-import { Subscriptions } from "@/components/sections/subscriptions";
+// import { Subscriptions } from "@/components/sections/subscriptions";
+import { SubscriptionCountdown } from "@/components/sections/subscription-countdown";
 
 export default function Home() {
 	return (
@@ -15,7 +16,8 @@ export default function Home() {
 			<Hero />
 			<BoxOfTheMonth />
 			<OurPartners />
-			<Subscriptions limit={3} />
+			<SubscriptionCountdown />
+			{/* <Subscriptions limit={3} /> */}
 			<OurValues />
 			<BestSellers limit={4} />
 			{/* <NewArrivals limit={4} />

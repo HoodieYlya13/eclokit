@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function HeroBackground() {
+export function HeroBackground({ isPriority = true }: { isPriority?: boolean }) {
 	return (
 		<div className="absolute inset-0 z-0 overflow-hidden @container-[size]">
 			<div
@@ -16,12 +16,12 @@ export function HeroBackground() {
 					fill
 					className="object-cover"
 					sizes="100vmax"
-					priority
-					fetchPriority="high"
+					priority={isPriority}
+					fetchPriority={isPriority ? "high" : "low"}
 				/>
 			</div>
 
-			<div className="absolute inset-0" />
+			<div className="absolute inset-0 bg-background/10 dark:bg-black/20" />
 		</div>
 	);
 }

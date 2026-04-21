@@ -58,10 +58,10 @@ export function CartSidebar() {
 									</span>
 								</div>
 								<p className="text-xs text-muted-foreground">
-									Les frais de port et les taxes sont calculés au moment du paiement
+									En cliquant sur "Passer au paiement", vous acceptez nos conditions générales de vente.
 								</p>
 								<Button asChild className="w-full h-12 text-base font-medium">
-									<a href={checkoutUrl}>Passer à la caisse</a>
+									<a href={checkoutUrl}>Passer au paiement</a>
 								</Button>
 								<button
 									type="button"

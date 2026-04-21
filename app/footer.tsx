@@ -176,7 +176,7 @@ export function Footer() {
 							</YnsLink>
 						</li>
 						<li>
-							<YnsLink href="/#subscriptions" className="hover:text-primary transition-colors">
+							<YnsLink href="/subscriptions" className="hover:text-primary transition-colors">
 								Abonnements
 							</YnsLink>
 						</li>
@@ -222,11 +222,17 @@ export function Footer() {
 			<div className="max-w-7xl mx-auto pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
 				<p>&copy; {new Date().getFullYear()} EcloKit. Tous droits réservés.</p>
 				<div className="flex space-x-6 mt-4 md:mt-0">
+					<YnsLink href="/mentions-legales" className="hover:text-foreground">
+						Mentions légales
+					</YnsLink>
+					<YnsLink href="/cgv" className="hover:text-foreground">
+						Conditions générales de ventes
+					</YnsLink>
 					<YnsLink href="/privacy" className="hover:text-foreground">
 						Politique de confidentialité
 					</YnsLink>
 					<YnsLink href="/terms" className="hover:text-foreground">
-						Conditions d'utilisation
+						Conditions générales d'utilisation
 					</YnsLink>
 				</div>
 			</div>

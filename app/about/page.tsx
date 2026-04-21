@@ -3,8 +3,6 @@ import { AboutHero } from "@/components/sections/about-hero";
 import { Commitments } from "@/components/sections/commitments";
 import { SectionHeader } from "@/components/sections/section-header";
 import { TeamSection } from "@/components/sections/team-section";
-import { Button } from "@/components/ui/button";
-import { YnsLink } from "@/components/yns-link";
 
 const aboutData = {
 	pageTitle: "À Propos d'EcloKit",
@@ -47,7 +45,7 @@ const aboutData = {
 			{
 				name: "Loanne Hello",
 				role: "La Visionnaire",
-				bio: "Fondatrice et Cheffe de projet, Loanne est l'étincelle à l'origine d'EcloKit. Passionnée par l’entrepreneuriat et le DIY, elle insuffle la stratégie et veille à la direction artistique de chaque coffret. Pour elle, chaque client doit pouvoir ressentir la ferté de dire : 'C’est moi qui l'ai fait'.",
+				bio: "Fondatrice et Cheffe de projet, Loanne est l'étincelle à l'origine d'EcloKit. Passionnée par l’entrepreneuriat et le DIY, elle insuffle la stratégie et veille à la direction artistique de chaque coffret. Pour elle, chaque client doit pouvoir ressentir la fierté de dire : 'C’est moi qui l'ai fait'.",
 			},
 			{
 				name: "Lina Losson",
@@ -98,17 +96,17 @@ export default function AboutPage() {
 
 			<TeamSection title={aboutData.teamSection.title} members={aboutData.teamSection.members} />
 
-			<section className="py-32 px-6 md:px-12 w-full max-w-screen-2xl mx-auto text-center border-t border-border">
+			{/* <section className="py-32 px-6 md:px-12 w-full max-w-screen-2xl mx-auto text-center border-t border-border">
 				<div className="max-w-3xl mx-auto flex flex-col items-center gap-10">
 					<h2 className="text-4xl md:text-5xl leading-tight">{aboutData.footerCta.text}</h2>
 					<Button
 						asChild
 						className="rounded-full px-12 py-8 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/20 bg-foreground text-background"
 					>
-						<YnsLink href="/#subscriptions">{aboutData.footerCta.buttonLabel}</YnsLink>
+						<YnsLink href="/subscriptions">{aboutData.footerCta.buttonLabel}</YnsLink>
 					</Button>
 				</div>
-			</section>
+			</section> */}
 		</main>
 	);
 }

@@ -9,7 +9,10 @@ import { buildCollectionBreadcrumbJsonLd, buildCollectionJsonLd, JsonLdScript } 
 import { YNSMedia } from "@/lib/yns-media";
 
 export async function generateStaticParams() {
-	if (process.env.NODE_ENV === "development") return [];
+	if (process.env.NODE_ENV === "development") {
+		const collections = await commerce.collectionBrowse({ limit: 1 });
+		return collections.data.map((c) => ({ slug: c.slug }));
+	}
 	const collections = await commerce.collectionBrowse({ limit: 100 });
 	return collections.data.map((c) => ({ slug: c.slug }));
 }

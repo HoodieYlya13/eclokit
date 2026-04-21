@@ -3,7 +3,10 @@ import { notFound } from "next/navigation";
 import { commerce } from "@/lib/commerce";
 
 export async function generateStaticParams() {
-	if (process.env.NODE_ENV === "development") return [];
+	if (process.env.NODE_ENV === "development") {
+		const pages = await commerce.legalPageBrowse();
+		return pages.data.slice(0, 1).map((p) => ({ slug: p.path.replace(/^\//, "") }));
+	}
 	const pages = await commerce.legalPageBrowse();
 	return pages.data.map((p) => ({ slug: p.path.replace(/^\//, "") }));
 }

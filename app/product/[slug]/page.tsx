@@ -11,7 +11,10 @@ import { buildProductBreadcrumbJsonLd, buildProductJsonLd, JsonLdScript } from "
 import { formatMoney } from "@/lib/money";
 
 export async function generateStaticParams() {
-	if (process.env.NODE_ENV === "development") return [];
+	if (process.env.NODE_ENV === "development") {
+		const products = await commerce.productBrowse({ limit: 1 });
+		return products.data.map((p) => ({ slug: p.slug }));
+	}
 	const products = await commerce.productBrowse({ limit: 100 });
 	return products.data.map((p) => ({ slug: p.slug }));
 }
