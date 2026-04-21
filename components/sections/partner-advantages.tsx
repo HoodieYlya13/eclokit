@@ -35,8 +35,9 @@ export function PartnerAdvantages() {
 
 			<div className="max-w-3xl mx-auto text-center mb-20 -mt-10">
 				<p className="text-xl text-muted-foreground leading-relaxed italic">
-					"Ne vous contentez pas d'être vus : soyez adoptés. EcloKit n'est pas qu'un support publicitaire,
-					c'est un canal de vente directe et un levier d'acquisition client performant pour votre marque."
+					"Ne vous contentez pas d'être vus : soyez adoptés. EcloKit n'est pas qu'un support publicitaire ou
+					un simple placement de produit, c'est un canal de vente directe et un levier d'acquisition client
+					performant pour votre marque."
 				</p>
 			</div>
 

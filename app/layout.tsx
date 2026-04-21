@@ -8,11 +8,15 @@ import { CartProvider } from "@/app/cart/cart-context";
 import { CartSidebar } from "@/app/cart/cart-sidebar";
 import { Footer } from "@/app/footer";
 import { ChatBot } from "@/components/chat-bot";
+import { CookieConsent } from "@/components/cookie-consent";
 import { ErrorOverlayRemover, NavigationReporter } from "@/components/devtools";
 import { NewsletterPopup } from "@/components/newsletter-popup";
+import { NewsletterTrigger } from "@/components/newsletter-trigger";
 import { BottomSection } from "@/components/sections/bottom-section";
+import { Toaster } from "@/components/ui/sonner";
+import { WishlistProvider } from "@/components/wishlist-context";
 import { commerce, getStoreFaviconUrl, meGetCached } from "@/lib/commerce";
-import { getCartCookieJson } from "@/lib/cookies";
+import { getCartCookieJson, getCookieConsent } from "@/lib/cookies";
 import { StoreJsonLd } from "@/lib/json-ld";
 import { Header } from "./header";
 
@@ -65,21 +69,26 @@ async function getInitialCart() {
 }
 
 async function CartProviderWrapper({ children }: { children: React.ReactNode }) {
-	const { cart, cartId } = await getInitialCart();
+	const [{ cart, cartId }, initialConsent] = await Promise.all([getInitialCart(), getCookieConsent()]);
 
 	return (
 		<CartProvider initialCart={cart} initialCartId={cartId}>
-			<div className="flex min-h-screen flex-col">
-				<Header />
-				<main className="flex-1 w-full">
-					{children}
-					<BottomSection />
-				</main>
-				<Footer />
-			</div>
-			<CartSidebar />
-			<ChatBot />
-			<NewsletterPopup />
+			<WishlistProvider>
+				<div className="flex min-h-screen flex-col">
+					<Header />
+					<main className="flex-1 w-full">
+						{children}
+						<BottomSection />
+					</main>
+					<Footer />
+				</div>
+				<CartSidebar />
+				<ChatBot />
+				<CookieConsent initialConsent={initialConsent} />
+				<NewsletterTrigger />
+				<NewsletterPopup />
+				<Toaster position="bottom-right" />
+			</WishlistProvider>
 		</CartProvider>
 	);
 }

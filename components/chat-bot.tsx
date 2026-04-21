@@ -49,6 +49,7 @@ export function ChatBot() {
 		},
 	]);
 	const [isTyping, setIsTyping] = useState(false);
+	const [hasConsentChoice, setHasConsentChoice] = useState(false);
 	const messagesEndRef = useRef<HTMLDivElement>(null);
 
 	const scrollToBottom = useCallback(() => {
@@ -56,8 +57,23 @@ export function ChatBot() {
 	}, []);
 
 	useEffect(() => {
+		const checkConsent = () => {
+			const consent = document.cookie
+				.split("; ")
+				.find((row) => row.startsWith("yns_cookie_consent="))
+				?.split("=")[1];
+			setHasConsentChoice(!!consent);
+		};
+		checkConsent();
+		window.addEventListener("cookie_consent_updated", checkConsent);
+		return () => window.removeEventListener("cookie_consent_updated", checkConsent);
+	}, []);
+
+	useEffect(() => {
 		if (isOpen && messages.length > 0) scrollToBottom();
 	}, [isOpen, messages.length, scrollToBottom]);
+
+	if (!hasConsentChoice) return null;
 
 	const handleQuestionClick = (question: (typeof PREDEFINED_QUESTIONS)[0]) => {
 		const userMsg: Message = {
@@ -84,7 +100,12 @@ export function ChatBot() {
 	};
 
 	return (
-		<div className="fixed bottom-6 right-6 z-300 flex flex-col items-end">
+		<div
+			className={cn(
+				"fixed bottom-6 right-6 z-300 flex flex-col items-end pointer-events-none",
+				isOpen && "inset-0 sm:inset-auto sm:bottom-6 sm:right-6",
+			)}
+		>
 			{/* Chat Window */}
 			<div
 				className={cn(
@@ -92,7 +113,7 @@ export function ChatBot() {
 					// Responsive sizing: Full screen on mobile, floating on desktop
 					"fixed inset-0 w-full h-dvh z-301 sm:static sm:w-[400px] sm:h-auto sm:max-h-[80vh] sm:rounded-2xl sm:border sm:border-border sm:mb-4 sm:z-auto",
 					isOpen
-						? "scale-100 opacity-100 translate-y-0"
+						? "scale-100 opacity-100 translate-y-0 pointer-events-auto"
 						: "scale-90 opacity-0 translate-y-10 pointer-events-none",
 				)}
 			>
@@ -191,7 +212,7 @@ export function ChatBot() {
 				onClick={() => setIsOpen(!isOpen)}
 				type="button"
 				className={cn(
-					"h-16 w-16 relative rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95",
+					"h-16 w-16 relative rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 pointer-events-auto",
 					isOpen
 						? "opacity-0 scale-50 pointer-events-none sm:opacity-100 sm:scale-100 sm:pointer-events-auto bg-background text-foreground border border-border"
 						: "bg-foreground text-background",

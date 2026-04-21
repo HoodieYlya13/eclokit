@@ -4,6 +4,7 @@ import { formatMoney } from "@/lib/money";
 import { isVideoUrl } from "@/lib/utils";
 import { YNSMedia } from "@/lib/yns-media";
 import { QuickAddButton } from "./quick-add-button";
+import { WishlistButton } from "./wishlist-button";
 import { YnsLink } from "./yns-link";
 
 type BrowseProduct = APIProductsBrowseResult["data"][number];
@@ -64,6 +65,16 @@ export function ProductCard({ product }: { product: BrowseProduct | CollectionPr
 						}}
 					/>
 				)}
+				<WishlistButton
+					product={{
+						id: product.id,
+						name: product.name,
+						slug: product.slug,
+						image: primaryImage || "",
+						price: firstVariantPrice?.toString() || "0",
+					}}
+					className="absolute top-3 right-3 z-10"
+				/>
 				{primaryImage &&
 					(isVideoUrl(primaryImage) ? (
 						<video

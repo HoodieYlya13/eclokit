@@ -1,7 +1,8 @@
 "use client";
 
 import { Star } from "lucide-react";
-import { useActionState, useState } from "react";
+import { useActionState, useEffect, useState } from "react";
+import { toast } from "sonner";
 import { submitReview } from "@/app/product/[slug]/review-action";
 
 function StarInput({ value, onChange }: { value: number; onChange: (v: number) => void }) {
@@ -35,6 +36,12 @@ function StarInput({ value, onChange }: { value: number; onChange: (v: number) =
 export function ReviewForm({ slug }: { slug: string }) {
 	const [state, action, isPending] = useActionState(submitReview, null);
 	const [rating, setRating] = useState(0);
+
+	useEffect(() => {
+		if (state?.success) {
+			toast.success("L'équipe EcloKit vous remercie pour votre avis !");
+		}
+	}, [state?.success]);
 
 	if (state?.success) {
 		return (

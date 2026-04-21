@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 
 export const CART_COOKIE = "yns_cart";
+export const COOKIE_CONSENT = "yns_cookie_consent";
 export type CartCookieJson = { id: string };
 
 export async function setCartCookie(cartCookieJson: CartCookieJson) {
@@ -35,4 +36,8 @@ export async function getCartCookieJson(): Promise<null | CartCookieJson> {
 	} catch {
 		return null;
 	}
+}
+
+export async function getCookieConsent(): Promise<string | null> {
+	return (await cookies()).get(COOKIE_CONSENT)?.value ?? null;
 }

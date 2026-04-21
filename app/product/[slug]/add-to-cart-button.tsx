@@ -2,12 +2,14 @@
 
 import { useSearchParams } from "next/navigation";
 import { useMemo, useState, useTransition } from "react";
+import { toast } from "sonner";
 import { addToCart } from "@/app/cart/actions";
 import { useCart } from "@/app/cart/cart-context";
 import { QuantitySelector } from "@/app/product/[slug]/quantity-selector";
 import { TrustBadges } from "@/app/product/[slug]/trust-badges";
 import { VariantSelector } from "@/app/product/[slug]/variant-selector";
 import { useVolumePricing, VolumePricingDisplay, type VolumeTier } from "@/app/product/[slug]/volume-pricing";
+import { WishlistButton } from "@/components/wishlist-button";
 import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
 
@@ -113,6 +115,7 @@ export function AddToCartButton({
 			});
 
 			await addToCart(selectedVariant.id, quantity);
+			toast.success(`${product.name} ajouté au panier !`);
 			setQuantity(1);
 		});
 	};
@@ -125,14 +128,25 @@ export function AddToCartButton({
 
 			<VolumePricingDisplay tiers={resolvedTiers} quantity={quantity} volumePrice={volumePrice} />
 
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={handleSubmit} className="flex gap-3">
 				<button
 					type="submit"
 					disabled={isPending || !selectedVariant}
-					className="w-full h-14 bg-foreground text-background py-4 px-8 rounded-full text-base font-medium tracking-wide hover:bg-foreground/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+					className="flex-1 h-14 bg-foreground text-background py-4 px-8 rounded-full text-base font-medium tracking-wide hover:bg-foreground/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
 				>
 					{buttonText}
 				</button>
+				<WishlistButton
+					product={{
+						id: product.id,
+						name: product.name,
+						slug: product.slug,
+						image: product.images[0] || "",
+						price: selectedVariant?.price || "0",
+					}}
+					className="h-14 w-14 border-2 border-foreground/10"
+					iconClassName="size-6"
+				/>
 			</form>
 
 			<TrustBadges />

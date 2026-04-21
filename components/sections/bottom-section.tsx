@@ -8,9 +8,9 @@ const getBottomSectionContent = (pathname: string) => {
 	switch (pathname) {
 		case "/about":
 			return {
-				text: "Découvrez l'envers du décor et notre mission.",
-				buttonLabel: "Notre Histoire",
-				href: "/about",
+				text: "Vous partagez nos valeurs ? Collaborez avec nous",
+				buttonLabel: "Devenir partenaire",
+				href: "/become-partner",
 			};
 		case "/subscriptions":
 			return {

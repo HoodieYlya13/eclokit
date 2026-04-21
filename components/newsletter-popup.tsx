@@ -2,6 +2,7 @@
 
 import { X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -14,17 +15,47 @@ export function NewsletterPopup() {
 	useEffect(() => {
 		if (typeof document === "undefined") return;
 
-		const hasSeenPopup = document.cookie
-			.split("; ")
-			.find((row) => row.startsWith("newsletter_popup_closed="));
+		const checkConsentAndShow = () => {
+			const consent = document.cookie
+				.split("; ")
+				.find((row) => row.startsWith("yns_cookie_consent="))
+				?.split("=")[1];
+			if (!consent) return; // Wait for cookie choice
 
-		if (!hasSeenPopup) {
-			const timer = setTimeout(() => {
-				dialogRef.current?.showModal();
-			}, 3000);
+			const isSubscribed = document.cookie
+				.split("; ")
+				.find((row) => row.startsWith("newsletter_subscribed="));
+			if (isSubscribed) return;
 
-			return () => clearTimeout(timer);
-		}
+			const hasSeenPopup = document.cookie
+				.split("; ")
+				.find((row) => row.startsWith("newsletter_popup_closed="));
+
+			if (!hasSeenPopup) {
+				const timer = setTimeout(() => {
+					dialogRef.current?.showModal();
+				}, 3000);
+
+				return () => clearTimeout(timer);
+			}
+		};
+
+		const cleanup = checkConsentAndShow();
+
+		// Listen for manual trigger
+		const handleOpen = () => {
+			dialogRef.current?.showModal();
+		};
+		window.addEventListener("newsletter_popup_open", handleOpen);
+
+		// Listen for consent updates
+		window.addEventListener("cookie_consent_updated", checkConsentAndShow);
+
+		return () => {
+			if (cleanup) cleanup();
+			window.removeEventListener("newsletter_popup_open", handleOpen);
+			window.removeEventListener("cookie_consent_updated", checkConsentAndShow);
+		};
 	}, []);
 
 	const closePopup = () => {
@@ -37,6 +68,11 @@ export function NewsletterPopup() {
 		if (!acceptMarketing) return;
 
 		console.log("Newsletter signed up successfully!");
+		toast.success("Bienvenue ! Votre code promo vous a été envoyé par email.");
+		// Set subscribed cookie (1 year)
+		document.cookie = "newsletter_subscribed=true; max-age=31536000; path=/";
+		// Dispatch event to hide trigger button
+		window.dispatchEvent(new Event("newsletter_subscribed_updated"));
 		closePopup();
 	};
 

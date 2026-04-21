@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import Image from "next/image";
+import { WishlistButton } from "@/components/wishlist-button";
 import { YnsLink } from "@/components/yns-link";
 import { CURRENCY, LOCALE } from "@/lib/constants";
 import { formatMoney } from "@/lib/money";
@@ -69,6 +70,16 @@ export function ProductCardLarge({ product }: ProductCardProps) {
 					sizes="(max-width: 768px) 100vw, 33vw"
 					loading="lazy"
 				/>
+				<WishlistButton
+					product={{
+						id: product.id,
+						name: product.name,
+						slug: product.slug,
+						image: image,
+						price: product.variants[0]?.price || "0",
+					}}
+					className="absolute top-4 right-4 z-10"
+				/>
 				<button
 					type="button"
 					className="absolute bottom-4 right-4 w-10 h-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:text-primary-foreground"
@@ -108,6 +119,16 @@ export function ProductCardMedium({ product }: ProductCardProps) {
 					sizes="(max-width: 768px) 50vw, 25vw"
 					loading="lazy"
 				/>
+				<WishlistButton
+					product={{
+						id: product.id,
+						name: product.name,
+						slug: product.slug,
+						image: image,
+						price: product.variants[0]?.price || "0",
+					}}
+					className="absolute top-4 right-4 z-10"
+				/>
 			</div>
 			<div className="text-center mt-auto">
 				<h3 className="font-display text-xl mb-1 text-foreground group-hover:text-primary transition-colors">
@@ -134,6 +155,16 @@ export function ProductCardSmall({ product }: ProductCardProps) {
 					className="object-cover object-center group-hover:scale-105 transition-transform duration-700"
 					sizes="(max-width: 768px) 50vw, 25vw"
 					loading="lazy"
+				/>
+				<WishlistButton
+					product={{
+						id: product.id,
+						name: product.name,
+						slug: product.slug,
+						image: image,
+						price: product.variants[0]?.price || "0",
+					}}
+					className="absolute top-4 right-4 z-10"
 				/>
 			</div>
 			<h3 className="font-display text-lg text-foreground group-hover:text-primary transition-colors">

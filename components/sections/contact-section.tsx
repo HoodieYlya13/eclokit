@@ -2,6 +2,7 @@
 
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -15,6 +16,7 @@ export function ContactSection() {
 		setStatus("submitting");
 		setTimeout(() => {
 			setStatus("success");
+			toast.success("Message envoyé ! Nous vous répondrons sous 24h à 48h.");
 		}, 1500);
 	};
 

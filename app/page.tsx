@@ -1,6 +1,7 @@
 import { HashScrollFix } from "@/components/hash-scroll-fix";
 import { BestSellers } from "@/components/sections/best-sellers";
 import { BoxOfTheMonth } from "@/components/sections/box-of-the-month";
+import { CommunitySection } from "@/components/sections/community-section";
 import { Hero } from "@/components/sections/hero";
 // import { NewArrivals } from "@/components/sections/new-arrivals";
 import { OurPartners } from "@/components/sections/our-partners";
@@ -20,6 +21,7 @@ export default function Home() {
 			{/* <Subscriptions limit={3} /> */}
 			<OurValues />
 			<BestSellers limit={4} />
+			<CommunitySection />
 			{/* <NewArrivals limit={4} />
 			<Philosophy /> */}
 		</>

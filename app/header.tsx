@@ -1,5 +1,6 @@
 import { Search } from "lucide-react";
 import Image from "next/image";
+import { WishlistHeaderLink } from "@/components/wishlist-header-link";
 import { YnsLink } from "@/components/yns-link";
 import { CartButton } from "./cart-button";
 import { HeaderClient } from "./header-client";
@@ -50,6 +51,7 @@ export function Header() {
 					>
 						<Bell className="w-5 h-5" />
 					</button> */}
+					<WishlistHeaderLink />
 					<CartButton />
 				</div>
 			</div>
