@@ -1,31 +1,9 @@
 import { cacheLife } from "next/cache";
+import { try_ as safe } from "safe-try";
 import { FooterNewsletterForm } from "@/components/footer-newsletter-form";
 import { SocialLinks } from "@/components/social-links";
 import { YnsLink } from "@/components/yns-link";
 import { commerce } from "@/lib/commerce";
-
-async function FooterCollections() {
-	"use cache";
-	cacheLife("hours");
-
-	const collections = await commerce.collectionBrowse({ limit: 5 });
-
-	return (
-		<ul className="space-y-4 text-sm text-muted-foreground font-medium">
-			{collections.data.map((collection) => (
-				<li key={collection.id}>
-					<YnsLink
-						prefetch={"eager"}
-						href={`/collection/${collection.slug}`}
-						className="hover:text-primary transition-colors"
-					>
-						{collection.name}
-					</YnsLink>
-				</li>
-			))}
-		</ul>
-	);
-}
 
 async function FooterLegalPages() {
 	"use cache";
@@ -57,7 +35,10 @@ async function FooterLegalPages() {
 	);
 }
 
-export function Footer() {
+export async function Footer() {
+	const [_, bestSellers] = await safe(commerce.collectionGet({ idOrSlug: "best-sellers" }));
+	const bestSellersSlug = bestSellers?.slug || "best-sellers";
+
 	return (
 		<footer className="bg-background pt-20 pb-10 px-6 md:px-12 border-t border-border text-foreground">
 			<div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8 mb-16">
@@ -73,8 +54,39 @@ export function Footer() {
 
 				{/* Shop links */}
 				<div className="md:col-span-2">
-					<h4 className="font-display font-semibold mb-6">Boutique</h4>
-					<FooterCollections />
+					<h4 className="font-display font-semibold mb-6">Menu</h4>
+					<ul className="space-y-4 text-sm text-muted-foreground font-medium">
+						<li>
+							<YnsLink href="/" className="hover:text-primary transition-colors">
+								Accueil
+							</YnsLink>
+						</li>
+						<li>
+							<YnsLink href="/subscriptions" className="hover:text-primary transition-colors">
+								Abonnements
+							</YnsLink>
+						</li>
+						<li>
+							<YnsLink href="/products" className="hover:text-primary transition-colors">
+								Boutique
+							</YnsLink>
+						</li>
+						<li>
+							<YnsLink href="/blog" className="hover:text-primary transition-colors">
+								Blog
+							</YnsLink>
+						</li>
+						<li>
+							<YnsLink href="/become-partner" className="hover:text-primary transition-colors">
+								Devenir partenaire
+							</YnsLink>
+						</li>
+						<li>
+							<YnsLink href="/about" className="hover:text-primary transition-colors">
+								À propos
+							</YnsLink>
+						</li>
+					</ul>
 
 					{/* Support */}
 					{/* TODO: re-add when fixed */}
@@ -98,28 +110,21 @@ export function Footer() {
 					{/* <FooterLegalPages /> */}
 				</div>
 
-				{/* Information links */}
+				{/* Useful links */}
 				<div className="md:col-span-2">
-					<h4 className="font-display font-semibold mb-6">Informations</h4>
+					<h4 className="font-display font-semibold mb-6">Liens utiles</h4>
 					<ul className="space-y-4 text-sm text-muted-foreground font-medium">
 						<li>
-							<YnsLink href="/#philosophy" className="hover:text-primary transition-colors">
-								À propos
+							<YnsLink
+								href={`/collection/${bestSellersSlug}`}
+								className="hover:text-primary transition-colors"
+							>
+								Coups de coeur
 							</YnsLink>
 						</li>
 						<li>
 							<YnsLink href="/contact" className="hover:text-primary transition-colors">
 								Contact
-							</YnsLink>
-						</li>
-						<li>
-							<YnsLink href="/subscriptions" className="hover:text-primary transition-colors">
-								Abonnements
-							</YnsLink>
-						</li>
-						<li>
-							<YnsLink href="/blog" className="hover:text-primary transition-colors">
-								Blog
 							</YnsLink>
 						</li>
 						<li>
@@ -134,8 +139,7 @@ export function Footer() {
 				<div className="md:col-span-4">
 					<h4 className="font-display font-semibold mb-6">Restons en contact</h4>
 					<p className="text-sm text-muted-foreground mb-6 font-light">
-						Abonnez-vous pour recevoir des nouvelles de nos box, des offres exclusives et des conseils de
-						créativité.
+						Abonnez-vous pour recevoir des nouvelles de nos box, des offres exclusives et des conseils DIY.
 					</p>
 					<FooterNewsletterForm />
 				</div>

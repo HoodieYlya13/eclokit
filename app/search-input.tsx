@@ -30,7 +30,7 @@ export function SearchInput() {
 						name="q"
 						placeholder="Search..."
 						defaultValue={searchParams.get("q") ?? ""}
-						className="h-9 w-48 rounded-full border border-border bg-background pl-9 pr-3 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+						className="h-9 w-48 rounded-full border border-border bg-background pl-9 pr-3 text-base placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
 					/>
 				</div>
 			</form>

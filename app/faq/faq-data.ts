@@ -7,136 +7,121 @@ export type FAQCategory = {
 export const faqCategories: FAQCategory[] = [
 	{
 		id: "orders",
-		title: "Orders",
+		title: "Commandes",
 		questions: [
 			{
-				question: "How do I place an order?",
+				question: "Comment puis-je passer une commande ?",
 				answer:
-					"Browse our products, add items to your cart, and proceed to checkout. You'll be guided through the payment process step by step.",
+					"Parcourez nos produits, ajoutez les articles à votre panier et procédez au paiement. Vous serez guidé(e) étape par étape tout au long du processus.",
 			},
 			{
-				question: "Can I modify or cancel my order after placing it?",
+				question: "Puis-je modifier ou annuler ma commande après l'avoir passée ?",
 				answer:
-					"Once an order has been submitted, modifications are generally not possible. If your order hasn't been processed yet, contact us as soon as possible and we'll do our best to accommodate your request.",
+					"Une fois la commande validée, les modifications ne sont généralement plus possibles. Si votre commande n'a pas encore été traitée, contactez-nous dès que possible et nous ferons de notre mieux pour répondre à votre demande.",
 			},
 			{
-				question: "How long does order processing take?",
+				question: "Quel est le délai de traitement des commandes ?",
 				answer:
-					"Most orders are processed within 1–3 business days. Processing times may vary depending on product availability and order volume. You'll receive a confirmation email once your order has shipped.",
+					"Cela depend de votre commande, le délai est indiqué sur la page produit. Vous recevrez un e-mail de confirmation dès l'expédition.",
 			},
 			{
-				question: "Can I request an invoice for my order?",
+				question: "Puis-je demander une facture pour ma commande ?",
 				answer:
-					"Yes. If you need an invoice, please make sure to provide your billing details during checkout. The invoice will be sent to your email along with the order confirmation.",
-			},
-			{
-				question: "Can I add special instructions to my order?",
-				answer:
-					"If available, you can add notes or special instructions during the checkout process. Look for the order notes field before completing your purchase.",
+					"Oui. Si vous avez besoin d'une facture, assurez-vous de fournir vos informations de facturation lors du paiement. La facture sera envoyée par e-mail avec votre confirmation de commande.",
 			},
 		],
 	},
 	{
 		id: "payments",
-		title: "Payments",
+		title: "Paiements",
 		questions: [
 			{
-				question: "What payment methods do you accept?",
+				question: "Quels modes de paiement acceptez-vous ?",
 				answer:
-					"We accept all major credit and debit cards, as well as other payment methods available through our secure payment provider. Available options are displayed at checkout.",
+					"Nous acceptons toutes les principales cartes de crédit et de débit, ainsi que d'autres modes de paiement disponibles via notre prestataire sécurisé. Les options s'affichent lors du paiement.",
 			},
 			{
-				question: "Is my payment information secure?",
+				question: "Mes informations de paiement sont-elles sécurisées ?",
 				answer:
-					"Absolutely. All payments are processed through a PCI-compliant payment provider. We never store your full card details on our servers.",
+					"Absolument. Tous les paiements sont traités par un prestataire certifié PCI. Nous ne stockons jamais vos coordonnées bancaires complètes sur nos serveurs.",
 			},
 			{
-				question: "My payment failed. What should I do?",
+				question: "Mon paiement a échoué. Que dois-je faire ?",
 				answer:
-					"First, verify that your card details are correct and that you have sufficient funds. If the issue persists, try a different payment method or contact your bank. You can also reach out to us for assistance.",
+					"Vérifiez d'abord vos coordonnées bancaires et assurez-vous que votre compte est suffisamment approvisionné. Si le problème persiste, essayez un autre mode de paiement ou contactez votre banque. Vous pouvez également nous solliciter pour obtenir de l'aide.",
 			},
 			{
-				question: "When will I be charged?",
+				question: "Quand serai-je débité(e) ?",
 				answer:
-					"Your payment is processed at the time of purchase. For pre-order items, you may be charged at the time of ordering or when the item ships, depending on the product.",
+					"Le paiement est traité au moment de l'achat. Pour les précommandes, vous pouvez être débité(e) lors de la commande ou à l'expédition, selon le produit.",
 			},
 		],
 	},
 	{
 		id: "shipping",
-		title: "Shipping & Delivery",
+		title: "Livraison",
 		questions: [
 			{
-				question: "What are your shipping options?",
+				question: "Quelles sont vos options de livraison ?",
 				answer:
-					"We offer standard and express shipping options. Available methods and estimated delivery times are displayed at checkout based on your location.",
+					"Nous proposons des livraisons standard et express, en point relais ou à domicile. Les méthodes disponibles et les délais estimés s'affichent lors du paiement en fonction de votre localisation.",
 			},
 			{
-				question: "Do you ship internationally?",
-				answer:
-					"Yes, we ship to many countries worldwide. International shipping options and costs are calculated at checkout based on your delivery address.",
+				question: "Livrez-vous à l'international ?",
+				answer: "Non, nous livrons uniquement en France métropolitaine.",
 			},
 			{
-				question: "How can I track my order?",
+				question: "Comment puis-je suivre ma commande ?",
 				answer:
-					"Once your order has shipped, you'll receive a confirmation email with a tracking number and a link to track your package in real time.",
+					"Une fois votre commande expédiée, vous recevrez un e-mail de confirmation contenant un numéro de suivi et un lien pour suivre votre colis en temps réel.",
 			},
 			{
-				question: "What should I do if my package arrives damaged?",
+				question: "Que faire si mon colis arrive endommagé ?",
 				answer:
-					"If your order arrives damaged, please document the damage with photos and contact us immediately. We'll work with you to resolve the issue as quickly as possible.",
-			},
-			{
-				question: "Can I combine multiple orders to save on shipping?",
-				answer:
-					"Unfortunately, we're unable to combine separate orders into a single shipment. To take advantage of any free shipping thresholds, make sure to add all items to a single order before checking out.",
+					"Si votre commande arrive endommagée, prenez des photos des dégâts et contactez-nous immédiatement. Nous ferons le nécessaire pour résoudre le problème rapidement.",
 			},
 		],
 	},
 	{
 		id: "returns",
-		title: "Returns & Exchanges",
+		title: "Retours & Échanges",
 		questions: [
 			{
-				question: "What is your return policy?",
+				question: "Quelle est votre politique de retour ?",
 				answer:
-					"We accept returns within 14 days of delivery. Items must be unused, in their original packaging, and in the same condition as received. Please refer to our returns policy page for full details.",
+					"Aucun retour n'est possible pour les coffrets créatifs. Pour les produits de notre boutique, nous acceptons les retours dans les 14 jours suivant la livraison. Les articles doivent être inutilisés, dans leur emballage d'origine et dans le même état qu'à la réception. Consultez notre page de politique de retours pour plus de détails.",
 			},
 			{
-				question: "How do I initiate a return?",
+				question: "Comment initier un retour ?",
 				answer:
-					"To start a return, contact our support team with your order number and the reason for the return. We'll provide you with return instructions and, if applicable, a return shipping label.",
+					"Pour effectuer un retour, contactez notre équipe support avec votre numéro de commande et le motif du retour. Nous vous fournirons les instructions et, le cas échéant, une étiquette de retour.",
 			},
+
 			{
-				question: "How do exchanges work?",
+				question: "Quel est le délai pour le remboursement ?",
 				answer:
-					"Exchanges are handled as a return followed by a new order. Simply return the original item and place a new order for the item you'd like instead.",
-			},
-			{
-				question: "How long does it take to receive a refund?",
-				answer:
-					"Once we receive and inspect your returned item, refunds are typically processed within 5–10 business days. The refund will be credited to your original payment method.",
+					"Une fois votre article retourné reçu et inspecté, les remboursements sont généralement traités sous 5 à 10 jours ouvrés. Le montant sera crédité sur votre mode de paiement initial.",
 			},
 		],
 	},
 	{
 		id: "discounts",
-		title: "Discounts & Promotions",
+		title: "Codes promo & Offres",
 		questions: [
 			{
-				question: "Do you offer discounts for new customers?",
+				question: "Proposez-vous des réductions pour les nouveaux clients ?",
 				answer:
-					"Yes! New customers can subscribe to our newsletter to receive a welcome discount. Look for the signup form on our homepage.",
+					"Oui ! Les nouveaux clients peuvent s'inscrire à notre newsletter pour bénéficier d'une remise de bienvenue de -10%. Le formulaire d'inscription se trouve sur notre page d'accueil.",
 			},
 			{
-				question: "How do I apply a discount code?",
+				question: "Comment appliquer un code promo ?",
 				answer:
-					"During checkout, you'll find a field to enter your discount code. Enter the code and the discount will be automatically applied to your order total.",
+					"Lors du paiement, vous trouverez un champ pour saisir votre code promo. Entrez le code et la réduction s'appliquera automatiquement au total de votre commande.",
 			},
 			{
-				question: "Can I use multiple discount codes on one order?",
+				question: "Puis-je utiliser plusieurs codes promo sur une seule commande ?",
 				answer:
-					"Only one discount code can be applied per order. The system will automatically use the code that provides the best value if multiple are entered.",
+					"Un seul code promo peut être appliqué par commande. Le système utilisera automatiquement celui qui offre la meilleure remise si plusieurs sont saisis.",
 			},
 		],
 	},

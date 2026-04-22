@@ -34,7 +34,7 @@ const PREDEFINED_QUESTIONS = [
 		id: "q4",
 		text: "Comment vous contacter ?",
 		answer:
-			"Vous pouvez nous écrire directement à hello@eclokit.fr. Notre équipe de passionnés vous répondra sous 24h avec le sourire !",
+			"Vous pouvez nous écrire directement à contact@eclokit.fr. Notre équipe de passionnés vous répondra sous 24h avec le sourire !",
 	},
 ];
 

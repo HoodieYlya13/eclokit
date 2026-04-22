@@ -20,8 +20,8 @@ const sortOptions = [
 ] as const;
 
 export const metadata: Metadata = {
-	title: "Toutes les box — EcloKit",
-	description: "Découvrez toutes nos box de loisirs créatifs.",
+	title: "Boutique - EcloKit",
+	description: "Découvrez tous nos produits de loisirs créatifs.",
 };
 
 async function ProductList({ page, sort }: { page?: string; sort?: string }) {

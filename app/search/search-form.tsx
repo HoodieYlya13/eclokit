@@ -33,7 +33,7 @@ export function SearchForm({ initialQuery = "" }: SearchFormProps) {
 					value={query}
 					onChange={(e) => setQuery(e.target.value)}
 					placeholder="Search products..."
-					className="w-full pl-12 pr-4 py-4 bg-secondary border border-border rounded-full text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
+					className="w-full pl-12 pr-4 py-4 bg-secondary border border-border rounded-full text-base text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
 					autoComplete="off"
 				/>
 			</div>

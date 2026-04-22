@@ -52,7 +52,7 @@ function ContactCard() {
 			</p>
 			<div className="mt-6 inline-flex items-center gap-2 text-sm font-medium">
 				<Mail className="h-4 w-4" />
-				<span>Contactez-nous via les coordonnées présentes sur notre site</span>
+				<YnsLink href="/contact">Contactez-nous</YnsLink>
 			</div>
 		</div>
 	);

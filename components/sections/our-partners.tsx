@@ -13,7 +13,12 @@ export function OurPartners() {
 					className="w-full md:w-1/3 flex flex-col items-center gap-4 animate-fade-in-up order-2 md:order-1"
 					style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
 				>
-					<div className="size-40 md:size-72 rounded-2xl border border-border/50 flex items-center justify-center p-8 transition-all duration-500 shadow-lg hover:shadow-xl hover:-translate-y-1">
+					<a
+						href="https://blog.lafourmicreative.fr/2023/08/03/creer-sa-propre-palette-daquarelle-grace-a-la-pate-a-modeler-das/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="size-40 md:size-72 rounded-2xl border border-border/50 flex items-center justify-center p-8 transition-all duration-500 shadow-lg hover:shadow-xl hover:-translate-y-1"
+					>
 						<Image
 							src="/img/partners/das.png"
 							alt="DAS"
@@ -23,7 +28,7 @@ export function OurPartners() {
 							style={{ width: "auto", height: "auto" }}
 							loading="lazy"
 						/>
-					</div>
+					</a>
 					<span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">Argile</span>
 				</div>
 
@@ -32,7 +37,12 @@ export function OurPartners() {
 					className="w-full md:w-1/3 flex flex-col items-center gap-4 animate-fade-in-up order-1 md:order-2"
 					style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
 				>
-					<div className="size-48 md:size-90 rounded-2xl border-2 border-primary/20 flex items-center justify-center p-12 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 relative shadow-xl">
+					<a
+						href="https://www.faber-castell.fr/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="size-48 md:size-90 rounded-2xl border-2 border-primary/20 flex items-center justify-center p-12 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 relative shadow-xl"
+					>
 						<div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-background text-[10px] font-bold py-1 px-3 rounded-full uppercase tracking-widest whitespace-nowrap">
 							À l'honneur
 						</div>
@@ -45,7 +55,7 @@ export function OurPartners() {
 							style={{ width: "auto", height: "auto" }}
 							loading="lazy"
 						/>
-					</div>
+					</a>
 					<span className="text-xs uppercase tracking-[0.2em] text-primary font-bold">Peintures</span>
 				</div>
 
@@ -54,7 +64,12 @@ export function OurPartners() {
 					className="w-full md:w-1/3 flex flex-col items-center gap-4 animate-fade-in-up order-3"
 					style={{ animationDelay: "0.3s", animationFillMode: "forwards" }}
 				>
-					<div className="size-40 md:size-72 rounded-2xl border border-border/50 flex items-center justify-center p-8 transition-all duration-500 shadow-lg hover:shadow-xl hover:-translate-y-1">
+					<a
+						href="https://www.colles-cleopatre.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+						className="size-40 md:size-72 rounded-2xl border border-border/50 flex items-center justify-center p-8 transition-all duration-500 shadow-lg hover:shadow-xl hover:-translate-y-1"
+					>
 						<Image
 							src="/img/partners/cleopatre.png"
 							alt="Cléopâtre"
@@ -64,7 +79,7 @@ export function OurPartners() {
 							style={{ width: "auto", height: "auto" }}
 							loading="lazy"
 						/>
-					</div>
+					</a>
 					<span className="text-xs uppercase tracking-[0.2em] text-muted-foreground font-medium">Vernis</span>
 				</div>
 			</div>

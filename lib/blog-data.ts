@@ -122,6 +122,22 @@ export function mapAPIPostToBlogPost(post: APIPostResult): BlogPost {
 
 export const blogPosts: BlogPost[] = [
 	{
+		slug: "ete-diy-bronze-ennui",
+		title: 'Cet été, on oublie le combo "Bronzette & Ennui" !',
+		excerpt:
+			"Soyons honnêtes : on adore toutes bouquiner au soleil ou peaufiner notre bronzage pendant des heures. Mais créons plutôt !",
+		content: `<p>Découvrez nos 3 activités DIY pour occuper vos journées d'été.</p>`,
+		author: {
+			name: "Loanne HELLO",
+			initial: "L",
+		},
+		date: "6 juin",
+		readingTime: "8 min",
+		views: 0,
+		commentsCount: 0,
+		imageUrl: "https://images.unsplash.com/photo-1523381235312-3c18838b93f1?auto=format&fit=crop&q=80&w=1200",
+	},
+	{
 		slug: "introduction-au-crochet",
 		title: "Comment commencer le crochet : le guide complet pour débutants",
 		excerpt:

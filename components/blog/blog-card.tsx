@@ -25,7 +25,7 @@ export function BlogCard({ post, index }: { post: BlogPost; index: number }) {
 		>
 			<YnsLink
 				href={`/blog/${post.slug}`}
-				className="group block bg-white rounded-[30px] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
+				className="group block rounded-[30px] border border-border/50 shadow-sm hover:shadow-xl transition-all duration-500 overflow-hidden"
 			>
 				<div className="flex flex-col md:flex-row min-h-[400px]">
 					{/* Left Section (Content - 60%) */}
@@ -52,7 +52,7 @@ export function BlogCard({ post, index }: { post: BlogPost; index: number }) {
 							</div>
 
 							{/* Article Title */}
-							<h3 className="font-display text-2xl md:text-3xl text-[#1A1A2E] leading-tight mb-4 group-hover:text-primary transition-colors duration-300">
+							<h3 className="font-display text-2xl md:text-3xl leading-tight mb-4 group-hover:text-primary transition-colors duration-300">
 								{post.title}
 							</h3>
 

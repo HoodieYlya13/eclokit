@@ -73,7 +73,7 @@ export function ReviewForm({ slug }: { slug: string }) {
 						name="author"
 						type="text"
 						required
-						className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+						className="w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm"
 						placeholder="Votre nom"
 					/>
 				</div>
@@ -86,7 +86,7 @@ export function ReviewForm({ slug }: { slug: string }) {
 						name="email"
 						type="email"
 						required
-						className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+						className="w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm"
 						placeholder="exemple@email.com"
 					/>
 				</div>
@@ -101,7 +101,7 @@ export function ReviewForm({ slug }: { slug: string }) {
 					name="content"
 					required
 					rows={4}
-					className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm resize-none"
+					className="w-full rounded-md border border-input bg-background px-3 py-2 text-base md:text-sm resize-none"
 					placeholder="Partagez votre expérience avec ce produit..."
 				/>
 			</div>

@@ -1,16 +1,19 @@
+import type { Metadata } from "next";
 import { AboutHero } from "@/components/sections/about-hero";
 import { BlogList } from "@/components/sections/blog-list";
 import { blogPosts, mapAPIPostToBlogPost } from "@/lib/blog-data";
 import { commerce } from "@/lib/commerce";
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: "Blog | EcloKit",
 	description: "Nos récents posts et guides créatifs.",
 };
 
 export default async function BlogPage() {
+	const ynsData = false;
 	// Fetch from API first
-	const apiResult = await commerce.postBrowse({ limit: 10 }).catch(() => null);
+	let apiResult = null;
+	if (ynsData) apiResult = await commerce.postBrowse({ limit: 10 }).catch(() => null);
 
 	let displayPosts = blogPosts; // Fallback
 

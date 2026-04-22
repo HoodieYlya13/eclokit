@@ -1,6 +1,6 @@
 import "@/app/globals.css";
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import { Suspense } from "react";
@@ -92,6 +92,13 @@ async function CartProviderWrapper({ children }: { children: React.ReactNode }) 
 		</CartProvider>
 	);
 }
+
+export const viewport: Viewport = {
+	width: "device-width",
+	initialScale: 1,
+	maximumScale: 1,
+	userScalable: false,
+};
 
 export default function RootLayout({
 	children,

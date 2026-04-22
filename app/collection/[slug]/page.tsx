@@ -51,7 +51,7 @@ function CollectionHeader({ collection }: { collection: APICollectionGetByIdResu
 							<p className="mt-4 text-lg text-muted-foreground leading-relaxed">
 								{typeof collection.description === "string"
 									? collection.description
-									: "Explorer nos box mensuelles"}
+									: "Explorez nos produits préférés du moment"}
 							</p>
 						)}
 					</div>

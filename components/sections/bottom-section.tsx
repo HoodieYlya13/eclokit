@@ -14,9 +14,21 @@ const getBottomSectionContent = (pathname: string) => {
 			};
 		case "/subscriptions":
 			return {
-				text: "Prêt à recevoir votre box créative chaque mois ?",
-				buttonLabel: "S'abonner maintenant",
+				text: "Vous préférez acheter à l'unité ?",
+				buttonLabel: "Découvrez la boutique",
+				href: "/products",
+			};
+		case "/products":
+			return {
+				text: "Vous préférez un kit complet sans prise de tête ?",
+				buttonLabel: "Découvrez les abonnements",
 				href: "/subscriptions",
+			};
+		case "/become-partner":
+			return {
+				text: "Vous voulez en savoir plus sur nous ?\t",
+				buttonLabel: "Découvrez nos valeurs",
+				href: "/about",
 			};
 		default:
 			return {
