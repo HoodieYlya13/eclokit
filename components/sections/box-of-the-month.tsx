@@ -79,11 +79,10 @@ export function BoxOfTheMonth() {
 						<div className="flex justify-center pt-4">
 							<Button
 								asChild
-								className="rounded-full px-10 py-7 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-lg hover:shadow-primary/20 bg-foreground"
+								variant="outline"
+								className="rounded-full px-8 md:px-16 py-6 md:py-10 text-[0.7rem] md:text-sm font-bold uppercase tracking-[0.25em] bg-foreground text-background hover:bg-background hover:text-foreground transition-all border-border"
 							>
-								<YnsLink href="/subscriptions" className="text-background">
-									Je découvre les offres
-								</YnsLink>
+								<YnsLink href="/subscriptions">Je découvre les abonnements</YnsLink>
 							</Button>
 						</div>
 					</div>

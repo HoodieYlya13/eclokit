@@ -111,7 +111,7 @@ export function ChatBot() {
 				className={cn(
 					"transition-all duration-300 origin-bottom-right flex flex-col bg-background shadow-2xl overflow-hidden",
 					// Responsive sizing: Full screen on mobile, floating on desktop
-					"fixed inset-0 w-full h-dvh z-301 sm:static sm:w-[400px] sm:h-auto sm:max-h-[80vh] sm:rounded-2xl sm:border sm:border-border sm:mb-4 sm:z-auto",
+					"fixed inset-0 w-full h-dvh z-401 sm:static sm:w-[400px] sm:h-auto sm:max-h-[80vh] sm:rounded-2xl sm:border sm:border-border sm:mb-4 sm:z-auto",
 					isOpen
 						? "scale-100 opacity-100 translate-y-0 pointer-events-auto"
 						: "scale-90 opacity-0 translate-y-10 pointer-events-none",
@@ -212,16 +212,16 @@ export function ChatBot() {
 				onClick={() => setIsOpen(!isOpen)}
 				type="button"
 				className={cn(
-					"h-16 w-16 relative rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 pointer-events-auto",
+					"size-16 relative rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 hover:scale-105 active:scale-95 pointer-events-auto",
 					isOpen
 						? "opacity-0 scale-50 pointer-events-none sm:opacity-100 sm:scale-100 sm:pointer-events-auto bg-background text-foreground border border-border"
 						: "bg-foreground text-background",
 				)}
 				aria-label={isOpen ? "Fermer le chat" : "Ouvrir le chat"}
 			>
-				{isOpen ? <X className="h-7 w-7" /> : <MessageCircle className="h-7 w-7" />}
+				{isOpen ? <X className="size-7" /> : <MessageCircle className="size-7" />}
 				{!isOpen && (
-					<span className="absolute -top-1 -right-1 h-5 w-5 bg-primary text-primary-foreground text-[10px] font-bold rounded-full flex items-center justify-center animate-bounce shadow-md">
+					<span className="absolute -top-1 -right-1 size-5 bg-primary text-primary-foreground text-[10px] font-bold rounded-full flex items-center justify-center animate-bounce shadow-md">
 						1
 					</span>
 				)}

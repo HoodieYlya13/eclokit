@@ -24,7 +24,7 @@ export function MobileMenu({ children }: MobileMenuProps) {
 			{/* Burger Button */}
 			<button
 				type="button"
-				className="lg:hidden -ml-2 p-2 text-foreground hover:text-primary transition-colors z-60"
+				className="xl:hidden -ml-2 p-2 text-foreground hover:text-primary transition-colors z-60"
 				onClick={() => setIsOpen(true)}
 				aria-label="Ouvrir le menu"
 			>
@@ -34,7 +34,7 @@ export function MobileMenu({ children }: MobileMenuProps) {
 			{/* Full Screen Overlay */}
 			<div
 				className={cn(
-					"fixed inset-0 z-200 transition-opacity duration-300",
+					"fixed inset-0 z-500 transition-opacity duration-300",
 					isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
 				)}
 			>

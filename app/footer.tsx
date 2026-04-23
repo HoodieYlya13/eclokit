@@ -148,7 +148,7 @@ export async function Footer() {
 			{/* Bottom bar */}
 			<div className="max-w-7xl mx-auto pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center text-xs text-muted-foreground">
 				<p>&copy; {new Date().getFullYear()} EcloKit. Tous droits réservés.</p>
-				<div className="flex space-x-6 mt-4 md:mt-0">
+				<div className="grid w-full md:w-auto md:grid-cols-2 gap-2 lg:grid-cols-4 mt-4 md:mt-0 text-left md:text-center">
 					<YnsLink href="/mentions-legales" className="hover:text-foreground">
 						Mentions légales
 					</YnsLink>

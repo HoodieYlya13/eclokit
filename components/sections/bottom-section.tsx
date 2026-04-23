@@ -49,7 +49,8 @@ export function BottomSection() {
 				<h2 className="text-4xl md:text-5xl leading-tight">{text}</h2>
 				<Button
 					asChild
-					className="rounded-full px-12 py-8 text-sm font-bold uppercase tracking-[0.2em] transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/20 bg-foreground text-background"
+					variant="outline"
+					className="rounded-full px-8 md:px-16 py-6 md:py-10 text-[0.7rem] md:text-sm font-bold uppercase tracking-[0.25em] hover:bg-background transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/20 bg-foreground text-background"
 				>
 					<YnsLink href={href}>{buttonLabel}</YnsLink>
 				</Button>

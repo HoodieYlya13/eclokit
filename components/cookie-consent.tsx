@@ -86,7 +86,7 @@ export function CookieConsent({ initialConsent }: { initialConsent?: string | nu
 								<div className="flex flex-col sm:flex-row gap-3 pt-4">
 									<Button
 										onClick={handleAcceptAll}
-										className="flex-1 h-14 rounded-2xl text-base font-bold shadow-lg shadow-primary/20"
+										className="flex-1 h-14 rounded-2xl text-base text-background font-bold shadow-lg shadow-primary/20"
 									>
 										Tout accepter
 									</Button>

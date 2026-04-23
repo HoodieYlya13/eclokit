@@ -1,4 +1,6 @@
 import { Heart, Leaf, type LucideIcon, ShieldCheck, Users } from "lucide-react";
+import { Button } from "../ui/button";
+import { YnsLink } from "../yns-link";
 import { SectionHeader } from "./section-header";
 
 type Value = {
@@ -42,7 +44,7 @@ const defaultIcons = [Leaf, Users, ShieldCheck, Heart];
 
 export function OurValues({ values = defaultValues }: OurValuesProps) {
 	return (
-		<section className="py-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto border-t border-border">
+		<section className="py-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto flex flex-col items-center">
 			<SectionHeader title="Bien plus qu’un DIY: notre philosophie" badge="Nos valeurs" centered />
 			<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
 				{values.map((value, index) => {
@@ -58,6 +60,15 @@ export function OurValues({ values = defaultValues }: OurValuesProps) {
 					);
 				})}
 			</div>
+			{/* todo: add a button linking to /about with this text "En savoir plus sur Eclokit" */}
+			<Button
+				asChild
+				variant="outline"
+				size="lg"
+				className="rounded-full mt-10 px-8 md:px-16 py-6 md:py-10 text-[0.7rem] md:text-sm font-bold uppercase tracking-[0.25em] bg-foreground text-background hover:bg-background hover:text-foreground transition-all border-border"
+			>
+				<YnsLink href="/about">En savoir plus sur Eclokit</YnsLink>
+			</Button>
 		</section>
 	);
 }

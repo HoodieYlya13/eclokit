@@ -85,7 +85,7 @@ export function Navbar({ categories = [], className }: { categories?: Category[]
 	}
 
 	return (
-		<nav className={cn("hidden lg:flex items-center gap-8", className)}>
+		<nav className={cn("items-center gap-8", className)}>
 			<YnsLink
 				prefetch={"eager"}
 				href="/"

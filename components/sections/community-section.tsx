@@ -90,7 +90,7 @@ export function CommunitySection() {
 							</div>
 							<Button
 								size="lg"
-								className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-7 text-base sm:text-lg rounded-2xl shadow-xl hover:scale-105 transition-all group whitespace-normal h-auto leading-tight"
+								className="w-full sm:w-auto px-6 sm:px-8 py-5 sm:py-7 text-background text-base sm:text-lg rounded-2xl shadow-xl hover:scale-105 transition-all group whitespace-normal h-auto leading-tight"
 								asChild
 							>
 								<a href="https://www.apple.com/fr/app-store/" target="_blank" rel="noopener noreferrer">

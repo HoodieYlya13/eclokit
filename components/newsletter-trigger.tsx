@@ -36,7 +36,7 @@ export function NewsletterTrigger() {
 					animate={{ x: 0, opacity: 1 }}
 					exit={{ x: 100, opacity: 0 }}
 					transition={{ type: "spring", damping: 20, stiffness: 100 }}
-					className="fixed right-0 top-1/2 -translate-y-1/2 z-40 group cursor-pointer"
+					className="fixed right-0 top-1/2 -translate-y-1/2 z-400 group cursor-pointer"
 					onClick={() => window.dispatchEvent(new Event("newsletter_popup_open"))}
 				>
 					{/* Close Button - Small Bubble */}

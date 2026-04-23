@@ -42,13 +42,13 @@ export async function Header() {
 							height={75}
 							className="size-[50px] md:size-[75px]"
 						/>
-						<span className="hidden xl:flex text-foreground">EcloKit</span>
+						<span className="hidden 2xl:flex text-foreground">EcloKit</span>
 					</YnsLink>
 				</div>
 
 				<Navbar
 					categories={categories}
-					className="hidden lg:flex space-x-12 text-sm font-medium items-center tracking-wide text-muted-foreground"
+					className="hidden xl:flex space-x-12 text-sm font-medium items-center tracking-wide text-muted-foreground"
 				/>
 
 				<div className="flex items-center space-x-4 md:space-x-6">
@@ -57,7 +57,7 @@ export async function Header() {
 						className="hover:text-primary transition-colors text-foreground"
 						aria-label="Search"
 					>
-						<Search className="w-5 h-5" />
+						<Search className="size-5" />
 					</YnsLink>
 					{/* <button
 						type="button"

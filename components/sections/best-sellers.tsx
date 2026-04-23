@@ -3,6 +3,8 @@ import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { commerce } from "@/lib/commerce";
 import { ProductCard } from "../product-card";
+import { Button } from "../ui/button";
+import { YnsLink } from "../yns-link";
 import { SectionHeader } from "./section-header";
 
 type BestSellersProps = {
@@ -52,11 +54,18 @@ async function BestSellersContent({ limit = 3 }: BestSellersProps) {
 
 export function BestSellers({ limit = 3 }: BestSellersProps) {
 	return (
-		<section className="py-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border">
+		<section className="py-20 px-6 md:px-12 w-full flex flex-col items-center max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border">
 			<SectionHeader badge="Pour ceux qui en veulent encore" title="Vos coups de cœur à l'unité" centered />
 			<Suspense fallback={<BestSellersSkeleton />}>
 				<BestSellersContent limit={limit} />
 			</Suspense>
+			<Button
+				asChild
+				variant="outline"
+				className="rounded-full mt-10 px-8 md:px-16 py-6 md:py-10 text-[0.7rem] md:text-sm font-bold uppercase tracking-[0.25em] hover:bg-background transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/20 bg-foreground text-background"
+			>
+				<YnsLink href="/products">Découvrir tous les produits</YnsLink>
+			</Button>
 		</section>
 	);
 }

@@ -88,7 +88,7 @@ export function OurPartners() {
 				<Button
 					asChild
 					variant="outline"
-					className="rounded-full px-8 py-6 text-xs font-bold uppercase tracking-[0.2em] hover:bg-foreground hover:text-background transition-all border-border"
+					className="rounded-full px-8 md:px-16 py-6 md:py-10 text-[0.7rem] md:text-sm font-bold uppercase tracking-[0.25em] bg-foreground text-background hover:bg-background hover:text-foreground transition-all border-border"
 				>
 					<YnsLink href="/become-partner">Devenir partenaire</YnsLink>
 				</Button>
