@@ -2,6 +2,7 @@
 	"name": "yournextstore",
 	"version": "0.1.0",
 	"private": true,
+	"packageManager": "bun@1.3.12",
 	"scripts": {
 		"dev": "bun next dev",
 		"build": "bun next build",
