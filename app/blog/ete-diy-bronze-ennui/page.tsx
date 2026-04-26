@@ -165,7 +165,7 @@ export default function SummerDIYPage() {
 									</p>
 								</div>
 								{/* Necklace Image */}
-								<div className="aspect-[592/217] w-full relative group">
+								<div className="aspect-592/217 w-full relative group">
 									<YNSMedia
 										src="/img/necklace.png"
 										alt="Collier de perles avec pendentif cœur"
@@ -350,7 +350,7 @@ export default function SummerDIYPage() {
 					<h2 className="font-display text-4xl md:text-5xl text-[#3F3478]">Nos derniers articles Idée DIY</h2>
 				</div>
 
-				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				<div className="grid grid-cols-1 gap-6">
 					{latestPosts.map((post, index) => (
 						<BlogCard key={post.slug} post={post} index={index} />
 					))}

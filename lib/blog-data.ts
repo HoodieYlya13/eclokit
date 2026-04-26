@@ -120,6 +120,7 @@ export function mapAPIPostToBlogPost(post: APIPostResult): BlogPost {
 	};
 }
 
+// TODO: views should be stored in the locale storage
 export const blogPosts: BlogPost[] = [
 	{
 		slug: "ete-diy-bronze-ennui",
@@ -135,7 +136,7 @@ export const blogPosts: BlogPost[] = [
 		readingTime: "8 min",
 		views: 0,
 		commentsCount: 0,
-		imageUrl: "https://images.unsplash.com/photo-1523381235312-3c18838b93f1?auto=format&fit=crop&q=80&w=1200",
+		imageUrl: "/img/girl-reading.png",
 	},
 	{
 		slug: "introduction-au-crochet",

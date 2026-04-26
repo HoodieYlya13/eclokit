@@ -132,7 +132,7 @@ export function NewsletterPopup() {
 							htmlFor="marketing-consent"
 							className="text-xs md:text-sm font-normal text-muted-foreground leading-relaxed cursor-pointer"
 						>
-							J’accepte de recevoir des offres et communications commerciales d’EcloKit
+							*J’accepte de recevoir des offres et communications commerciales d’EcloKit
 						</Label>
 					</div>
 

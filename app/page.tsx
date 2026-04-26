@@ -3,7 +3,7 @@ import { BestSellers } from "@/components/sections/best-sellers";
 import { BoxOfTheMonth } from "@/components/sections/box-of-the-month";
 import { ClientTestimonials } from "@/components/sections/client-testimonials";
 import { CommunitySection } from "@/components/sections/community-section";
-import { Hero } from "@/components/sections/hero";
+import { MagicBoxSection } from "@/components/sections/magic-section";
 // import { NewArrivals } from "@/components/sections/new-arrivals";
 import { OurPartners } from "@/components/sections/our-partners";
 import { OurValues } from "@/components/sections/our-values";
@@ -15,7 +15,7 @@ export default function Home() {
 	return (
 		<>
 			<HashScrollFix />
-			<Hero />
+			<MagicBoxSection />
 			<BoxOfTheMonth />
 			<OurPartners />
 			<ClientTestimonials />
