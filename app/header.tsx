@@ -18,7 +18,7 @@ export async function Header() {
 		}));
 
 	return (
-		<HeaderClient className="fixed top-6 md:top-10 inset-x-4 md:inset-x-10 px-6 py-4 md:px-12 rounded-full z-100 border border-secondary/50 shadow-xl">
+		<HeaderClient className="fixed top-6 md:top-10 inset-x-4 md:inset-x-10 z-100">
 			<div className="flex items-center justify-between">
 				<div className="flex items-center gap-2">
 					<MobileMenu>

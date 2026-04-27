@@ -30,6 +30,11 @@ export function HeaderClient({ children, className }: HeaderClientProps) {
 	const [lastScrollY, setLastScrollY] = useState(0);
 	const [isOpen, setIsOpen] = useState(false);
 	const [isSolid, setIsSolid] = useState(false);
+	const [mounted, setMounted] = useState(false);
+
+	useEffect(() => {
+		setMounted(true);
+	}, []);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -56,12 +61,20 @@ export function HeaderClient({ children, className }: HeaderClientProps) {
 			<header
 				className={cn(
 					className,
-					"transition-all duration-300 ease-in-out",
+					"transition-transform duration-300 ease-in-out",
 					!isVisible && "-translate-y-[150%] md:-translate-y-[200%]",
-					isSolid ? "bg-background" : "bg-background/40 backdrop-blur-2xl",
 				)}
 			>
-				{children}
+				{/* Visual background layer */}
+				<div
+					className={cn(
+						"absolute inset-0 rounded-full border border-secondary/50 shadow-xl transition-all duration-500 ease-in-out",
+						mounted && !isSolid ? "bg-background/70 backdrop-blur-2xl" : "bg-background",
+					)}
+				/>
+
+				{/* Content wrapper with padding */}
+				<div className="relative px-6 py-4 md:px-12">{children}</div>
 			</header>
 		</HeaderContext.Provider>
 	);
