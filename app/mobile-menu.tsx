@@ -1,15 +1,30 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { cn } from "@/lib/utils";
+import { useHeader } from "./header-client";
 
 interface MobileMenuProps {
 	children: React.ReactNode;
 }
 
 export function MobileMenu({ children }: MobileMenuProps) {
-	const [isOpen, setIsOpen] = useState(false);
+	const { isOpen, setIsOpen, isSolid, setIsSolid } = useHeader();
+
+	const handleOpen = () => {
+		setIsSolid(true);
+		setTimeout(() => {
+			setIsOpen(true);
+		}, 200);
+	};
+
+	const handleClose = () => {
+		setIsOpen(false);
+		setTimeout(() => {
+			setIsSolid(false);
+		}, 100);
+	};
 
 	useEffect(() => {
 		if (isOpen) document.body.style.overflow = "hidden";
@@ -25,7 +40,7 @@ export function MobileMenu({ children }: MobileMenuProps) {
 			<button
 				type="button"
 				className="xl:hidden -ml-2 p-2 text-foreground hover:text-primary transition-colors z-60"
-				onClick={() => setIsOpen(true)}
+				onClick={handleOpen}
 				aria-label="Ouvrir le menu"
 			>
 				<Menu className="w-6 h-6" />
@@ -39,10 +54,7 @@ export function MobileMenu({ children }: MobileMenuProps) {
 				)}
 			>
 				{/* Backdrop background */}
-				<div
-					className="absolute inset-0 bg-background/60 backdrop-blur-md"
-					onClick={() => setIsOpen(false)}
-				/>
+				<div className="absolute inset-0 bg-background/60 backdrop-blur-md" onClick={handleClose} />
 
 				{/* Panel sliding from left */}
 				<div
@@ -57,7 +69,7 @@ export function MobileMenu({ children }: MobileMenuProps) {
 						<button
 							type="button"
 							className="p-2 text-foreground hover:text-primary transition-colors"
-							onClick={() => setIsOpen(false)}
+							onClick={handleClose}
 							aria-label="Fermer le menu"
 						>
 							<X className="w-6 h-6" />
@@ -68,7 +80,7 @@ export function MobileMenu({ children }: MobileMenuProps) {
 					<div
 						className="flex-1"
 						onClick={(e) => {
-							if ((e.target as HTMLElement).closest("a")) setIsOpen(false);
+							if ((e.target as HTMLElement).closest("a")) handleClose();
 						}}
 					>
 						{children}
