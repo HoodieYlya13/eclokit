@@ -8,6 +8,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+declare global {
+	interface Window {
+		__magic_box_present?: boolean;
+	}
+}
+
 export function NewsletterPopup() {
 	const dialogRef = useRef<HTMLDialogElement>(null);
 	const [acceptMarketing, setAcceptMarketing] = useState(false);
@@ -32,6 +38,27 @@ export function NewsletterPopup() {
 				.find((row) => row.startsWith("newsletter_popup_closed="));
 
 			if (!hasSeenPopup) {
+				const isMagicBoxPresent = window.__magic_box_present;
+				const isDesktopHome = window.location.pathname === "/" && window.innerWidth >= 768;
+
+				if (isMagicBoxPresent || isDesktopHome) {
+					const handleAnimationComplete = () => {
+						dialogRef.current?.showModal();
+					};
+					window.addEventListener("magic_box_animation_complete", handleAnimationComplete, { once: true });
+
+					// Fallback timer if animation never completes or takes too long (10s)
+					const fallbackTimer = setTimeout(() => {
+						dialogRef.current?.showModal();
+						window.removeEventListener("magic_box_animation_complete", handleAnimationComplete);
+					}, 10000);
+
+					return () => {
+						window.removeEventListener("magic_box_animation_complete", handleAnimationComplete);
+						clearTimeout(fallbackTimer);
+					};
+				}
+
 				const timer = setTimeout(() => {
 					dialogRef.current?.showModal();
 				}, 3000);

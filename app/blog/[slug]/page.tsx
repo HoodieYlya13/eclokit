@@ -1,6 +1,7 @@
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { BlogViewTracker } from "@/components/blog/blog-view-tracker";
 import { YnsLink } from "@/components/yns-link";
 import { blogPosts, mapAPIPostToBlogPost } from "@/lib/blog-data";
 import { commerce } from "@/lib/commerce";
@@ -56,6 +57,7 @@ export default async function BlogPostPage({ params }: Props) {
 
 	return (
 		<article className="min-h-screen bg-background">
+			<BlogViewTracker slug={slug} />
 			{/* Hero Section */}
 			<div className="relative h-[60vh] min-h-[400px] w-full pt-36 md:pt-48">
 				<YNSMedia src={post.imageUrl} alt={post.title} fill className="object-cover" priority />

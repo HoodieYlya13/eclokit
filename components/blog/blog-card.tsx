@@ -2,18 +2,18 @@
 
 import { motion } from "framer-motion";
 import { Calendar, Clock, Eye, Heart, MessageCircle } from "lucide-react";
-import { useState } from "react";
 import { YnsLink } from "@/components/yns-link";
+import { useBlogViews } from "@/hooks/use-blog-views";
 import type { BlogPost } from "@/lib/blog-data";
 import { YNSMedia } from "@/lib/yns-media";
 
 export function BlogCard({ post, index }: { post: BlogPost; index: number }) {
-	const [isLiked, setIsLiked] = useState(false);
+	const { totalViews, isLiked, toggleLike } = useBlogViews(post.slug);
 
 	const handleLike = (e: React.MouseEvent) => {
 		e.preventDefault();
 		e.stopPropagation();
-		setIsLiked(!isLiked);
+		toggleLike();
 	};
 
 	return (
@@ -65,7 +65,7 @@ export function BlogCard({ post, index }: { post: BlogPost; index: number }) {
 							<div className="flex gap-4 text-xs font-medium text-muted-foreground uppercase tracking-widest">
 								<span className="flex items-center gap-1.5">
 									<Eye size={14} className="text-primary/60" />
-									{post.views} vues
+									{totalViews.toLocaleString()} vues
 								</span>
 								<span className="flex items-center gap-1.5">
 									<MessageCircle size={14} className="text-primary/60" />

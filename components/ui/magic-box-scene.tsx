@@ -27,7 +27,7 @@ type GLTFResult = GLTF & {
     };
 };
 
-function BoxContent(props: React.JSX.IntrinsicElements["group"]) {
+function BoxContent({ shouldStart, ...props }: React.JSX.IntrinsicElements["group"] & { shouldStart: boolean }) {
 	const { nodes, materials } = useGLTF("/box.glb") as unknown as GLTFResult;
 
 	const mainGroupRef = useRef<THREE.Group>(null);
@@ -86,47 +86,57 @@ function BoxContent(props: React.JSX.IntrinsicElements["group"]) {
 		}
 	});
 
-	useGSAP(() => {
-		if (
-			!mainGroupRef.current ||
-			!lid1Ref.current ||
-			!lid2Ref.current ||
-			!glowMaterialRef.current ||
-			!pointLightRef.current
-		)
-			return;
+	useGSAP(
+		() => {
+			if (
+				!mainGroupRef.current ||
+				!lid1Ref.current ||
+				!lid2Ref.current ||
+				!glowMaterialRef.current ||
+				!pointLightRef.current
+			)
+				return;
 
-		const tl = gsap.timeline({ delay: 0.1 });
+			gsap.set(mainGroupRef.current.position, { z: -10, y: -0.5 });
+			gsap.set(mainGroupRef.current.scale, { x: 0.6, y: 0.6, z: 0.6 });
+			gsap.set(mainGroupRef.current.rotation, { y: -Math.PI });
+			gsap.set(glowMaterialRef.current, { emissiveIntensity: 0 });
+			gsap.set(pointLightRef.current, { intensity: 0 });
 
-		gsap.set(mainGroupRef.current.position, { z: -10, y: -0.5 });
-		gsap.set(mainGroupRef.current.scale, { x: 0.6, y: 0.6, z: 0.6 });
-		gsap.set(mainGroupRef.current.rotation, { y: -Math.PI });
-		gsap.set(glowMaterialRef.current, { emissiveIntensity: 0 });
-		gsap.set(pointLightRef.current, { intensity: 0 });
+			if (!shouldStart) return;
 
-		tl.to(mainGroupRef.current.position, { z: 0, y: -0.5, duration: 2.5, ease: "power2.inOut" }, 0);
-		tl.to(mainGroupRef.current.rotation, { y: Math.PI / 6, duration: 2.5, ease: "power2.inOut" }, 0);
-		tl.to(mainGroupRef.current.scale, { x: 1, y: 1, z: 1, duration: 2.5, ease: "power2.inOut" }, 0);
-
-		tl.to(lid1Ref.current.rotation, { y: 0, duration: 1.5, ease: "power3.out" }, 2.0);
-
-		tl.to(lid2Ref.current.rotation, { y: 0, duration: 1.2, ease: "power3.out" }, 2.3);
-
-		tl.to(glowMaterialRef.current, { emissiveIntensity: 2, duration: 1.5, ease: "power2.inOut" }, 2.0);
-
-		tl.to(
-			pointLightRef.current,
-			{
-				intensity: 8,
-				duration: 1.5,
-				ease: "power2.inOut",
+			const tl = gsap.timeline({
+				delay: 0.1,
 				onComplete: () => {
-					isOpen.current = true; // Mark as ready for proximity interactions
+					window.dispatchEvent(new Event("magic_box_animation_complete"));
 				},
-			},
-			2.0,
-		);
-	});
+			});
+
+			tl.to(mainGroupRef.current.position, { z: 0, y: -0.5, duration: 2.5, ease: "power2.inOut" }, 0);
+			tl.to(mainGroupRef.current.rotation, { y: Math.PI / 6, duration: 2.5, ease: "power2.inOut" }, 0);
+			tl.to(mainGroupRef.current.scale, { x: 1, y: 1, z: 1, duration: 2.5, ease: "power2.inOut" }, 0);
+
+			tl.to(lid1Ref.current.rotation, { y: 0, duration: 1.5, ease: "power3.out" }, 2.0);
+
+			tl.to(lid2Ref.current.rotation, { y: 0, duration: 1.2, ease: "power3.out" }, 2.3);
+
+			tl.to(glowMaterialRef.current, { emissiveIntensity: 2, duration: 1.5, ease: "power2.inOut" }, 2.0);
+
+			tl.to(
+				pointLightRef.current,
+				{
+					intensity: 8,
+					duration: 1.5,
+					ease: "power2.inOut",
+					onComplete: () => {
+						isOpen.current = true; // Mark as ready for proximity interactions
+					},
+				},
+				2.0,
+			);
+		},
+		[shouldStart],
+	);
 
 	return (
 		<group ref={mainGroupRef} {...props} dispose={null}>
@@ -198,28 +208,72 @@ function BoxContent(props: React.JSX.IntrinsicElements["group"]) {
 
 useGLTF.preload("/box.glb");
 
+import { useEffect, useState } from "react";
+
+declare global {
+	interface Window {
+		__magic_box_present?: boolean;
+	}
+}
+
 export default function MagicBoxScene() {
-    return (
-        <Canvas camera={{ position: [0, 2.5, 10], fov: 45 }} gl={{ premultipliedAlpha: false }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[5, 10, 5]} intensity={1} color="#ffda85" />
-            <directionalLight position={[-5, 5, 2]} intensity={0.3} />
+	const [shouldStart, setShouldStart] = useState(false);
 
-            <OrbitControls
-                enablePan={false}
-                enableZoom={false}
-                minDistance={3}
-                maxDistance={15}
-                maxPolarAngle={Math.PI / 2 + 0.1}
-            />
+	useEffect(() => {
+		// Set a flag that MagicBox is present
+		window.__magic_box_present = true;
 
-            <Suspense fallback={null}>
-                <BoxContent position={[0, -1.25, -0.75]} />
-            </Suspense>
+		const checkConsent = () => {
+			const consent = document.cookie
+				.split("; ")
+				.find((row) => row.startsWith("yns_cookie_consent="))
+				?.split("=")[1];
+			if (consent) {
+				setShouldStart(true);
+				return true;
+			}
+			return false;
+		};
 
-            <EffectComposer>
-                <Bloom luminanceThreshold={1.2} mipmapBlur intensity={0.8} />
-            </EffectComposer>
-        </Canvas>
-    );
+		if (!checkConsent()) {
+			const handleUpdate = () => {
+				if (checkConsent()) {
+					window.removeEventListener("cookie_consent_updated", handleUpdate);
+				}
+			};
+			window.addEventListener("cookie_consent_updated", handleUpdate);
+			return () => {
+				window.removeEventListener("cookie_consent_updated", handleUpdate);
+				window.__magic_box_present = false;
+			};
+		}
+
+		return () => {
+			window.__magic_box_present = false;
+		};
+	}, []);
+
+	return (
+		<Canvas camera={{ position: [0, 2.5, 10], fov: 45 }} gl={{ premultipliedAlpha: false }}>
+			<ambientLight intensity={0.5} />
+			<directionalLight position={[5, 10, 5]} intensity={1} color="#ffda85" />
+			<directionalLight position={[-5, 5, 2]} intensity={0.3} />
+
+			<OrbitControls
+				enablePan={false}
+				enableZoom={false}
+				minDistance={3}
+				maxDistance={15}
+				maxPolarAngle={Math.PI / 2 + 0.1}
+			/>
+
+			<Suspense fallback={null}>
+				<BoxContent position={[0, -1.25, -0.75]} shouldStart={shouldStart} />
+			</Suspense>
+
+			<EffectComposer>
+				<Bloom luminanceThreshold={1.2} mipmapBlur intensity={0.8} />
+			</EffectComposer>
+		</Canvas>
+	);
 }

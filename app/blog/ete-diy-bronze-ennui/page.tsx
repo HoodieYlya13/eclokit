@@ -1,6 +1,9 @@
 import { Link2, Play } from "lucide-react";
 import type { Metadata } from "next";
 import { BlogCard } from "@/components/blog/blog-card";
+import { BlogViewTracker } from "@/components/blog/blog-view-tracker";
+import { Button } from "@/components/ui/button";
+import { YnsLink } from "@/components/yns-link";
 import { blogPosts } from "@/lib/blog-data";
 import { YNSMedia } from "@/lib/yns-media";
 
@@ -37,21 +40,22 @@ export default function SummerDIYPage() {
 
 	return (
 		<article className="min-h-screen font-body pb-24 pt-36 md:pt-48">
+			<BlogViewTracker slug="ete-diy-bronze-ennui" />
 			{/* Top Bar / Category */}
 			<div className="max-w-7xl mx-auto px-6 pb-8 flex flex-col md:flex-row items-start justify-between gap-8">
 				<div className="flex-1 space-y-6">
-					<div className="flex items-center gap-2 text-sm font-bold tracking-widest text-[#3F3478]/60 uppercase">
+					<div className="flex items-center gap-2 text-sm font-bold tracking-widest text-foreground/60 uppercase">
 						<span>#IdeeDIY</span>
 						<span>/</span>
-						<span className="text-[#3F3478]">#summer</span>
+						<span className="text-foreground">#summer</span>
 					</div>
 
-					<h1 className="font-display text-4xl md:text-6xl text-[#3F3478] leading-tight max-w-2xl">
+					<h1 className="font-display text-4xl md:text-6xl text-foreground leading-tight max-w-2xl">
 						Cet été, on oublie le combo "Bronzette & Ennui" !
 					</h1>
 
 					<div className="space-y-1">
-						<p className="text-lg font-bold text-[#3F3478]">Par Loanne HELLO</p>
+						<p className="text-lg font-bold text-foreground">Par Loanne HELLO</p>
 						<p className="text-sm text-muted-foreground uppercase tracking-widest">6 Juin 2026</p>
 					</div>
 
@@ -82,27 +86,27 @@ export default function SummerDIYPage() {
 				{/* Sidebar */}
 				<aside className="space-y-12 lg:sticky lg:top-32 self-start">
 					<div className="space-y-4">
-						<h3 className="text-xs uppercase tracking-[0.2em] font-bold text-[#3F3478]/40">
+						<h3 className="text-xs uppercase tracking-[0.2em] font-bold text-foreground/40">
 							Partager l'article
 						</h3>
 						<div className="flex gap-3">
 							<button
 								type="button"
-								className="size-10 rounded-full border border-border flex items-center justify-center hover:bg-[#3F3478] hover:text-white transition-colors"
+								className="size-10 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-white transition-colors"
 								aria-label="Partager sur X"
 							>
 								<XIcon className="size-4" />
 							</button>
 							<button
 								type="button"
-								className="size-10 rounded-full border border-border flex items-center justify-center hover:bg-[#3F3478] hover:text-white transition-colors"
+								className="size-10 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-white transition-colors"
 								aria-label="Copier le lien"
 							>
 								<Link2 size={16} />
 							</button>
 							<button
 								type="button"
-								className="size-10 rounded-full border border-border flex items-center justify-center hover:bg-[#3F3478] hover:text-white transition-colors"
+								className="size-10 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-white transition-colors"
 								aria-label="Partager sur Facebook"
 							>
 								<FacebookIcon className="size-4" />
@@ -111,7 +115,7 @@ export default function SummerDIYPage() {
 					</div>
 
 					<div className="space-y-4">
-						<h3 className="text-xs uppercase tracking-[0.2em] font-bold text-[#3F3478]/40">Sommaire</h3>
+						<h3 className="text-xs uppercase tracking-[0.2em] font-bold text-foreground/40">Sommaire</h3>
 						<nav className="flex flex-col gap-3">
 							<a
 								href="#perles"
@@ -139,14 +143,14 @@ export default function SummerDIYPage() {
 				<div className="space-y-32">
 					{/* Section 1 */}
 					<section id="perles" className="space-y-12 scroll-mt-32">
-						<h2 className="font-display text-3xl md:text-5xl text-[#3F3478]">
+						<h2 className="font-display text-3xl md:text-5xl text-foreground">
 							1. Les colliers de perles : Le retour du "Summer Joy"
 						</h2>
 
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 							<div className="space-y-8">
 								<div className="space-y-4">
-									<h4 className="text-lg font-bold text-[#3F3478]">Pourquoi on adore ?</h4>
+									<h4 className="text-lg font-bold text-foreground">Pourquoi on adore ?</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm">
 										Parce que c'est ultra-rapide, terriblement satisfaisant et que cela nous permet de pimper
 										nos tenues de plage avec une touche de couleur unique. C’est le projet parfait à glisser
@@ -154,11 +158,15 @@ export default function SummerDIYPage() {
 									</p>
 								</div>
 								<div className="space-y-4">
-									<h4 className="text-lg font-bold text-[#3F3478]">Le Tuto</h4>
+									<h4 className="text-lg font-bold text-foreground">Le Tuto</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm text-balance">
 										On a craqué pour le collier de perles pendentif cœur, la grande tendance de cet été ! On
 										opte pour le super{" "}
-										<a href="#" className="font-bold underline decoration-primary/30">
+										<a
+											href="https://www.youtube.com/watch?v=-UjxcOWnVq8"
+											target="_blank"
+											className="font-bold underline decoration-primary/30"
+										>
 											tuto de Perles & Co
 										</a>{" "}
 										pour apprendre la technique pas à pas.
@@ -195,19 +203,12 @@ export default function SummerDIYPage() {
 										</div>
 									</div>
 								</a>
-								<div className="space-y-4 uppercase">
-									<h4 className="text-lg font-bold text-[#3F3478]">Le Matériel</h4>
+								<div className="space-y-4">
+									<h4 className="text-lg font-bold text-foreground">Le Matériel</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm">
 										Pour dénicher les plus belles perles (miyuki, rocailles ou perles d'eau douce), on se rend
-										chez{" "}
-										<a href="#" className="font-bold underline decoration-primary/30">
-											Cultura
-										</a>{" "}
-										pour l'essentiel, ou chez{" "}
-										<a href="#" className="font-bold underline decoration-primary/30">
-											Perles & Co
-										</a>{" "}
-										pour un choix de pro absolument incroyable.
+										chez <span className="font-bold">Cultura</span> pour l'essentiel, ou chez{" "}
+										<span className="font-bold">Perles & Co</span> pour un choix de pro absolument incroyable.
 									</p>
 								</div>
 							</div>
@@ -216,7 +217,7 @@ export default function SummerDIYPage() {
 
 					{/* Section 2 */}
 					<section id="broderie" className="space-y-12 scroll-mt-32">
-						<h2 className="font-display text-3xl md:text-5xl text-[#3F3478]">
+						<h2 className="font-display text-3xl md:text-5xl text-foreground">
 							2. La broderie pour sublimer son summer body
 						</h2>
 
@@ -232,21 +233,26 @@ export default function SummerDIYPage() {
 									/>
 								</div>
 								<div className="space-y-4">
-									<h4 className="text-lg font-bold text-[#3F3478]">Le Matériel</h4>
+									<h4 className="text-lg font-bold text-foreground">Le Matériel</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm">
 										Le Matériel : Pour des fils qui résistent vaillamment au soleil et au chlore, on fait
-										confiance au coton mouliné de chez{" "}
-										<a href="#" className="font-bold underline decoration-primary/30">
-											DMC
-										</a>
-										.
+										confiance au coton mouliné de chez <span className="font-bold">DMC</span>.
 									</p>
+									<div className="flex justify-center mt-10">
+										<Button
+											asChild
+											variant="outline"
+											className="rounded-full px-8 md:px-16 py-6 md:py-10 text-[0.7rem] md:text-sm font-bold uppercase tracking-[0.25em] hover:bg-background transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/20 bg-foreground text-background"
+										>
+											<YnsLink href="/category/mercerie">Voir nos fils</YnsLink>
+										</Button>
+									</div>
 								</div>
 							</div>
 
 							<div className="space-y-12">
 								<div className="space-y-4">
-									<h4 className="text-lg font-bold text-[#3F3478]">Pourquoi on adore ?</h4>
+									<h4 className="text-lg font-bold text-foreground">Pourquoi on adore ?</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm">
 										La broderie, c'est pour nous l'art de la patience et de la poésie. Cet été, on délaisse
 										son tambour classique pour s'attaquer à son dressing de vacances. Broder son maillot,
@@ -254,15 +260,12 @@ export default function SummerDIYPage() {
 									</p>
 								</div>
 								<div className="space-y-4">
-									<h4 className="text-lg font-bold text-[#3F3478]">Le Tuto</h4>
+									<h4 className="text-lg font-bold text-foreground">Le Tuto</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm">
 										Pour broder sur une matière élastique comme le lycra, notre astuce est d'utiliser un
-										stabilisateur hydrosoluble de chez{" "}
-										<a href="#" className="font-bold underline decoration-primary/30">
-											Mondial Tissus
-										</a>
-										. On dessine un petit motif (un soleil, un coquillage ou un mot doux) sur l'épingle sur
-										son maillot, on brode au point de tige ou de chaînette, puis on rince à l'eau : le papier
+										stabilisateur hydrosoluble de chez <span className="font-bold">Mondial Tissus</span>. On
+										dessine un petit motif (un soleil, un coquillage ou un mot doux) sur l'épingle sur son
+										maillot, on brode au point de tige ou de chaînette, puis on rince à l'eau : le papier
 										disparaît et la broderie reste !
 									</p>
 								</div>
@@ -272,14 +275,14 @@ export default function SummerDIYPage() {
 
 					{/* Section 3 */}
 					<section id="crochet" className="space-y-12 scroll-mt-32">
-						<h2 className="font-display text-3xl md:text-5xl text-[#3F3478]">
+						<h2 className="font-display text-3xl md:text-5xl text-foreground">
 							3. Le crochet : Notre Bob fait main pour le soleil
 						</h2>
 
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
 							<div className="space-y-8">
 								<div className="space-y-4">
-									<h4 className="text-lg font-bold text-[#3F3478]">Pourquoi on adore ?</h4>
+									<h4 className="text-lg font-bold text-foreground">Pourquoi on adore ?</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm">
 										Le crochet n'est plus du tout réservé à nos grands-mères ! C'est une activité nomade hyper
 										relaxante qui nous apporte une vraie fierté : celle de porter un accessoire que nous avons
@@ -287,17 +290,21 @@ export default function SummerDIYPage() {
 									</p>
 								</div>
 								<div className="space-y-4">
-									<h4 className="text-lg font-bold text-[#3F3478]">Le Tuto</h4>
+									<h4 className="text-lg font-bold text-foreground">Le Tuto</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm">
 										On craque pour le tuto{" "}
-										<a href="#" className="font-bold underline decoration-primary/30">
+										<a
+											href="https://www.youtube.com/watch?v=epIiqdwTHQc"
+											target="_blank"
+											className="font-bold underline decoration-primary/30"
+										>
 											Crochet Daisy Granny Square Bucket Hat Tutorial
 										</a>
 										, parfait pour être stylé tout l'été et éviter l'insolation.
 									</p>
 								</div>
 								{/* Yarn Illustration */}
-								<div className="aspect-[672/258] w-full relative group">
+								<div className="aspect-672/258 w-full relative group">
 									<YNSMedia
 										src="/img/pelote&crochet.png"
 										alt="Illustration crochet et pelote de laine"
@@ -328,15 +335,22 @@ export default function SummerDIYPage() {
 									</div>
 								</a>
 								<div className="space-y-4">
-									<h4 className="text-lg font-bold text-[#3F3478]">Le Matériel</h4>
+									<h4 className="text-lg font-bold text-foreground">Le Matériel</h4>
 									<p className="text-muted-foreground leading-relaxed text-sm">
 										Pour trouver des pelotes de coton frais et des crochets ergonomiques qui ne fatiguent pas
-										les mains, on file sur{" "}
-										<a href="#" className="font-bold underline decoration-primary/30">
-											Hobbii.fr
-										</a>
-										. Leur gamme "Rainbow Cotton" est idéale pour les projets d'été.
+										les mains, on opte pour la marque <span className="font-bold">Hobbii</span>.
 									</p>
+									<div className="flex justify-center mt-10">
+										<Button
+											asChild
+											variant="outline"
+											className="rounded-full px-8 md:px-16 py-6 md:py-10 text-[0.7rem] md:text-sm font-bold uppercase tracking-[0.25em] hover:bg-background transition-all hover:scale-[1.05] active:scale-[0.95] shadow-xl hover:shadow-primary/20 bg-foreground text-background"
+										>
+											<YnsLink href="/product/set-de-crochets-easy-touch-11-tailles">
+												Voir nos crochets
+											</YnsLink>
+										</Button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -347,7 +361,9 @@ export default function SummerDIYPage() {
 			{/* Recent Articles Footer */}
 			<section className="max-w-7xl mx-auto px-6 pt-32 pb-12">
 				<div className="text-center space-y-4 mb-16">
-					<h2 className="font-display text-4xl md:text-5xl text-[#3F3478]">Nos derniers articles Idée DIY</h2>
+					<h2 className="font-display text-4xl md:text-5xl text-foreground">
+						Nos derniers articles Idée DIY
+					</h2>
 				</div>
 
 				<div className="grid grid-cols-1 gap-6">

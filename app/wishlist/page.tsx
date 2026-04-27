@@ -28,19 +28,19 @@ export default function WishlistPage() {
 					size="lg"
 					className="rounded-full px-10 py-7 text-base font-bold uppercase tracking-widest"
 				>
-					<YnsLink href="/#products">Continuer mes achats</YnsLink>
+					<YnsLink href="/products">Continuer mes achats</YnsLink>
 				</Button>
 			</div>
 		);
 	}
 
 	return (
-		<main className="min-h-screen pt-32 pb-24 px-6 md:px-12 bg-background">
+		<main className="min-h-screen pt-36 md:pt-48 pb-24 px-6 md:px-12 bg-background">
 			<div className="max-w-7xl mx-auto">
 				<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
 					<div>
 						<YnsLink
-							href="/#products"
+							href="/products"
 							className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-primary mb-4 transition-colors"
 						>
 							<ArrowLeft size={16} />

@@ -120,7 +120,7 @@ export function HeroTypography() {
 		<div className="relative z-20 mix-blend-normal">
 			<SectionHeader
 				badge="Offrez-vous une parenthèse hors du temps avec nos coffrets créatifs. Nous avons tout préparé : du matériel de qualité professionnelle aux tutoriels guidés pas à pas. Vous n'avez qu'à ouvrir votre box, vous installer confortablement et savourer le plaisir de fabriquer quelque chose de vos mains. Le DIY n'a jamais été aussi serein."
-				title="Ouvrez. Créez. Profitez."
+				title="Votre box DIY mensuelle"
 				centered
 				inversed
 			/>

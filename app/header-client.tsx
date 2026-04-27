@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { createContext, useContext, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -34,6 +35,37 @@ export function HeaderClient({ children, className }: HeaderClientProps) {
 
 	useEffect(() => {
 		setMounted(true);
+	}, []);
+
+	const pathname = usePathname();
+
+	// Close and hide header on navigation or hash change
+	useEffect(() => {
+		if (pathname) {
+			setIsOpen(false);
+		}
+
+		const checkHash = () => {
+			if (window.location.hash) {
+				setIsVisible(false);
+			}
+		};
+
+		checkHash();
+		const timer = setTimeout(checkHash, 100); // 100ms for safety on client nav
+
+		window.addEventListener("hashchange", checkHash);
+		return () => {
+			window.removeEventListener("hashchange", checkHash);
+			clearTimeout(timer);
+		};
+	}, [pathname]);
+
+	// Reset solid state on scroll to top
+	useEffect(() => {
+		if (window.scrollY < 10) {
+			setIsSolid(false);
+		}
 	}, []);
 
 	useEffect(() => {

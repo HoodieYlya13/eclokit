@@ -5,7 +5,10 @@ import { SectionHeader } from "./section-header";
 
 export function BoxOfTheMonth() {
 	return (
-		<section className="py-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50">
+		<section
+			id="le-coquetier-lapin"
+			className="py-20 px-6 md:px-12 w-full max-w-screen-2xl mx-auto relative z-50 bg-background border-t border-border/50"
+		>
 			<SectionHeader badge="L'Expérience Créative du Mois" title="Le Coquetier Lapin" centered />
 
 			<div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center mt-12">
