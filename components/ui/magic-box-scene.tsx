@@ -224,6 +224,11 @@ export default function MagicBoxScene() {
 		window.__magic_box_present = true;
 
 		const checkConsent = () => {
+			if (typeof window !== "undefined" && window.self !== window.top) {
+				setShouldStart(true);
+				return true;
+			}
+
 			const consent = document.cookie
 				.split("; ")
 				.find((row) => row.startsWith("yns_cookie_consent="))
