@@ -21,7 +21,34 @@ export function NewsletterPopup() {
 	useEffect(() => {
 		if (typeof document === "undefined") return;
 
+		let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
+		let generalTimer: ReturnType<typeof setTimeout> | null = null;
+		let hasAddedAnimationListener = false;
+
+		const handleAnimationComplete = () => {
+			if (dialogRef.current && !dialogRef.current.open) {
+				dialogRef.current.showModal();
+			}
+			if (fallbackTimer) {
+				clearTimeout(fallbackTimer);
+				fallbackTimer = null;
+			}
+		};
+
 		const checkConsentAndShow = () => {
+			if (fallbackTimer) {
+				clearTimeout(fallbackTimer);
+				fallbackTimer = null;
+			}
+			if (generalTimer) {
+				clearTimeout(generalTimer);
+				generalTimer = null;
+			}
+			if (hasAddedAnimationListener) {
+				window.removeEventListener("magic_box_animation_complete", handleAnimationComplete);
+				hasAddedAnimationListener = false;
+			}
+
 			const consent = document.cookie
 				.split("; ")
 				.find((row) => row.startsWith("yns_cookie_consent="))
@@ -42,36 +69,34 @@ export function NewsletterPopup() {
 				const isDesktopHome = window.location.pathname === "/" && window.innerWidth >= 768;
 
 				if (isMagicBoxPresent || isDesktopHome) {
-					const handleAnimationComplete = () => {
-						dialogRef.current?.showModal();
-					};
 					window.addEventListener("magic_box_animation_complete", handleAnimationComplete, { once: true });
+					hasAddedAnimationListener = true;
 
 					// Fallback timer if animation never completes or takes too long (10s)
-					const fallbackTimer = setTimeout(() => {
-						dialogRef.current?.showModal();
+					fallbackTimer = setTimeout(() => {
+						if (dialogRef.current && !dialogRef.current.open) {
+							dialogRef.current.showModal();
+						}
 						window.removeEventListener("magic_box_animation_complete", handleAnimationComplete);
+						hasAddedAnimationListener = false;
 					}, 10000);
-
-					return () => {
-						window.removeEventListener("magic_box_animation_complete", handleAnimationComplete);
-						clearTimeout(fallbackTimer);
-					};
+				} else {
+					generalTimer = setTimeout(() => {
+						if (dialogRef.current && !dialogRef.current.open) {
+							dialogRef.current.showModal();
+						}
+					}, 3000);
 				}
-
-				const timer = setTimeout(() => {
-					dialogRef.current?.showModal();
-				}, 3000);
-
-				return () => clearTimeout(timer);
 			}
 		};
 
-		const cleanup = checkConsentAndShow();
+		checkConsentAndShow();
 
 		// Listen for manual trigger
 		const handleOpen = () => {
-			dialogRef.current?.showModal();
+			if (dialogRef.current && !dialogRef.current.open) {
+				dialogRef.current.showModal();
+			}
 		};
 		window.addEventListener("newsletter_popup_open", handleOpen);
 
@@ -79,7 +104,11 @@ export function NewsletterPopup() {
 		window.addEventListener("cookie_consent_updated", checkConsentAndShow);
 
 		return () => {
-			if (cleanup) cleanup();
+			if (fallbackTimer) clearTimeout(fallbackTimer);
+			if (generalTimer) clearTimeout(generalTimer);
+			if (hasAddedAnimationListener) {
+				window.removeEventListener("magic_box_animation_complete", handleAnimationComplete);
+			}
 			window.removeEventListener("newsletter_popup_open", handleOpen);
 			window.removeEventListener("cookie_consent_updated", checkConsentAndShow);
 		};
