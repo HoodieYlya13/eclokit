@@ -224,20 +224,6 @@ export default function MagicBoxScene() {
 		window.__magic_box_present = true;
 
 		const checkConsent = () => {
-			// 1. Bypass consent check if loaded inside an iframe (e.g., portfolio preview)
-			if (typeof window !== "undefined" && window.self !== window.top) {
-				setShouldStart(true);
-				return true;
-			}
-
-			// 2. Bypass consent if URL query parameters contain 'consent=true' or 'preview=true'
-			const urlParams = new URLSearchParams(window.location.search);
-			if (urlParams.get("consent") === "true" || urlParams.get("preview") === "true") {
-				setShouldStart(true);
-				return true;
-			}
-
-			// 3. Normal cookie check when running standalone
 			const consent = document.cookie
 				.split("; ")
 				.find((row) => row.startsWith("yns_cookie_consent="))
